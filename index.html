@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Sanitized public snapshot of a read-only home network analyst project roadmap.">
+  <title>Network Analyst · Public Roadmap</title>
+</head>
+<body>
+<div id="na-roadmap-public-2026">
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #0d1117;
+      --foreground: #f0f4f8;
+      --card: #151b23;
+      --muted: #202833;
+      --muted-foreground: #9aa8b7;
+      --border: #303a46;
+      --blue: #58a6ff;
+      --green: #3fb950;
+      --orange: #d29922;
+      --purple: #bc8cff;
+      --viz-series-1: #58a6ff;
+      --viz-series-2: #3fb950;
+      --viz-series-3: #d29922;
+      --viz-series-4: #bc8cff;
+    }
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    #na-roadmap-public-2026 {
+      color: var(--foreground);
+      background: var(--background);
+      display: grid;
+      gap: 20px;
+      width: 100%;
+      min-height: 100vh;
+      padding: 24px;
+      line-height: 1.55;
+    }
+    #na-roadmap-public-2026 h1,
+    #na-roadmap-public-2026 h2,
+    #na-roadmap-public-2026 h3,
+    #na-roadmap-public-2026 p {
+      margin: 0;
+    }
+    #na-roadmap-public-2026 h1 {
+      font-size: clamp(1.8rem, 4vw, 2.65rem);
+      line-height: 1.1;
+      letter-spacing: -.035em;
+    }
+    #na-roadmap-public-2026 h2 {
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      line-height: 1.2;
+    }
+    #na-roadmap-public-2026 h3 {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+    #na-roadmap-public-2026 .card {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0)), var(--card);
+      box-shadow: 0 10px 30px rgba(0,0,0,.16);
+    }
+    #na-roadmap-public-2026 .viz-grid {
+      display: grid;
+      gap: 12px;
+    }
+    #na-roadmap-public-2026 .viz-stat {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+    #na-roadmap-public-2026 .viz-stat-value {
+      color: var(--foreground);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 720;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.025em;
+    }
+    #na-roadmap-public-2026 .viz-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #na-roadmap-public-2026 .btn {
+      min-height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--muted);
+      color: var(--foreground);
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease, transform .15s ease;
+    }
+    #na-roadmap-public-2026 .btn:hover {
+      border-color: var(--blue);
+      background: #263445;
+    }
+    #na-roadmap-public-2026 .btn:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+    }
+    #na-roadmap-public-2026 .btn-primary,
+    #na-roadmap-public-2026 .btn[aria-pressed="true"] {
+      border-color: #2f81f7;
+      background: #1f6feb;
+      color: #fff;
+    }
+    #na-roadmap-public-2026 .viz-badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 28px;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--muted);
+      color: var(--muted-foreground);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    #na-roadmap-public-2026 .text-muted {
+      color: var(--muted-foreground);
+    }
+    #na-roadmap-public-2026 .text-small {
+      font-size: .86rem;
+    }
+    #na-roadmap-public-2026 .progress {
+      width: 100%;
+      height: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--muted);
+    }
+    #na-roadmap-public-2026 .progress-bar {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), #79c0ff);
+    }
+    #na-roadmap-public-2026 .na-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    #na-roadmap-public-2026 .na-heading-copy {
+      display: grid;
+      gap: 4px;
+      max-width: 680px;
+    }
+    #na-roadmap-public-2026 .na-kicker {
+      color: var(--muted-foreground);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    #na-roadmap-public-2026 .na-status-now {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+    }
+    #na-roadmap-public-2026 .na-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      flex: 0 0 auto;
+    }
+    #na-roadmap-public-2026 .na-stats {
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+    }
+    #na-roadmap-public-2026 .na-progress-wrap {
+      display: grid;
+      gap: 8px;
+    }
+    #na-roadmap-public-2026 .na-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted-foreground);
+    }
+    #na-roadmap-public-2026 .na-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, .85fr);
+      gap: 22px;
+      align-items: start;
+    }
+    #na-roadmap-public-2026 .na-lanes {
+      display: grid;
+      gap: 24px;
+    }
+    #na-roadmap-public-2026 .na-lane {
+      display: grid;
+      grid-template-columns: 12px minmax(0, 1fr);
+      gap: 12px;
+    }
+    #na-roadmap-public-2026 .na-lane-track {
+      position: relative;
+    }
+    #na-roadmap-public-2026 .na-lane-track::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      bottom: -28px;
+      left: 5px;
+      width: 2px;
+      background: var(--border);
+    }
+    #na-roadmap-public-2026 .na-lane:last-child .na-lane-track::before {
+      bottom: 8px;
+    }
+    #na-roadmap-public-2026 .na-lane-marker {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--viz-series-1);
+      margin-top: 6px;
+      z-index: 1;
+    }
+    #na-roadmap-public-2026 .na-lane-content {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+    #na-roadmap-public-2026 .na-lane-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    #na-roadmap-public-2026 .na-gate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+      gap: 8px;
+    }
+    #na-roadmap-public-2026 .na-device-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    #na-roadmap-public-2026 .na-gate {
+      position: relative;
+      min-height: 46px;
+      justify-content: center;
+      font-variant-numeric: tabular-nums;
+    }
+    #na-roadmap-public-2026 .na-gate::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 5px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--muted-foreground);
+      opacity: .6;
+    }
+    #na-roadmap-public-2026 .na-gate[data-status="complete"]::after {
+      background: var(--green);
+      opacity: 1;
+    }
+    #na-roadmap-public-2026 .na-gate[data-status="next"]::after {
+      background: var(--blue);
+      opacity: 1;
+    }
+    #na-roadmap-public-2026 .na-gate[data-status="running"]::after {
+      background: var(--blue);
+      opacity: 1;
+    }
+    #na-roadmap-public-2026 .na-gate[data-status="blocked"]::after {
+      background: var(--orange);
+      opacity: 1;
+    }
+    #na-roadmap-public-2026 .na-gate[data-status="optional"]::after {
+      background: var(--purple);
+      opacity: 1;
+    }
+    #na-roadmap-public-2026 .na-detail {
+      position: sticky;
+      top: 12px;
+      display: grid;
+      gap: 14px;
+    }
+    #na-roadmap-public-2026 .na-detail-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    #na-roadmap-public-2026 .na-detail-copy {
+      display: grid;
+      gap: 3px;
+    }
+    #na-roadmap-public-2026 .na-detail-section {
+      display: grid;
+      gap: 6px;
+    }
+    #na-roadmap-public-2026 .na-detail-section ul {
+      margin: 0;
+      padding-inline-start: 20px;
+      display: grid;
+      gap: 5px;
+    }
+    #na-roadmap-public-2026 .na-status-label {
+      white-space: nowrap;
+    }
+    #na-roadmap-public-2026 .na-status-label[data-status="complete"] {
+      color: var(--green);
+    }
+    #na-roadmap-public-2026 .na-status-label[data-status="next"] {
+      color: var(--blue);
+    }
+    #na-roadmap-public-2026 .na-status-label[data-status="running"] {
+      color: var(--blue);
+    }
+    #na-roadmap-public-2026 .na-status-label[data-status="blocked"] {
+      color: var(--orange);
+    }
+    #na-roadmap-public-2026 .na-status-label[data-status="optional"] {
+      color: var(--purple);
+    }
+    #na-roadmap-public-2026 .na-future {
+      display: grid;
+      gap: 14px;
+    }
+    #na-roadmap-public-2026 .na-future-group {
+      display: grid;
+      gap: 8px;
+    }
+    #na-roadmap-public-2026 .na-future-group-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    #na-roadmap-public-2026 .na-future-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+    #na-roadmap-public-2026 .na-future-step {
+      display: grid;
+      align-content: start;
+      gap: 5px;
+      padding: 12px 0;
+      border-top: 3px solid var(--border);
+    }
+    #na-roadmap-public-2026 .na-future-step:first-child {
+      border-color: var(--viz-series-1);
+    }
+    #na-roadmap-public-2026 .na-future-step[data-stage="required"] {
+      border-color: var(--viz-series-2);
+    }
+    #na-roadmap-public-2026 .na-future-step[data-stage="selected"] {
+      border-color: var(--viz-series-1);
+    }
+    #na-roadmap-public-2026 .na-future-step[data-stage="candidate"] {
+      border-color: var(--viz-series-3);
+    }
+    #na-roadmap-public-2026 [hidden] {
+      display: none !important;
+    }
+    @media (max-width: 820px) {
+      #na-roadmap-public-2026 .na-layout {
+        grid-template-columns: 1fr;
+      }
+      #na-roadmap-public-2026 .na-detail {
+        position: static;
+      }
+      #na-roadmap-public-2026 .na-stats {
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
+      }
+    }
+    @media (max-width: 520px) {
+      #na-roadmap-public-2026 {
+        padding: 16px;
+      }
+      #na-roadmap-public-2026 .na-stats,
+      #na-roadmap-public-2026 .na-future-flow {
+        grid-template-columns: 1fr;
+      }
+      #na-roadmap-public-2026 .na-gate-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+
+  <header class="na-heading">
+    <div class="na-heading-copy">
+      <div class="na-kicker text-small">Network Analyst · Public Edition</div>
+      <h1>Network Analyst Roadmap</h1><p class="text-small text-muted">公開去識別快照：不含內網位址、私人裝置名稱、完整韌體版本、認證資料或即時 raw telemetry。</p>
+      <div class="na-status-now"><span class="na-dot" aria-hidden="true"></span><span>目前位置：Round 2 · F1F seven-day core running；F2C 24h overlay complete</span></div>
+    </div>
+    <span class="viz-badge">OBSERVE → ANALYZE → RECOMMEND</span>
+  </header>
+
+  <section class="viz-grid na-stats" aria-label="Roadmap 摘要">
+    <div class="card viz-stat"><span class="text-muted">主線工作項目</span><span class="viz-stat-value" id="na-total">35</span><span class="text-small text-muted">E5 micro-gates 另行彙整</span></div>
+    <div class="card viz-stat"><span class="text-muted">已完成</span><span class="viz-stat-value" id="na-complete">30</span><span class="text-small text-muted">86% 主線進度</span></div>
+    <div class="card viz-stat"><span class="text-muted">下一個 Gate</span><span class="viz-stat-value">F3B</span><span class="text-small text-muted">F1F 完成且 writer-free 後執行 immutable closeout</span></div>
+    <div class="card viz-stat"><span class="text-muted">設備設定變更</span><span class="viz-stat-value">0</span><span class="text-small text-muted">Collector 專案目前仍 read-only</span></div>
+  </section>
+
+  <section class="na-progress-wrap" aria-label="主線完成度">
+    <div class="na-progress-labels text-small"><span>主線完成度</span><span id="na-progress-text">30 / 35</span></div>
+    <div class="progress" role="progressbar" aria-label="主線完成度" aria-valuenow="85.7" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" id="na-progress-bar" style="width:85.7%"></div></div>
+  </section>
+
+  <div class="viz-controls" aria-label="Roadmap 篩選">
+    <button type="button" class="btn btn-primary" data-filter="all" aria-pressed="true">全部</button>
+    <button type="button" class="btn" data-filter="complete" aria-pressed="false">已完成</button>
+    <button type="button" class="btn" data-filter="next" aria-pressed="false">下一步</button>
+    <button type="button" class="btn" data-filter="pending" aria-pressed="false">待處理</button>
+    <button type="button" class="btn" data-filter="blocked" aria-pressed="false">受阻／選配</button>
+  </div>
+
+  <section class="na-layout">
+    <div class="na-lanes" id="na-lanes" aria-label="Gate lanes"></div>
+    <aside class="card na-detail" id="na-detail" aria-live="polite">
+      <div class="na-detail-head">
+        <div class="na-detail-copy"><span class="text-small text-muted" id="na-detail-phase"></span><h2 id="na-detail-title"></h2></div>
+        <span class="viz-badge na-status-label" id="na-detail-status"></span>
+      </div>
+      <div class="na-detail-section"><strong>這個 Gate 在做什麼</strong><span id="na-detail-purpose"></span></div>
+      <div class="na-detail-section"><strong>完成／驗收內容</strong><ul id="na-detail-done"></ul></div>
+      <div class="na-detail-section"><strong>接下來</strong><span id="na-detail-next"></span></div>
+      <div class="na-detail-section"><strong>安全邊界</strong><span class="text-small text-muted" id="na-detail-safety"></span></div>
+    </aside>
+  </section>
+
+  <section class="na-future" aria-label="目前系統架構">
+    <div><h2>目前 Architecture</h2><span class="text-small text-muted">Architecture source of truth 已同步至 2026-08-28；Core 與 Overlay 分離，缺值不互相污染。</span></div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>OBSERVE · 資料來源</strong><span class="text-small text-muted">兩條正在運行的資料線，加上選配 sensor</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">R2-F1F · running · 81.7%</span><strong>QNAP 24/7 Core</strong><span class="text-small text-muted">2026-08-30 23:07 唯讀檢查：8,240/10,080 local、1,648/2,016 network cycles；collector process verified、lock present、local telemetry 24,720 samples／0 unavailable；network 9,870 succeeded／18 failed（0.182%，待 F3B 分類）；SQLite growth 108,519,424 / 536,870,912 bytes</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">R2-F2C · 24h complete</span><strong>Windows Router Overlay</strong><span class="text-small text-muted">288/288 成功、0 failed；WAN/AiMesh 全程 connected、Router CPU/RAM 穩定；writer-free closeout 與 evidence hash 完成</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">Best effort / on demand</span><strong>Sensor Fleet</strong><span class="text-small text-muted">Primary collector、secondary sensors 與 optional mobile sensors；sensor gap 不等於 network outage</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>DATA → ANALYZE → RECOMMEND</strong><span class="text-small text-muted">只讓驗證過的 normalized schema 進入判斷</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="required"><strong>Separated SQLite Evidence</strong><span class="text-small text-muted">NAS authoritative core + Windows identifier-free overlay + owner-approved inventory；raw Router response/credential 不落盤</span></div>
+        <div class="na-future-step"><strong>Baseline & Correlation</strong><span class="text-small text-muted">DNS/HTTPS phases、NAS/NIC、Router load/traffic、sensor gaps 分層關聯，保留支持／反證／缺值</span></div>
+        <div class="na-future-step"><strong>F3B Final Analysis</strong><span class="text-small text-muted">writer-free immutable closeout；輸出 evidence、expected improvement、risk、confidence 與 pre/post validation</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>未來使用層</strong><span class="text-small text-muted">Dashboard、Agent 與執行權限分層，不讓 LLM 直接碰設備</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step"><span class="text-small text-muted">Gate G · Container Station</span><strong>Homepage + Network Analyst</strong><span class="text-small text-muted">Homepage 是全家系統統一入口；自製 Dashboard 承載拓樸、流量、歷史、異常 evidence 與建議</span></div>
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Gate H · TS-473A 32GB prerequisite</span><strong>DeepSeek Harness Agent</strong><span class="text-small text-muted">獨立容器分析、去重、問答與通知；HA 是選配 state/action adapter，Apple Home 保持主要前端</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">Gate I · future</span><strong>Controlled EXECUTE</strong><span class="text-small text-muted">獨立 executor、明確核准、備份、風險分級、回滾與變更前後驗證</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>Artifact Delivery Rule</strong><span class="text-small text-muted">2026-08-28 已採用；只改變檔案交付方式，不放寬設備安全邊界</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Local target</span><strong>本機檔案保留 Workspace</strong><span class="text-small text-muted">目前 Windows 要執行的腳本／檔案保留本機，回傳可點擊的絕對路徑</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Remote target</span><strong>Artifact Repository</strong><span class="text-small text-muted">Validated artifacts are stored separately from the public Roadmap; credentials and raw telemetry are never embedded.</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Public sharing · sanitized copy</span><strong>Network Analyst Public Roadmap</strong><span class="text-small text-muted">已建立獨立公開版；移除內網位址、私人裝置名稱、樓層、完整韌體版本、PID、私人路徑與驗證資料。私有 Roadmap 仍是唯一完整來源</span></div>
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Fail closed</span><strong>Anyone-with-link · Viewer</strong><span class="text-small text-muted">預期交付為知道連結的任何人可檢視；每次變更雲端權限前仍依安全規則取得 action-time 確認。未確認前維持 private；credential／raw Router response／完整識別資料／正式 SQLite 不自動上傳</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="na-future" aria-label="Sensor Fleet 支線">
+    <div><h2>Sensor Fleet 支線</h2><span class="text-small text-muted">選配觀測點；不影響目前主線完成率。每台設備先通過能力、安全、供電與校準 Gate，再加入長期資料。</span></div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>共通基礎</strong><span class="text-small text-muted">讓不同位置與不同硬體的數據可以比較</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">S0 · 必要前置</span><strong>Sensor contract</strong><span class="text-small text-muted">固定 sensor ID、時鐘同步、health heartbeat、缺值語意、資料保留與 read-only allowlist</span></div>
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">S1 · 上線前驗證</span><strong>能力與安全盤點</strong><span class="text-small text-muted">OS 支援、更新狀態、NIC／Wi-Fi 頻段、休眠、供電、溫度與 24/7 穩定性</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">S2 · 資料品質</span><strong>Cross-sensor calibration</strong><span class="text-small text-muted">同時段對相同固定 targets 取樣，量化 clock skew、位置差、missing 與 sensor bias</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">S3 · 維運</span><strong>Sensor health dashboard</strong><span class="text-small text-muted">分開顯示網路異常、sensor 關機／睡眠、資料延遲與版本狀態，避免把 sensor failure 當 outage</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>候選觀測設備</strong><span class="text-small text-muted">依價值、耗電與安全性逐一啟用</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-MAC-1 · complete</span><strong>Legacy laptop sensor</strong><span class="text-small text-muted">唯讀 inventory 通過：Catalina 10.15.7／i5-3210M／16 GiB；en0 Ethernet active、1 Gbps full-duplex、MTU 1500、default route=en0；SATA SSD 與 SMART Verified；AC power、battery 80% charging。AC／battery sleep 均為 10 分鐘，因此已適合作 on-demand wired sensor，但尚未通過 24/7 qualification。privacy filter 生效，network activity=false、configuration changed=false</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-MAC-2 · 2.4 GHz complete</span><strong>legacy laptop Wi-Fi qualification</strong><span class="text-small text-muted">en1 active、default route=en1、MTU 1500；station association running，channel 10、RSSI −39 dBm、noise −82 dBm、SNR 43 dB、TX/max rate 217 Mbps、MCS 23、association status 0。硬體支援雙頻 802.11n／5 GHz，但本次只驗證 2.4 GHz；5 GHz association 仍待獨立快照。單次資料不代表 channel utilization、packet loss 或長期穩定性，仍不作頻道最佳化建議</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">S-PHONE · 候選</span><strong>legacy phone sensor／廢棄手機</strong><span class="text-small text-muted">評估被動 Wi-Fi sensor、定點 latency 與環境採樣；受限於舊 OS、背景執行與可讀 RF telemetry</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-SENSORPC · D2 complete</span><strong>Secondary PC on-demand sensor</strong><span class="text-small text-muted">Realtek 10.80.50.407、signed、PnP OK；15 分鐘全程 1 Gbps／MTU 1500，0 reset、0 error/discard，六個固定目標 120/120 echoes、0% loss，0 new matching NIC events。八項 acceptance 全數通過；D3 半日 soak 目前可跳過，下一步為 SENSORPC-S2 cross-sensor calibration</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">S-FUTURE · 保留</span><strong>新增定點 Sensor</strong><span class="text-small text-muted">只有現有觀測點留下明確盲區時才新增；先以資料需求決定硬體，不預先大量部署</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="na-future" aria-label="支線工作流">
+    <div><h2>支線工作流</h2><span class="text-small text-muted">視覺與主線一致；點選任一節點查看目的、驗收內容、下一步與安全邊界。支線不計入主線完成率。</span></div>
+    <div class="na-layout">
+      <div class="na-lanes" id="na-branch-lanes" aria-label="支線 Gate lanes"></div>
+      <aside class="card na-detail" id="na-branch-detail" aria-live="polite">
+        <div class="na-detail-head">
+          <div class="na-detail-copy"><span class="text-small text-muted" id="na-branch-detail-phase"></span><h2 id="na-branch-detail-title"></h2></div>
+          <span class="viz-badge na-status-label" id="na-branch-detail-status"></span>
+        </div>
+        <div class="na-detail-section"><strong>這個支線 Gate 在做什麼</strong><span id="na-branch-detail-purpose"></span></div>
+        <div class="na-detail-section"><strong>完成／驗收內容</strong><ul id="na-branch-detail-done"></ul></div>
+        <div class="na-detail-section"><strong>接下來</strong><span id="na-branch-detail-next"></span></div>
+        <div class="na-detail-section"><strong>安全邊界</strong><span class="text-small text-muted" id="na-branch-detail-safety"></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="na-future" aria-label="長期方向">
+    <div><h2>Gate G / H / I 遠期方向</h2><span class="text-small text-muted">尚未納入目前 36 項完成率；每一項仍需維持 read-only → 人工核准 → 可回復驗證。</span></div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>Container Station 正式導入鏈</strong><span class="text-small text-muted">它是部署層，不是 telemetry source、Agent 本身或 Router executor</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">CS0 · 先決條件</span><strong>完成 F2C / F1F / F3B</strong><span class="text-small text-muted">完成觀察、writer-free closeout 與 evidence freeze；運行中的 collector 不在中途搬入容器</span></div>
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">CS1 · 維護窗</span><strong>QTS + Container Station</strong><span class="text-small text-muted">完成備份、韌體／Container Station 更新與更新後 read-only 驗證；不在 baseline 期間更新</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">CS2 · Gate G</span><strong>Homepage + Read-only API + Dashboard</strong><span class="text-small text-muted">Compose V2、LAN-only、非 privileged、固定 image；Homepage 不持有 Router credential，初期不掛載 Docker socket</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">CS3 · 服務拆分</span><strong>Analysis + Notification</strong><span class="text-small text-muted">報告、異常與通知獨立於 collector；設定 health check、restart policy 與 log retention</span></div>
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">CS4 · Gate H0</span><strong>TS-473A RAM → 32GB</strong><span class="text-small text-muted">相容性確認與 burn-in 通過後，才部署常駐 Agent</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">CS5 · Gate H1</span><strong>DeepSeek Harness Container</strong><span class="text-small text-muted">初期只讀計算後 evidence；不持有 Router 修改權</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">CS6 · 選配</span><strong>HA Adapter + Apple Home</strong><span class="text-small text-muted">HA 提供家庭 state/event；Apple Home 維持日常前端，不成為 Dashboard 必要依賴</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">CS7 · 未來硬體</span><strong>Dedicated Local LLM PC</strong><span class="text-small text-muted">依 VRAM、功耗、延遲與模型生態重評 Qwen3 8B；NAS 負責資料與協調</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>監測與產品化路線</strong><span class="text-small text-muted">Homepage 是統一入口；Network Analyst 是深入分析頁，兩者不互相取代</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Gate G1–G2</span><strong>Read model + Local API</strong><span class="text-small text-muted">整合 core/overlay/inventory/event schema；LAN-only read-only API 與 freshness contract</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">Gate G3</span><strong>Homepage Unified Entry</strong><span class="text-small text-muted">在 Container Station 部署 gethomepage/homepage；顯示 Internet、Router、NAS、裝置、告警與 freshness 摘要</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">Gate G4</span><strong>Custom API Widgets + Service Links</strong><span class="text-small text-muted">Homepage 只讀 Local API，提供 QTS、完整 Dashboard、Agent 與其他家庭服務入口；不直接登入 Router</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">依賴評估已完成</span><strong>Home Assistant integration（選配）</strong><span class="text-small text-muted">asusrouter GitHub 專案與 F2B2/F2B3 實測已提供足夠 telemetry；Dashboard 可直接使用底層 library，HA 不再是必要前置</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate G5 · offline concept ready</span><strong>Network Analyst Drill-down Dashboard</strong><span class="text-small text-muted">示範原型保留為深入頁：拓樸、流量、24h/7d history、異常 evidence、Recommendation 與 pre/post comparison</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">Gate G6</span><strong>Portal + Dashboard Security & Burn-in</strong><span class="text-small text-muted">LAN-only access、auth、retention、備份／回復、data freshness 與一週穩定性驗證</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>Agent 與硬體依賴</strong><span class="text-small text-muted">依序完成，不能跳過硬體前置條件</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Gate H0 · 必要前置</span><strong>TS-473A RAM → 32GB</strong><span class="text-small text-muted">建立常駐 Agent 以前必須先完成；升級方案、相容性與 burn-in 另立核准 Gate</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate H1 · 目前選定</span><strong>DeepSeek Harness Agent</strong><span class="text-small text-muted">承接 evidence 分析、異常去重、問答、建議與通知；初期 read-only</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">Gate H2 · 選配</span><strong>HA adapter + Apple Home</strong><span class="text-small text-muted">HA 提供家庭 state/event 與受限 action allowlist；Apple Home/Siri 保持主要前端</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">未來硬體擴充</span><strong>本地 LLM 專用電腦</strong><span class="text-small text-muted">依實際模型、功耗、VRAM、延遲與 24/7 運行需求另行規劃</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">屆時重新評估</span><strong>Qwen3 8B 候選</strong><span class="text-small text-muted">不提前鎖定；專用電腦規格與當時模型生態確定後再做 A/B 評估</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>Gate I · 最終控制能力</strong><span class="text-small text-muted">必須晚於穩定監測、Dashboard、Agent 與回滾機制</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step"><strong>受控 EXECUTE</strong><span class="text-small text-muted">獨立 Router executor；變更前備份、風險分級、明確授權、回滾與前後驗證，不借道 HA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="na-future" aria-label="已知裝置拓樸清冊">
+    <div><h2>已知裝置拓樸清冊</h2><span class="text-small text-muted">20 台 owner-known 實體裝置依預期拓樸排列，另保留 1 筆未合併歷史紀錄。點選裝置查看角色、路徑、可用性、證據與限制；連線位置是 owner truth／最近稽核證據，不代表即時在線狀態。</span></div>
+    <div class="na-layout">
+      <div class="na-lanes" id="na-device-lanes" aria-label="依拓樸排列的裝置清冊"></div>
+      <aside class="card na-detail" id="na-device-detail" aria-live="polite">
+        <div class="na-detail-head">
+          <div class="na-detail-copy"><span class="text-small text-muted" id="na-device-detail-phase"></span><h2 id="na-device-detail-title"></h2></div>
+          <span class="viz-badge na-status-label" id="na-device-detail-status"></span>
+        </div>
+        <div class="na-detail-section"><strong>身分與角色</strong><span id="na-device-detail-identity"></span><span class="text-small text-muted" id="na-device-detail-role"></span></div>
+        <div class="na-detail-section"><strong>拓樸路徑</strong><span id="na-device-detail-path"></span></div>
+        <div class="na-detail-section"><strong>可用性</strong><span id="na-device-detail-availability"></span></div>
+        <div class="na-detail-section"><strong>已確認證據</strong><ul id="na-device-detail-evidence"></ul></div>
+        <div class="na-detail-section"><strong>限制／注意</strong><span class="text-small text-muted" id="na-device-detail-notes"></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <p class="text-small text-muted">命名提醒：早期「PC-F1B」是 Intel NIC 驅動 A/B；目前第二輪使用「R2-F1B」避免混淆。E5 Traffic Monitor 共記錄 54 個 E5F–E5AY 深入研究 micro-gates，主圖以一個受阻工作流彙整。</p>
+
+  <script>
+    (() => {
+      const root = document.getElementById('na-roadmap-public-2026');
+      const statusText = { complete: '已完成', running: '執行中', next: '下一步', pending: '待處理', blocked: '受阻', optional: '選配' };
+      const phases = [
+        { id: 'foundation', title: '基礎工作流', subtitle: 'A–D · 從停用套件到 24 小時 pilot closeout' },
+        { id: 'expansion', title: '第一輪觀察與分層診斷', subtitle: 'E0–E5 · 七天 baseline、Windows sensors、Router evidence' },
+        { id: 'inventory', title: '裝置清冊', subtitle: 'DI · 以 Router/AiMesh loaded data 完成 14/14 身分核對' },
+        { id: 'round2', title: '第二輪 Collector', subtitle: 'R2-F1–F3 · 增加 phase timing、NAS telemetry 與 Router overlay' }
+      ];
+      const gates = [
+        { id:'A', phase:'foundation', status:'complete', title:'本機套件驗證', purpose:'建立全停用 collector 候選並證明沒有活動路徑。', done:['ZIP/manifest、語法與離線測試通過','doctor 顯示 0 enabled targets','未連 NAS、未寫正式 SQLite'], next:'已封存為第一輪工作流證據。', safety:'純 Windows 本機驗證。' },
+        { id:'B', phase:'foundation', status:'complete', title:'Inactive QNAP staging', purpose:'把不可變 release 放到 NAS，但不啟用任何 target。', done:['安全解壓與 manifest 驗證','錯誤平面檔案隔離保留','release 保持 inactive'], next:'由 Gate C 建立受限 active config。', safety:'暫時 SSH；無 probes、無 SQLite write、無程序。' },
+        { id:'C', phase:'foundation', status:'complete', title:'24 小時 Pilot 啟動', purpose:'用固定 2 DNS + 1 HTTPS、300 秒 cadence 驗證 detached workflow。', done:['修正 QNAP 無 nohup 的 launcher 問題','288/288 cycles 完成','Windows 可關機、NAS 獨立運行'], next:'Gate D 只讀 closeout。', safety:'無 ICMP、speed test、掃描、排程或設備變更。' },
+        { id:'D', phase:'foundation', status:'complete', title:'Pilot 唯讀檢查', purpose:'確認 bounded workflow 與 SQLite 證據可被安全讀取。', done:['completed state / PID / lock 驗證','SQLite mode=ro 分析','確認流程可行但不足以最佳化'], next:'進入 Gate E 擴充真正的診斷證據。', safety:'不 probes、不寫 DB、不變更程序。' },
+
+        { id:'E0', phase:'expansion', status:'complete', title:'安全完成資料庫 reader', purpose:'建立 completed-state gate 與 immutable/query-only SQLite reader。', done:['state、PID、lock 三重檢查','不建立 WAL/SHM sidecar','離線 regression tests'], next:'成為後續 baseline closeout 的讀取基礎。', safety:'只讀 completed database。' },
+        { id:'E1', phase:'expansion', status:'complete', title:'ASUS 人工 evidence inventory', purpose:'盤點 RT-BE86U、TUF、AiMesh、Wi-Fi 與 Traffic UI 實際可見欄位。', done:['CPU/RAM、WAN/LAN link、AiMesh client evidence','TUF wired backhaul 2.5Gbps 確認','辨識官方 GUI 無 TUF RF selector 限制'], next:'已轉成 telemetry matrix 與 parser contract。', safety:'只看／下載既有頁面，不改設定。' },
+        { id:'E2', phase:'expansion', status:'complete', title:'ASUS 離線 evidence importer', purpose:'把 syslog 與 Wireless Log 轉成可分析、去識別事件。', done:['General Log parser v1','Wireless Log parser v1','未知行保留為 unparsed，不誤判 outage'], next:'未來可由手動 snapshot 或核准 overlay 匯入。', safety:'無 Router 請求；raw identifiers 不進報告。' },
+        { id:'E3A', phase:'expansion', status:'complete', title:'主 Windows one-shot', purpose:'從主 PC 驗證 NIC 與六個固定 LAN/Internet targets。', done:['2.5Gbps / MTU 1500 / default route','30/30 ICMP 成功','讀取前後 NIC counters'], next:'E3B 觀察 counter 是否持續增加。', safety:'固定 6 targets × 5 echoes；不掃描。' },
+        { id:'E3B', phase:'expansion', status:'complete', title:'15 分鐘 NIC delta', purpose:'確認 I225-LM receive error/discard 是否為歷史殘留。', done:['16 snapshots / 60 秒','incoming error/discard +106','無 outbound errors 或 link-rate 變化'], next:'E3C 檢查驅動、PnP 與事件。', safety:'只讀 Windows counters。' },
+        { id:'E3C', phase:'expansion', status:'complete', title:'Windows driver 與事件', purpose:'分析 I225-LM 驅動版本、簽章、PnP 與既有 NDIS/NIC events。', done:['PnP Started','發現較新 signed driver candidate','未自行安裝或切換'], next:'使用者手動更新後由 PC-F1 驗證。', safety:'不需管理員、不改網卡。' },
+        { id:'E3D', phase:'expansion', status:'complete', title:'Secondary PC wired-path one-shot', purpose:'從 TUF 後方 PC 觀察 remote zone wired path。', done:['Realtek 1Gbps / MTU 1500','Router、TUF、QNAP、Cloudflare、Google 30/30 成功','NIC error/drop delta 為 0'], next:'保留為事件發生時的 on-demand sensor。', safety:'固定 targets；不掃描、不登入、不排程。' },
+        { id:'PC-F1', phase:'expansion', status:'complete', title:'Intel driver A/B', purpose:'驗證使用者手動升級 I225-LM 驅動後的狀態與 counter。', done:['2.1.5.7 Best Ranked / Installed','PnP Started、Up / 2.5Gbps','16 次後測沒有觀察到異常 counter 增量'], next:'需要更多高流量時段才可判定長期改善。', safety:'使用者自行更新；Gate 僅只讀驗證。' },
+        { id:'E4A', phase:'expansion', status:'complete', title:'七天 baseline 設計', purpose:'定義三 target、2,016 cycles、storage guards 與完成標準。', done:['固定 scope 與 failure semantics','Windows/PC 缺值不算 packet loss','分析 contract 完成'], next:'E4B 本機 build。', safety:'只設計，不執行。' },
+        { id:'E4B', phase:'expansion', status:'complete', title:'0.3.0 本機 build', purpose:'實作七天 bounded runner 與唯讀 analyzer。', done:['2,016-cycle runner','獨立 lock/state/log','1 GiB preflight、512 MiB growth guard'], next:'E4C inactive staging。', safety:'Windows-local only。' },
+        { id:'E4C', phase:'expansion', status:'complete', title:'Immutable release staging', purpose:'把 0.3.0-dev 安全放入 QNAP versioned release。', done:['32 manifest files verified','0 active configs','baseline 保持停止'], next:'E4D 建立 exact active config。', safety:'無 probes、DB access、process 或 schedule。' },
+        { id:'E4D', phase:'expansion', status:'complete', title:'七天 active config', purpose:'僅啟用固定三個 targets，仍不啟動。', done:['只變更 3 個 enabled fields','mode 0600','offline doctor 通過'], next:'E4E 另行核准啟動。', safety:'無 probes、無 SQLite write。' },
+        { id:'E4E', phase:'expansion', status:'complete', title:'七天 baseline 執行', purpose:'NAS 每 300 秒執行 2 DNS + 1 HTTPS，持續七天。', done:['2,016/2,016 cycles','6,048 results','約 5.16 MiB DB growth'], next:'E4F final read-only closeout。', safety:'無 ICMP、TCP、測速、登入、排程或設定變更。' },
+        { id:'E4F', phase:'expansion', status:'complete', title:'七天最終分析', purpose:'產生第一份有效 weekly baseline 與整體分析報告。', done:['Router DNS 99.901%','Cloudflare DNS 99.851%','HTTPS 98.859%；識別 23 failures 與 route regime change'], next:'結果成為第二輪 continuity baseline。', safety:'SQLite URI mode=ro&immutable=1。' },
+        { id:'E5', phase:'expansion', status:'optional', title:'Router Traffic Monitor archived research', purpose:'研究 ASUS private Traffic Monitor；不再是 Router telemetry 主線。', done:['確認 private update.cgi / netdev producer','54 個 E5F–E5AY micro-gates 完成 strict parser、renderer 與 formula tracing','F2B2/F2B3/F2C 已以 direct asusrouter 取代主線需求'], next:'只有 F2C aggregate traffic 明確不足、需要 GUI parity 或 per-device traffic 時才重啟。', safety:'封存且非阻塞；不把未驗證 counter 寫入 collector。' },
+
+        { id:'DI-2', phase:'inventory', status:'complete', title:'Loaded-page 裝置盤點', purpose:'從已載入 Router client list 建立去識別候選 inventory。', done:['讀取在線／wired-Wi-Fi／node/band','HMAC 假名化','不明裝置縮小至單一 TUF 2.4GHz client'], next:'DI-2B 由 Codex 操作唯讀 UI 做交叉關聯。', safety:'不回傳 MAC/IP/headers/tokens。' },
+        { id:'DI-2B', phase:'inventory', status:'complete', title:'Router/AiMesh client correlation', purpose:'跨 Network Map、RT 與 TUF tabs 對齊裝置。', done:['RT 8 clients、TUF 6 clients snapshot','已知裝置與 owner inventory 對應','臨時 HMAC key 清除'], next:'DI-3A enrich 唯一未確認 client。', safety:'只操作唯讀 client/topology UI。' },
+        { id:'DI-3A', phase:'inventory', status:'complete', title:'未確認裝置 enrichment', purpose:'利用 type/vendor/name pattern、uptime、RSSI 與 PHY rate 辨識裝置。', done:['唯一 client 定位為 TUF 2.4GHz','名稱由 owner 確認為 network printer','14/14 inventory 全數識別'], next:'DI-3B disappearance test 取消，無須再擾動裝置。', safety:'不探測、不斷線、不封鎖。' },
+
+        { id:'R2-F1A', phase:'round2', status:'complete', title:'第二輪設計', purpose:'定義 NAS core 與 Router overlay 兩條資料線。', done:['4 DNS + 2 HTTPS target design','NAS system/NIC telemetry design','E5 Traffic Monitor 明確排除於 core'], next:'R2-F1B 本機實作。', safety:'全部 targets disabled。' },
+        { id:'R2-F1B', phase:'round2', status:'complete', title:'0.4.0 本機實作', purpose:'實作 HTTPS phase timing、NAS telemetry、schema v2 與固定 runner。', done:['DNS/TCP/TLS/TTFB/total timing','CPU/RAM/uptime/disk、雙 NIC counters/rates/errors/drops','75 offline tests 全數通過；無 package/deployment'], next:'R2-F1C 一次性 QNAP capability 與 endpoint validation。', safety:'Windows-local；0 enabled targets；未連 NAS/Router。' },
+        { id:'R2-F1C', phase:'round2', status:'complete', title:'一次性 QNAP 驗證', purpose:'在不排程的情況下確認 0.4.0 能力與六個 endpoints。', done:['6/6 targets 成功；4 DNS RCODE 0','兩個 HTTPS HEAD 均為 HTTP 200，完整 DNS/TCP/TLS/TTFB/total timing','雙 NIC 均 link up、2500Mbps、MTU 1500；error/drop/reset delta 為 0','scratch config/SQLite 已自動清除；未碰正式 DB','單點 latency 差異只列為下一輪 baseline 線索，不形成最佳化建議'], next:'R2-F1D 建立並離線驗證 immutable versioned release。', safety:'One-shot 完成；無 background process、project active config、排程或 Router 變更。' },
+        { id:'R2-F1D', phase:'round2', status:'complete', title:'Immutable 0.4 release', purpose:'把通過 F1C 的 candidate 安全 stage 到新 versioned release。', done:['NAS immutable release 已建立','36 個 manifest files verified','0 enabled targets、0 active config、0 process/schedule','release 內容唯讀且離線驗證通過'], next:'由 F1E 建立 exact active config。', safety:'無 probes、正式 SQLite access/write、process 或 schedule。' },
+        { id:'R2-F1E', phase:'round2', status:'complete', title:'Round 2 active config', purpose:'只把六個固定 target 的 enabled 切為 true。', done:['config.round2-7d.active.json 已建立','只變更六個 enabled fields','mode 0600；offline verify 通過'], next:'F1F 啟動 bounded NAS core。', safety:'無 probes、無 SQLite access/write、無程序。' },
+        { id:'R2-F1F', phase:'round2', status:'running', title:'第二輪七天 NAS core', purpose:'執行 60 秒 local telemetry + 300 秒 network probes。', done:['第一次 57 分鐘嘗試已安全封存並排除','全新 window 已啟動：collector process verified','2026-08-30 23:07 唯讀檢查：process_matches=true、lock present、status running、error_code=null','8,240/10,080 local cycles；24,720 local samples、0 unavailable','1,648/2,016 network cycles；9,870 succeeded、18 failed（0.182%，待 F3B 分布與時間關聯分析）','SQLite growth 108,519,424 bytes，約使用 20.2% growth guard；storage guards 與 exact active config 持續生效'], next:'剩餘 1,840 local／368 network cycles；預計 2026-09-01 05:47 完成，之後由 F3B immutable closeout。', safety:'NAS 獨立運行；不依賴 Windows/F2C。每次 NAS 操作仍需精確唯讀 scope；F1F 執行中不得更新韌體、升級 RAM 或啟動其他會污染 baseline 的工作。' },
+        { id:'R2-F2A', phase:'round2', status:'complete', title:'Router overlay threat model', purpose:'固定短期登入 session、credential storage、retention 與撤銷方式。', done:['ephemeral Chrome session only','raw 僅留瀏覽器記憶體；臨時 HMAC 完成後清除','scratch SQLite 自動刪除；正式 DB 禁止','session/schema/endpoint failure 一律 source_unavailable'], next:'F2B 只允許一次四面向 overlay。', safety:'不保存 Cookie/token/password；不使用 Traffic Monitor update.cgi。' },
+        { id:'R2-F2B', phase:'round2', status:'optional', title:'Chrome overlay one-shot（superseded）', purpose:'原計畫透過已登入 WebGUI 一次匯入 Router CPU/RAM、WAN、port、AiMesh/client normalized telemetry。', done:['Network Map 部分 snapshot：WAN connected、13 clients、1 AiMesh node','CPU/RAM/port 未暴露於可存取 DOM，正確標 source_unavailable','AiMesh UI 導覽顯示登入頁，依 session 規則立即停止且 0 retries','Chrome/WebGUI transport 未完成，但主線目標已由 F2B2 → F2B3 → F2C 的 direct asusrouter 路線取代'], next:'封存且不阻塞主線；只有 direct library 缺少必要 GUI-only telemetry 時才重新研究 authenticated UI transport。', safety:'無 endpoint replay、retry、Apply、reboot、管理或設定；0 raw identifiers、0 scratch/正式 SQLite access。' },
+        { id:'R2-F2B2', phase:'round2', status:'complete', title:'asusrouter 底層唯讀試驗', purpose:'在 Home Assistant 之前，直接驗證社群維護的 asusrouter library 是否能穩定提供 Router telemetry。', done:['Windows 隔離 venv 使用 asusrouter 1.21.3','臨時憑證登入成功；8 次唯讀資料 endpoint calls','CPU 4 cores、RAM、aggregate network、WAN source、ports、2 AiMesh nodes、client aggregates 均取得','9 online / 39 client records；8 wireless records 均有 RSSI 與 PHY rate','0 control/tool calls；密碼、raw response、MAC/IP 均未保存或回傳'], next:'F2B3 驗證 WAN 欄位、3 個 unknown traffic groups 與 port speed codes，再決定 baseline schema。', safety:'不安裝 Home Assistant；actions fail-closed；不執行 Apply、command、speed test、ping 或設備變更。' },
+        { id:'R2-F2B3', phase:'round2', status:'complete', title:'asusrouter normalization validation', purpose:'將 library 的可用資料轉成可長期監測、可與 WebGUI 對照的可信 schema。', done:['釘選 asusrouter 1.21.3 source 與 GitHub issues 完成語意稽核','修正 traffic group mapping：wan/usb/wired/bridge/2g/5g/5g2/6g/lacp','修正 nested WAN safe-state 並抑制 IP/gateway/DNS/mask/MAC','client count 標記為 source-specific snapshot，不視為完整 inventory','port role/speed 與 WebGUI 衝突，明確排除 baseline 並標 source_unavailable','6/6 專項測試通過；Router requests 與設備變更均為 0'], next:'返回 F1F，建立新的乾淨七天 NAS core window；port live cross-check 改為非阻塞後續工作。', safety:'不登入 Router、不新增 request、不寫正式 SQLite；不一致欄位不形成異常或最佳化建議。' },
+        { id:'R2-F2C', phase:'round2', status:'complete', title:'Bounded Router overlay（24h pilot）', purpose:'在 F1F 同期加入有限、去識別的 Router CPU/RAM、WAN、aggregate traffic、AiMesh/client telemetry。', done:['完整完成 288/288 cycles；成功 288、失敗 0','平均 cadence 300.000 秒；PID 已停止、lock absent','CPU/RAM/network/WAN/AiMesh/client 288/288 available','WAN 與 2/2 AiMesh nodes 在所有採樣點均 connected','credentials/raw response 未保存；Router actions=false','writer-free closeout、SHA-256 evidence 與正式報告完成'], next:'保留 F2C evidence；等待 F1F 完成後由 F3B 進行跨層時間對齊與最終分析。', safety:'Windows 可關機或睡眠；port topology 仍為刻意 source_unavailable；五分鐘取樣不能排除更短事件；0 Router control。' },
+        { id:'R2-F3A', phase:'round2', status:'complete', title:'Final analyzer build', purpose:'先在 Windows 本機完成第二輪唯讀分析與報告契約。', done:['completed/PID/lock fail-closed readiness','SQLite mode=ro&immutable=1 + query_only + file fingerprints','六目標、HTTPS phases、QNAP system/dual-NIC 分層分析','建議強制包含 evidence、expected improvement、risk、confidence、pre/post validation','既有 85 項離線測試通過','2026-08-26 fresh preflight 7/7 通過','Windows 缺少 IANA tzdata 時改用已測試 UTC+08:00 fallback'], next:'F3B 等 NAS core 完成且 writer-free 後讀取正式證據。', safety:'Windows-local only；本次 preflight 未連 NAS/Router、未讀正式 SQLite、未安裝套件。' },
+        { id:'R2-F3B', phase:'round2', status:'pending', title:'Final immutable closeout', purpose:'在 writer-free 證據成立後分析第二輪七天資料與選定的 Router overlay，產生最終報告。', done:['分析器與 renderer 已由 F3A 備妥','F2C 缺樣會與 NAS core 異常分離'], next:'F1F 完成且 F2C window 關閉後，另行核准暫時 SSH 與 immutable/query-only 讀取。', safety:'只 OBSERVE → ANALYZE → RECOMMEND；不 EXECUTE。' }
+      ];
+
+      const branchPhases = [
+        { id:'sensorpc', title:'Secondary PC', subtitle:'remote zone 有線觀測點 · 驅動更新後驗證鏈' },
+        { id:'macbook', title:'2012 legacy laptop', subtitle:'可移動 Ethernet／Wi-Fi on-demand sensor' },
+        { id:'phone', title:'舊手機 Sensor', subtitle:'低優先選配 · 先確認安全與背景執行能力' },
+        { id:'nas-agent', title:'NAS／Agent 硬體', subtitle:'F1F closeout → RAM → Container → Harness' },
+        { id:'router-ha', title:'Router／HA 研究', subtitle:'已取得主線 telemetry；其餘研究不阻塞分析' }
+      ];
+      const branchGates = [
+        { id:'SENSORPC-D1', phase:'sensorpc', status:'complete', title:'Realtek inventory', purpose:'建立 Secondary PC Realtek NIC 的硬體、PnP、驅動與事件基準。', done:['DEV_8168／SUBSYS_84321043／REV_06','1 Gbps、MTU 1500、PnP OK、signed driver','error/drop snapshot 0；30 天匹配 events 0'], next:'使用者完成驅動更新後進入版本驗證。', safety:'本機唯讀；不產生網路流量、不改設定。' },
+        { id:'SENSORPC-D2A', phase:'sensorpc', status:'complete', title:'Driver 10.80.50.407', purpose:'把 2015 舊版驅動列為受控維護項，由使用者自行完成更新。', done:['使用者回報已更新至 10.80.50.407','Network Analyst 未安裝或切換驅動'], next:'以 SENSORPC-D2 確認 active version、簽章與實際穩定度。', safety:'變更由使用者手動完成；此紀錄不把版本新視為穩定證據。' },
+        { id:'SENSORPC-D2', phase:'sensorpc', status:'complete', title:'15-minute stability validation', purpose:'在新驅動上驗證 PnP、1G link、counter delta 與固定 LAN／Internet 路徑。', done:['10.80.50.407、signed、PnP OK','15 intervals 全程 Up／1 Gbps／MTU 1500；0 reset、0 error/discard delta','六個固定目標合計 120/120 echoes、0% loss','0 new matching NIC events；八項 acceptance 全數通過','QNAP Adapter 1 單次 10 ms、p95 1 ms，僅列線索不判定異常'], next:'SENSORPC-D3 不需要執行；除非日後出現可重現斷線／事件。下一步 SENSORPC-S2 cross-sensor calibration。', safety:'結論只適用本次 15 分鐘有界視窗；不把單點峰值或新版號本身當成長期穩定保證。' },
+        { id:'SENSORPC-D3', phase:'sensorpc', status:'optional', title:'Half-day soak', purpose:'只有 D2 出現偶發 counter、丟包或事件疑點時，才延長觀察窗。', done:['尚未啟動；保留為條件式驗證'], next:'D2 全數通過則可跳過；否則另行設計有界 soak。', safety:'必須另行核准固定 cadence、targets 與停止條件。' },
+        { id:'SENSORPC-S2', phase:'sensorpc', status:'next', title:'Cross-sensor calibration', purpose:'讓 Secondary PC 與 NAS、主 Windows 在同時段觀測相同固定 targets。', done:['SENSORPC-D2 已通過；D3 依目前證據可跳過'], next:'設計固定同時段、相同 targets 的 bounded cross-sensor comparison，量化位置差與 sensor bias。', safety:'sensor missing 不等於 network outage；需另行核准任何新的 probes。' },
+
+        { id:'S-MAC-1', phase:'macbook', status:'complete', title:'Hardware inventory', purpose:'確認 2012 legacy laptop 作為觀測點的 OS、Ethernet、儲存、電池與睡眠能力。', done:['Catalina 10.15.7／i5-3210M／16 GiB','Ethernet 1 Gbps full-duplex、MTU 1500','SATA SSD、SMART Verified、privacy filter passed'], next:'驗證 Wi-Fi association 能力。', safety:'唯讀 one-shot；network activity=false、configuration changed=false。' },
+        { id:'S-MAC-2', phase:'macbook', status:'complete', title:'2.4 GHz qualification', purpose:'確認內建 Wi-Fi 能提供 association、RSSI、noise 與 rate telemetry。', done:['channel 10、RSSI −39 dBm、noise −82 dBm','SNR 43 dB、TX/max 217 Mbps、MCS 23','association status 0'], next:'切到 5 GHz 後再做獨立唯讀快照。', safety:'單次快照不代表 utilization、packet loss 或長期穩定性。' },
+        { id:'S-MAC-3', phase:'macbook', status:'next', title:'5 GHz snapshot', purpose:'證明這台雙頻 802.11n legacy laptop 能在實際 5 GHz SSID 上取得可用 RF telemetry。', done:['硬體支援 5 GHz；尚未取得 5 GHz association evidence'], next:'連上 5 GHz 後執行相同唯讀 inventory。', safety:'不修改 Router channel、bandwidth 或 Wi-Fi 設定。' },
+        { id:'S-MAC-4', phase:'macbook', status:'optional', title:'Power qualification', purpose:'若要長時間當 sensor，先處理 AC／battery sleep 10 分鐘造成的資料缺口。', done:['已確認目前 AC／battery sleep 均為 10 分鐘'], next:'只有決定投入 24/7 後才規劃供電與睡眠變更。', safety:'任何電源設定變更需另行核准；現階段可作 on-demand sensor。' },
+        { id:'S-MAC-5', phase:'macbook', status:'pending', title:'Cross-sensor calibration', purpose:'與 NAS／PC 同步取樣，確認 legacy laptop 位置與 Wi-Fi 路徑造成的偏差。', done:['等待 5 GHz snapshot；24/7 qualification 為選配'], next:'通過後加入 Sensor Fleet health dashboard。', safety:'把睡眠、關機與資料延遲標為 source_unavailable。' },
+
+        { id:'S-PHONE-0', phase:'phone', status:'optional', title:'Device selection', purpose:'選定 legacy phone sensor 或其他閒置手機，評估其定點 sensor 價值。', done:['legacy phone sensor 已列候選；尚未部署'], next:'先做 OS、安全、電池與背景執行盤點。', safety:'不因有閒置硬體就預設值得 24/7 部署。' },
+        { id:'S-PHONE-1', phase:'phone', status:'pending', title:'OS／security inventory', purpose:'確認舊 OS 支援、更新狀態、電池健康與可長時間執行的安全範圍。', done:['尚未執行'], next:'能力足夠才建立 read-only prototype。', safety:'不越獄、不安裝未知 profile、不保存 Router credential。' },
+        { id:'S-PHONE-2', phase:'phone', status:'optional', title:'Read-only prototype', purpose:'測試固定 latency、Wi-Fi association 與可取得的有限 RF telemetry。', done:['待 S-PHONE-1 通過'], next:'確認背景執行與資料格式，再做充電 soak。', safety:'固定 allowlist；不掃描、不登入設備、不控制 Router。' },
+        { id:'S-PHONE-3', phase:'phone', status:'optional', title:'Charging soak', purpose:'驗證長時間充電時的溫度、斷線與背景程序存活。', done:['尚未執行'], next:'穩定且安全才進行 calibration。', safety:'優先保護電池與防火風險；異常立即停止。' },
+        { id:'S-PHONE-4', phase:'phone', status:'pending', title:'Cross-sensor calibration', purpose:'比較手機定點位置與現有 sensor 的相同目標結果。', done:['等待前置 Gate'], next:'只有補足明確 RF／位置盲區時才正式加入。', safety:'手機資料缺值不形成 outage 判斷。' },
+
+        { id:'NAS-H0', phase:'nas-agent', status:'running', title:'F1F → F3B evidence freeze', purpose:'先完成七天 core、writer-free closeout 與最終 immutable 分析。', done:['F1F 正在 NAS 獨立運行','F3A analyzer 已備妥','F2C 24h overlay 已完成'], next:'F1F 完成後執行 R2-F3B。', safety:'baseline 期間不更新 QTS、不升級 RAM、不搬移 collector。' },
+        { id:'NAS-H1', phase:'nas-agent', status:'pending', title:'QTS／RAM 32GB maintenance', purpose:'在 evidence freeze 後安排維護窗，完成 TS-473A RAM 擴充與必要平台維護。', done:['32GB 記憶體已到貨；尚未安裝'], next:'先完成備份與停機檢查，再由使用者執行硬體升級。', safety:'不得在 F1F 運行中操作；需可回復並保留原 RAM。' },
+        { id:'NAS-H2', phase:'nas-agent', status:'pending', title:'Memory burn-in', purpose:'確認 32GB 容量、錯誤、溫度與 NAS 長時間穩定性。', done:['等待 NAS-H1'], next:'burn-in 通過後才准許常駐容器與 Agent。', safety:'先做只讀 health 驗證；任何壓力測試另定上限與停止條件。' },
+        { id:'NAS-H3', phase:'nas-agent', status:'pending', title:'Container deployment', purpose:'依序部署 Homepage、read-only API、Dashboard、analysis 與 notification。', done:['架構與 Gate G 方向已定義；尚未部署'], next:'先完成 Gate G，再進入 Harness。', safety:'LAN-only、非 privileged、固定 image；不把 Router credential 放進 Homepage。' },
+        { id:'NAS-H4', phase:'nas-agent', status:'pending', title:'DeepSeek Harness', purpose:'讓常駐 Agent 負責 evidence 分析、異常去重、問答、建議與通知。', done:['Harness 已選定；部署前置尚未完成'], next:'初期只讀 evidence，成熟後才另立 Gate I executor。', safety:'不持有 Router 修改權；EXECUTE 必須是獨立、可回滾的授權層。' },
+
+        { id:'RT-S0', phase:'router-ha', status:'complete', title:'asusrouter telemetry', purpose:'驗證不依賴 Home Assistant 也能從底層 library 取得 Router telemetry。', done:['F2B2/F2B3 完成','CPU/RAM/WAN/network/AiMesh/client schema 可用','port live speed 因語意衝突排除'], next:'以 F2C 驗證 24 小時連續採樣。', safety:'只讀；不保存 credential/raw response/MAC/IP。' },
+        { id:'RT-S1', phase:'router-ha', status:'complete', title:'F2C 24h overlay', purpose:'驗證 Router normalized overlay 能以五分鐘 cadence 長時間穩定取得。', done:['288/288 cycles、0 failed','WAN/AiMesh 全程 connected','CPU/RAM/network/WAN/AiMesh/client 全部 available'], next:'等待 F1F 完成後由 F3B 做跨層相關分析。', safety:'0 Router control；五分鐘採樣不能排除更短事件。' },
+        { id:'RT-S2', phase:'router-ha', status:'optional', title:'E5 Traffic Monitor research', purpose:'保留 GUI private Traffic Monitor 的 renderer／counter 研究，但不再阻塞主線。', done:['54 個 micro-gates 已封存','F2B2/F2B3/F2C 已取代主要 telemetry 需求'], next:'只有需要 GUI parity 或 per-device traffic 時才重啟。', safety:'未驗證 counter 不進正式 collector 或建議。' },
+        { id:'RT-S3', phase:'router-ha', status:'optional', title:'Home Assistant adapter', purpose:'未來智慧設備增加時，讓 HA 提供家庭 state/event 與受限 action adapter。', done:['底層 asusrouter 資訊已足夠；HA 不再是 Dashboard 必要前置'], next:'設備數量與自動化需求增加後再評估。', safety:'不借道 HA 讓 LLM 取得未受控 Router 執行權。' },
+        { id:'RT-S4', phase:'router-ha', status:'complete', title:'Apple Home preserved', purpose:'維持 Apple Home／Siri 作為家庭日常控制前端。', done:['架構決策已確認：HA 若導入只作 adapter，不取代 Apple 生態'], next:'未來整合時只暴露 owner-approved devices/actions。', safety:'Network Analyst Dashboard 與家庭控制前端分離。' }
+      ];
+
+      const deviceTopologyGroups = [
+        { id:'edge', title:'01 · Internet edge', subtitle:'HiNet bridge handoff → 唯一主 Router' },
+        { id:'backbone', title:'02 · 10G／2.5G backbone', subtitle:'RT-BE86U 10GbE → XMG-105 → 固定有線端點' },
+        { id:'tuf-branch', title:'03 · TUF-BE3600 branch', subtitle:'2.5GbE wired AiMesh backhaul → remote zone downstream／Wi-Fi' },
+        { id:'rt-clients', title:'04 · RT-BE86U client branch', subtitle:'最近 DI-2B 稽核時直接掛在主 Router 的端點' },
+        { id:'mobile-sensors', title:'05 · Roaming／on-demand', subtitle:'節點或頻段會變動，或尚未部署為固定觀測點' },
+        { id:'history', title:'06 · 未合併歷史', subtitle:'保留線索但不計入 20 台 canonical physical devices' }
+      ];
+      const deviceStatusText = { confirmed:'Owner confirmed', snapshot:'Snapshot confirmed', candidate:'候選／未部署', history:'未合併歷史' };
+      const devices = [
+        { id:'infra-ont-nokia', group:'edge', name:'Nokia ONT', identity:'infrastructure · owner confirmed · 位置未確認', role:'Internet fiber handoff · always on', path:'HiNet fiber → Nokia ONT（bridge mode）→ RT-BE86U WAN／PPPoE', availability:'預期全年在線；目前沒有獨立 telemetry 或管理存取。', status:'confirmed', tileStatus:'complete', evidence:['使用者確認為 bridge mode','PPPoE 撥號由 RT-BE86U 負責','Network Analyst 不把 ONT 當第二台 Router'], notes:'未取得 ONT 的 CPU、link counters 或 log；Internet 異常需由 Router／外部 probes 間接定位。' },
+        { id:'infra-router-rt-be86u', group:'edge', name:'ASUS RT-BE86U', identity:'infrastructure · owner confirmed · local zone', role:'唯一 main Router／gateway · always on', path:'ONT bridge → RT-BE86U → 10GbE backbone、直接 LAN／Wi-Fi clients', availability:'24/7 核心設備；Router overlay 已證明 CPU、RAM、WAN、aggregate network、AiMesh 與 clients 可唯讀取得。', status:'confirmed', tileStatus:'complete', evidence:['Firmware version retained privately','負責 PPPoE、NAT、DHCP、Firewall、DNS 與 gateway','F2C 288/288 cycles、0 failed；WAN 全程 connected'], notes:'Port role／live speed 因 library 與 WebGUI 語意衝突仍排除；本清冊不保存 MAC、session 或 credential。' },
+
+        { id:'infra-switch-xmg105', group:'backbone', name:'Zyxel XMG-105', identity:'infrastructure · owner confirmed · remote zone', role:'unmanaged backbone switch · always on', path:'RT-BE86U 10GbE RJ-45 → Zyxel SFP-10G-T → XMG-105 → NAS／PC／TUF', availability:'預期 24/7；無管理介面 telemetry。', status:'confirmed', tileStatus:'complete', evidence:['SFP-10G-T 模組由使用者確認','SFP+ LED 綠色，代表 10G link evidence','fan-out 至 QNAP、主 PC 與 TUF'], notes:'無 SNMP／port counters／error counters；現階段只能透過兩端 link 與 cross-sensor evidence 間接判斷 backbone。' },
+        { id:'nas-qnap-ts473a', group:'backbone', name:'QNAP TS-473A · Home NAS', identity:'NAS · owner confirmed · remote zone', role:'primary 24/7 collector／storage · always on', path:'XMG-105 → Adapter 1 2.5GbE ＋ Adapter 2 2.5GbE（獨立，無 bond/trunk）', availability:'全年開機；目前執行 R2-F1F 七天 NAS core。', status:'confirmed', tileStatus:'complete', evidence:['QTS version retained privately','兩張 2.5GbE、MTU 1500；未設定 trunk/bond','Round 2 local system／dual-NIC telemetry 已驗證'], notes:'F1F／F3B 完成前不升級 QTS、RAM 或搬移 collector；32GB RAM 已到貨但尚未安裝。' },
+        { id:'pc-main-primary', group:'backbone', name:'Primary Windows PC', identity:'computer · owner confirmed · remote zone', role:'Windows endpoint sensor · sleeps or powers off', path:'Intel I225-LM 2.5GbE → XMG-105；另有一張獨立 1GbE NIC', availability:'非 24/7；開機時可提供 Windows NIC／Router overlay 證據。', status:'confirmed', tileStatus:'complete', evidence:['2.5Gbps、MTU 1500','I225-LM driver 2.1.5.7、PnP Started','F2C Router overlay 24h 已完成'], notes:'離線／睡眠必須標 source_unavailable；歷史 unresolved interface label 可能是第二張 1GbE NIC，但尚未合併。' },
+        { id:'infra-ap-tuf-be3600', group:'backbone', name:'ASUS TUF-BE3600', identity:'infrastructure · owner confirmed · remote zone', role:'wired AiMesh node／remote zone AP · always on', path:'XMG-105 → TUF 2.5G WAN/LAN-1 wired backhaul → downstream LAN／2.4GHz／5GHz clients', availability:'預期 24/7；由 RT-BE86U AiMesh 管理。', status:'confirmed', tileStatus:'complete', evidence:['Firmware version retained privately','2.5Gbps Ethernet backhaul、connection quality strong','F2C 中 2/2 AiMesh nodes 全程 connected'], notes:'硬體 revision A1 仍是高可信推定而非機身標籤確認；不把它視為第二台 Router。' },
+
+        { id:'secondary-pc-wired', group:'tuf-branch', name:'Secondary PC · Secondary-PC', identity:'computer · owner confirmed · remote zone', role:'TUF downstream on-demand sensor · 約每日 12 小時', path:'TUF-BE3600 downstream LAN → Realtek PCIe GBE 1GbE → Windows 10 PC', availability:'非 24/7；開機時可監看 TUF 後方有線路徑。', status:'confirmed', tileStatus:'complete', evidence:['與 guest-room Wi-Fi PC 為兩台不同實體電腦','Realtek 10.80.50.407、signed、PnP OK','SENSORPC-D2：15 分鐘、120/120 echoes、0 reset/error/discard'], notes:'關機／睡眠記 source_unavailable；目前 D3 soak 可跳過，下一步 SENSORPC-S2 calibration。' },
+        { id:'secondary-pc-guest-wifi', group:'tuf-branch', name:'Guest PC', identity:'computer · owner-confirmed snapshot · remote zone', role:'Wi-Fi client · sleeps or powers off', path:'TP-Link Wi-Fi adapter → TUF-BE3600 5GHz', availability:'休眠或關機；只在喚醒時出現在 Router client list。', status:'snapshot', tileStatus:'next', evidence:['使用者喚醒後 client count 13 → 14','被動 snapshot 顯示 TUF 5GHz','一次 RSSI −57 dBm；使用者確認 hostname'], notes:'RSSI 與當時位址只是一個 snapshot，不是長期訊號品質 baseline；未建立 collector。' },
+        { id:'peripheral-epson-l555', group:'tuf-branch', name:'network printer', identity:'printer · owner confirmed · remote zone', role:'printer presence · usually on', path:'TUF-BE3600 → 2.4GHz → network printer', availability:'通常在線；DI-2B audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['DI-3A 唯一 unresolved TUF 2.4GHz row','Owner requested one-field name read：Printer-Alias','ASUS signal icon strong；PHY-like 65／72.2'], notes:'未取得精確 RSSI 或 vendor category；不以名稱或單次 PHY-like fields 推導長期 Wi-Fi 品質。' },
+        { id:'client-ipad-pro-m4', group:'tuf-branch', name:'household tablet', identity:'tablet · owner confirmed · remote zone private room', role:'mobile Wi-Fi client · intermittent', path:'最近稽核：TUF-BE3600 → 5GHz → household tablet', availability:'間歇在線；DI-2B audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed mapping','DI-2B correlation confidence high','最近稽核 attachment 為 TUF 5GHz'], notes:'Private/randomized MAC 可能產生多筆 Router records；目前沒有裝置端 sensor。' },
+
+        { id:'client-switch2', group:'rt-clients', name:'game console', identity:'game console · owner confirmed · local zone living area', role:'client presence · intermittent', path:'DI-2B snapshot：RT-BE86U → 2.4GHz → game console', availability:'間歇在線；audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed mapping','game-console category／remaining-set evidence','DI-2B correlation confidence high'], notes:'2.4GHz 是 audited snapshot，不代表永久固定頻段；尚無 per-device traffic attribution。' },
+        { id:'client-pixel3', group:'rt-clients', name:'household phone A', identity:'phone · owner confirmed · mobile', role:'mobile Wi-Fi client · intermittent', path:'DI-2B snapshot：RT-BE86U → 5GHz → household phone A', availability:'間歇在線；audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed household phone','DI-2B RT 5GHz correlation high','長連線時間來自 Router snapshot'], notes:'連線時間不是設備連續使用時間；移動／休眠時可能離線。' },
+        { id:'client-homepod-mini', group:'rt-clients', name:'smart speaker', identity:'smart speaker · owner confirmed · local zone work area', role:'home audio／client presence · usually on', path:'DI-2B snapshot：RT-BE86U → 5GHz → smart speaker', availability:'通常在線；audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed mapping','Apple-device category／remaining-set evidence','DI-2B correlation confidence high'], notes:'目前只做 presence／attachment；尚未整合 HomeKit／Home Assistant state。' },
+        { id:'client-apple-tv4k', group:'rt-clients', name:'Living-area media player', identity:'media player · owner confirmed · local zone living area', role:'television endpoint／client presence · usually on', path:'DI-2B snapshot：RT-BE86U wired client；實際實體 port 尚未確認', availability:'通常在線；Router snapshot 未提供 connection time。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed media endpoint','DI-2B wired correlation high','Traffic Analyzer 曾顯示為主要使用裝置之一'], notes:'目前不能把它精確歸屬某個 switch port；per-device traffic API 尚未納入正式 collector。' },
+        { id:'iot-philips-light-bulb', group:'rt-clients', name:'smart light', identity:'IoT · owner confirmed · local zone living area', role:'IoT presence · usually on', path:'RT-BE86U → IoT SSID 2.4GHz → smart light', availability:'通常在線；audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed household IoT','DI-2B RT 2.4GHz correlation high','既有名稱 pattern 與 owner truth 一致'], notes:'只記 presence／attachment；不控制燈泡，也不把長 connection time 當健康保證。' },
+        { id:'iot-zhimi-air-purifier', group:'rt-clients', name:'air purifier', identity:'IoT · owner confirmed · local zone living area', role:'IoT presence · usually on', path:'RT-BE86U → IoT SSID 2.4GHz → air purifier', availability:'通常在線；audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed household IoT','DI-2B RT 2.4GHz correlation high','既有名稱 pattern 與 owner truth 一致'], notes:'只記 presence／attachment；不登入或控制設備。' },
+
+        { id:'client-iphone-se3', group:'mobile-sensors', name:'household phone B', identity:'phone · owner confirmed · mobile／常在 remote zone', role:'mobile Wi-Fi client · intermittent', path:'曾在 TUF 5GHz；DI-2B snapshot 漫遊至 RT-BE86U 5GHz', availability:'間歇在線；DI-2B audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed mapping','DI-2B correlation confidence high','已觀察一次跨 AiMesh node 漫遊'], notes:'Private/randomized MAC 可能產生多筆 records；一次漫遊不是異常或最佳化依據。' },
+        { id:'client-pixel10pro', group:'mobile-sensors', name:'household phone C', identity:'phone · owner confirmed · mobile', role:'mobile Wi-Fi client · intermittent', path:'Node／band 可變；DI-2B snapshot 為 RT-BE86U MLO', availability:'間歇在線；audited snapshot available。', status:'confirmed', tileStatus:'complete', evidence:['Owner-confirmed mapping／household-phone-C','Owner-confirmed household phone','DI-2B MLO correlation confidence high'], notes:'Private/randomized MAC 可能產生多筆 records；MLO snapshot 不代表永久 attachment。' },
+        { id:'sensor-macbookpro-2012', group:'mobile-sensors', name:'Legacy laptop sensor', identity:'computer · owner confirmed · mobile／未固定', role:'candidate on-demand network sensor', path:'可使用 1GbE Ethernet 或 Wi-Fi 2.4／5GHz；實際節點依擺放位置', availability:'目前適合 on-demand；AC／battery sleep 都是 10 分鐘，尚未通過 24/7 qualification。', status:'snapshot', tileStatus:'next', evidence:['Catalina 10.15.7、i5-3210M、16 GiB、SATA SSD SMART Verified','Ethernet 1Gbps full-duplex／MTU 1500 verified','2.4GHz：channel 10、RSSI −39、noise −82、TX 217 Mbps'], notes:'5GHz snapshot 尚未完成；休眠造成的缺值必須標 source_unavailable。' },
+        { id:'sensor-iphone5s', group:'mobile-sensors', name:'legacy phone sensor · sensor candidate', identity:'phone · owner-confirmed candidate · 尚未指定位置', role:'optional fixed Wi-Fi sensor candidate', path:'尚未觀察／尚未部署；未來可能放在需要補足的 Wi-Fi 盲區', availability:'目前不在監測系統；OS、安全、電池與背景執行能力均待盤點。', status:'candidate', tileStatus:'optional', evidence:['使用者確認有一台閒置 legacy phone sensor','已列入支線待辦，但沒有 telemetry evidence'], notes:'不越獄、不安裝未知 profile、不保存 Router credential；只有補足明確盲區才部署。' },
+
+        { id:'history-msft5', group:'history', name:'Unresolved interface · history record', identity:'offline history only · 未確認為獨立裝置', role:'unresolved Router history clue', path:'可能對應 Main PC 的第二張 1GbE NIC；沒有足夠 interface identity evidence', availability:'非 current device presence；owner decision 為 defer／no action。', status:'history', tileStatus:'optional', evidence:['歷史 DHCP vendor-class-style label','使用者確認主 PC 確有第二張 1GbE NIC','未保存足以唯一合併的 interface evidence'], notes:'不得合併、封鎖、重新命名或建立 reservation；不計入 20 台 canonical devices。' }
+      ];
+
+      const lanes = root.querySelector('#na-lanes');
+      const detail = {
+        phase: root.querySelector('#na-detail-phase'),
+        title: root.querySelector('#na-detail-title'),
+        status: root.querySelector('#na-detail-status'),
+        purpose: root.querySelector('#na-detail-purpose'),
+        done: root.querySelector('#na-detail-done'),
+        next: root.querySelector('#na-detail-next'),
+        safety: root.querySelector('#na-detail-safety')
+      };
+      let selectedId = 'R2-F1F';
+      let activeFilter = 'all';
+      const branchLanes = root.querySelector('#na-branch-lanes');
+      const branchDetail = {
+        phase: root.querySelector('#na-branch-detail-phase'),
+        title: root.querySelector('#na-branch-detail-title'),
+        status: root.querySelector('#na-branch-detail-status'),
+        purpose: root.querySelector('#na-branch-detail-purpose'),
+        done: root.querySelector('#na-branch-detail-done'),
+        next: root.querySelector('#na-branch-detail-next'),
+        safety: root.querySelector('#na-branch-detail-safety')
+      };
+      let selectedBranchId = 'SENSORPC-D2';
+      const deviceLanes = root.querySelector('#na-device-lanes');
+      const deviceDetail = {
+        phase: root.querySelector('#na-device-detail-phase'),
+        title: root.querySelector('#na-device-detail-title'),
+        status: root.querySelector('#na-device-detail-status'),
+        identity: root.querySelector('#na-device-detail-identity'),
+        role: root.querySelector('#na-device-detail-role'),
+        path: root.querySelector('#na-device-detail-path'),
+        availability: root.querySelector('#na-device-detail-availability'),
+        evidence: root.querySelector('#na-device-detail-evidence'),
+        notes: root.querySelector('#na-device-detail-notes')
+      };
+      let selectedDeviceId = 'infra-router-rt-be86u';
+
+      function filterMatches(gate) {
+        if (activeFilter === 'all') return true;
+        if (activeFilter === 'blocked') return gate.status === 'blocked' || gate.status === 'optional';
+        return gate.status === activeFilter;
+      }
+
+      function renderDetail(id) {
+        const gate = gates.find(item => item.id === id);
+        if (!gate) return;
+        selectedId = id;
+        const phase = phases.find(item => item.id === gate.phase);
+        detail.phase.textContent = phase.title;
+        detail.title.textContent = `${gate.id} · ${gate.title}`;
+        detail.status.textContent = statusText[gate.status];
+        detail.status.dataset.status = gate.status;
+        detail.purpose.textContent = gate.purpose;
+        detail.done.replaceChildren(...gate.done.map(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          return li;
+        }));
+        detail.next.textContent = gate.next;
+        detail.safety.textContent = gate.safety;
+        root.querySelectorAll('#na-lanes .na-gate').forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset.id === id));
+        });
+      }
+
+      function renderLanes() {
+        lanes.replaceChildren();
+        phases.forEach(phase => {
+          const phaseGates = gates.filter(gate => gate.phase === phase.id);
+          const visible = phaseGates.filter(filterMatches);
+          if (!visible.length) return;
+          const lane = document.createElement('section');
+          lane.className = 'na-lane';
+          lane.dataset.phase = phase.id;
+          const track = document.createElement('div');
+          track.className = 'na-lane-track';
+          const marker = document.createElement('div');
+          marker.className = 'na-lane-marker';
+          track.append(marker);
+          const content = document.createElement('div');
+          content.className = 'na-lane-content';
+          const head = document.createElement('div');
+          head.className = 'na-lane-head';
+          const heading = document.createElement('div');
+          const h2 = document.createElement('h2');
+          h2.textContent = phase.title;
+          const subtitle = document.createElement('div');
+          subtitle.className = 'text-small text-muted';
+          subtitle.textContent = phase.subtitle;
+          heading.append(h2, subtitle);
+          const count = document.createElement('span');
+          count.className = 'text-small text-muted';
+          count.textContent = `${phaseGates.filter(g => g.status === 'complete').length}/${phaseGates.length} 完成`;
+          head.append(heading, count);
+          const grid = document.createElement('div');
+          grid.className = 'na-gate-grid';
+          visible.forEach(gate => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'btn viz-tile na-gate';
+            button.textContent = gate.id;
+            button.dataset.id = gate.id;
+            button.dataset.status = gate.status;
+            button.setAttribute('aria-label', `${gate.id} ${gate.title}，${statusText[gate.status]}`);
+            button.setAttribute('aria-pressed', String(gate.id === selectedId));
+            button.addEventListener('click', () => renderDetail(gate.id));
+            grid.append(button);
+          });
+          content.append(head, grid);
+          lane.append(track, content);
+          lanes.append(lane);
+        });
+        const selectedVisible = gates.some(gate => gate.id === selectedId && filterMatches(gate));
+        if (!selectedVisible) {
+          const first = gates.find(filterMatches);
+          if (first) renderDetail(first.id);
+        } else {
+          renderDetail(selectedId);
+        }
+      }
+
+      function renderBranchDetail(id) {
+        const gate = branchGates.find(item => item.id === id);
+        if (!gate) return;
+        selectedBranchId = id;
+        const phase = branchPhases.find(item => item.id === gate.phase);
+        branchDetail.phase.textContent = phase.title;
+        branchDetail.title.textContent = `${gate.id} · ${gate.title}`;
+        branchDetail.status.textContent = statusText[gate.status];
+        branchDetail.status.dataset.status = gate.status;
+        branchDetail.purpose.textContent = gate.purpose;
+        branchDetail.done.replaceChildren(...gate.done.map(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          return li;
+        }));
+        branchDetail.next.textContent = gate.next;
+        branchDetail.safety.textContent = gate.safety;
+        root.querySelectorAll('#na-branch-lanes .na-gate').forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset.id === id));
+        });
+      }
+
+      function renderBranchLanes() {
+        branchLanes.replaceChildren();
+        branchPhases.forEach(phase => {
+          const phaseGates = branchGates.filter(gate => gate.phase === phase.id);
+          const lane = document.createElement('section');
+          lane.className = 'na-lane';
+          lane.dataset.phase = phase.id;
+          const track = document.createElement('div');
+          track.className = 'na-lane-track';
+          const marker = document.createElement('div');
+          marker.className = 'na-lane-marker';
+          track.append(marker);
+          const content = document.createElement('div');
+          content.className = 'na-lane-content';
+          const head = document.createElement('div');
+          head.className = 'na-lane-head';
+          const heading = document.createElement('div');
+          const h2 = document.createElement('h2');
+          h2.textContent = phase.title;
+          const subtitle = document.createElement('div');
+          subtitle.className = 'text-small text-muted';
+          subtitle.textContent = phase.subtitle;
+          heading.append(h2, subtitle);
+          const count = document.createElement('span');
+          count.className = 'text-small text-muted';
+          count.textContent = `${phaseGates.filter(g => g.status === 'complete').length}/${phaseGates.length} 完成`;
+          head.append(heading, count);
+          const grid = document.createElement('div');
+          grid.className = 'na-gate-grid';
+          phaseGates.forEach(gate => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'btn viz-tile na-gate';
+            button.textContent = gate.id;
+            button.dataset.id = gate.id;
+            button.dataset.status = gate.status;
+            button.setAttribute('aria-label', `${gate.id} ${gate.title}，${statusText[gate.status]}`);
+            button.setAttribute('aria-pressed', String(gate.id === selectedBranchId));
+            button.addEventListener('click', () => renderBranchDetail(gate.id));
+            grid.append(button);
+          });
+          content.append(head, grid);
+          lane.append(track, content);
+          branchLanes.append(lane);
+        });
+        renderBranchDetail(selectedBranchId);
+      }
+
+      function renderDeviceDetail(id) {
+        const device = devices.find(item => item.id === id);
+        if (!device) return;
+        selectedDeviceId = id;
+        const group = deviceTopologyGroups.find(item => item.id === device.group);
+        deviceDetail.phase.textContent = group.title;
+        deviceDetail.title.textContent = device.name;
+        deviceDetail.status.textContent = deviceStatusText[device.status];
+        deviceDetail.status.dataset.status = device.tileStatus;
+        deviceDetail.identity.textContent = device.identity;
+        deviceDetail.role.textContent = device.role;
+        deviceDetail.path.textContent = device.path;
+        deviceDetail.availability.textContent = device.availability;
+        deviceDetail.evidence.replaceChildren(...device.evidence.map(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          return li;
+        }));
+        deviceDetail.notes.textContent = device.notes;
+        root.querySelectorAll('#na-device-lanes .na-gate').forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset.id === id));
+        });
+      }
+
+      function renderDeviceLanes() {
+        deviceLanes.replaceChildren();
+        deviceTopologyGroups.forEach(group => {
+          const groupDevices = devices.filter(device => device.group === group.id);
+          const lane = document.createElement('section');
+          lane.className = 'na-lane';
+          lane.dataset.phase = group.id;
+          const track = document.createElement('div');
+          track.className = 'na-lane-track';
+          const marker = document.createElement('div');
+          marker.className = 'na-lane-marker';
+          track.append(marker);
+          const content = document.createElement('div');
+          content.className = 'na-lane-content';
+          const head = document.createElement('div');
+          head.className = 'na-lane-head';
+          const heading = document.createElement('div');
+          const h2 = document.createElement('h2');
+          h2.textContent = group.title;
+          const subtitle = document.createElement('div');
+          subtitle.className = 'text-small text-muted';
+          subtitle.textContent = group.subtitle;
+          heading.append(h2, subtitle);
+          const count = document.createElement('span');
+          count.className = 'text-small text-muted';
+          count.textContent = `${groupDevices.length} 項`;
+          head.append(heading, count);
+          const grid = document.createElement('div');
+          grid.className = 'na-gate-grid na-device-grid';
+          groupDevices.forEach(device => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'btn viz-tile na-gate';
+            button.textContent = device.name;
+            button.dataset.id = device.id;
+            button.dataset.status = device.tileStatus;
+            button.setAttribute('aria-label', `${device.name}，${deviceStatusText[device.status]}`);
+            button.setAttribute('aria-pressed', String(device.id === selectedDeviceId));
+            button.addEventListener('click', () => renderDeviceDetail(device.id));
+            grid.append(button);
+          });
+          content.append(head, grid);
+          lane.append(track, content);
+          deviceLanes.append(lane);
+        });
+        renderDeviceDetail(selectedDeviceId);
+      }
+
+      root.querySelectorAll('[data-filter]').forEach(button => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter;
+          root.querySelectorAll('[data-filter]').forEach(peer => {
+            const active = peer === button;
+            peer.setAttribute('aria-pressed', String(active));
+            peer.classList.toggle('btn-primary', active);
+          });
+          renderLanes();
+        });
+      });
+
+      const complete = gates.filter(gate => gate.status === 'complete').length;
+      const percent = Math.round(100 * complete / gates.length);
+      root.querySelector('#na-total').textContent = String(gates.length);
+      root.querySelector('#na-complete').textContent = String(complete);
+      root.querySelector('#na-progress-text').textContent = `${complete} / ${gates.length}`;
+      root.querySelector('#na-progress-bar').style.width = `${100 * complete / gates.length}%`;
+      const progress = root.querySelector('.progress');
+      progress.setAttribute('aria-valuenow', String(percent));
+      renderLanes();
+      renderBranchLanes();
+      renderDeviceLanes();
+    })();
+  </script>
+</div>
+
+</body>
+</html>
