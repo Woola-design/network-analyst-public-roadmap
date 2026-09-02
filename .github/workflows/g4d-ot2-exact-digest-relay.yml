@@ -1,0 +1,75 @@
+name: G4D OT2 Exact Digest Relay
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  relay:
+    name: Export exact linux-amd64 Python image
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Pull, verify, and export exact digest
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          readonly IMAGE_REF='index.docker.io/library/python@sha256:9c47360a2a0355e2da18516d0b1c2126ec22c195d2185e97347c9d98398c5bef'
+          readonly EXPECTED_DIGEST='sha256:9c47360a2a0355e2da18516d0b1c2126ec22c195d2185e97347c9d98398c5bef'
+          readonly EXPORT_TAG='g4d-ot2-python:3.12.14-slim-bookworm-linux-amd64'
+          readonly OUTPUT_DIR='g4d-ot2-output'
+          readonly TAR_PATH="${OUTPUT_DIR}/python-3.12.14-slim-bookworm-linux-amd64.tar"
+
+          docker pull --platform linux/amd64 "${IMAGE_REF}"
+
+          image_id="$(docker image inspect "${IMAGE_REF}" --format '{{.Id}}')"
+          architecture="$(docker image inspect "${IMAGE_REF}" --format '{{.Architecture}}')"
+          operating_system="$(docker image inspect "${IMAGE_REF}" --format '{{.Os}}')"
+          repo_digests="$(docker image inspect "${IMAGE_REF}" --format '{{json .RepoDigests}}')"
+
+          test "${architecture}" = 'amd64'
+          test "${operating_system}" = 'linux'
+          python3 - "${EXPECTED_DIGEST}" "${repo_digests}" <<'PY'
+          import json
+          import sys
+
+          expected = sys.argv[1]
+          repo_digests = json.loads(sys.argv[2])
+          observed = {item.rsplit('@', 1)[-1] for item in repo_digests}
+          if expected not in observed:
+              raise SystemExit('exact Docker Hub digest was not retained by docker pull')
+          PY
+
+          mkdir -p "${OUTPUT_DIR}"
+          docker tag "${IMAGE_REF}" "${EXPORT_TAG}"
+          docker image save --output "${TAR_PATH}" "${EXPORT_TAG}"
+          sha256sum "${TAR_PATH}" > "${TAR_PATH}.sha256"
+
+          python3 - "${image_id}" "${architecture}" "${operating_system}" "${EXPECTED_DIGEST}" "${repo_digests}" > "${OUTPUT_DIR}/image-metadata.json" <<'PY'
+          import json
+          import sys
+
+          print(json.dumps({
+              'image_id': sys.argv[1],
+              'architecture': sys.argv[2],
+              'os': sys.argv[3],
+              'requested_digest': sys.argv[4],
+              'repo_digests': json.loads(sys.argv[5]),
+              'export_tag': 'g4d-ot2-python:3.12.14-slim-bookworm-linux-amd64',
+          }, indent=2, sort_keys=True))
+          PY
+
+          sha256sum "${OUTPUT_DIR}/image-metadata.json" > "${OUTPUT_DIR}/image-metadata.json.sha256"
+
+      - name: Upload verified image archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: g4d-ot2-python-3.12.14-slim-bookworm-linux-amd64
+          path: g4d-ot2-output/
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
