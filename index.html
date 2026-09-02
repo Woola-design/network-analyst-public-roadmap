@@ -418,8 +418,8 @@
 
   <section class="viz-grid na-stats" aria-label="Roadmap 摘要">
     <div class="card viz-stat"><span class="text-muted">主線工作項目</span><span class="viz-stat-value" id="na-total">45</span><span class="text-small text-muted">Gate G 已展開為 G1–G6；E5 micro-gates 另行彙整</span></div>
-    <div class="card viz-stat"><span class="text-muted">已完成</span><span class="viz-stat-value" id="na-complete">39</span><span class="text-small text-muted">87% 主線進度；G2 read-only API 已完成</span></div>
-    <div class="card viz-stat"><span class="text-muted">下一個 Gate</span><span class="viz-stat-value">G3</span><span class="text-small text-muted">Container Station deployment contract</span></div>
+    <div class="card viz-stat"><span class="text-muted">已完成</span><span class="viz-stat-value" id="na-complete">40</span><span class="text-small text-muted">89% 主線進度；Gate G3 完成</span></div>
+    <div class="card viz-stat"><span class="text-muted">下一個 Gate</span><span class="viz-stat-value">G4</span><span class="text-small text-muted">Custom API widgets 與入口連結</span></div>
     <div class="card viz-stat"><span class="text-muted">設備設定變更</span><span class="viz-stat-value">0</span><span class="text-small text-muted">Collector 專案目前仍 read-only</span></div>
   </section>
 
@@ -472,7 +472,7 @@
       <div class="na-future-group-head"><strong>未來使用層</strong><span class="text-small text-muted">Dashboard、Agent 與執行權限分層，不讓 LLM 直接碰設備</span></div>
       <div class="na-future-flow">
         <div class="na-future-step"><span class="text-small text-muted">Gate G · Container Station</span><strong>Homepage + Network Analyst</strong><span class="text-small text-muted">Homepage 是全家系統統一入口；自製 Dashboard 承載拓樸、流量、歷史、異常 evidence 與建議</span></div>
-        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Gate H · TS-473A 32GB prerequisite</span><strong>DeepSeek Harness Agent</strong><span class="text-small text-muted">獨立容器分析、去重、問答與通知；HA 是選配 state/action adapter，Apple Home 保持主要前端</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate H · G6 後啟動</span><strong>DeepSeek Harness Agent</strong><span class="text-small text-muted">32GB／QTS／G3 平台前置已完成；待 G4–G6 通過後，依 read-only contract、pilot、validation、UI integration 逐段導入</span></div>
         <div class="na-future-step"><span class="text-small text-muted">Gate I · future</span><strong>Controlled EXECUTE</strong><span class="text-small text-muted">獨立 executor、明確核准、備份、風險分級、回滾與變更前後驗證</span></div>
       </div>
     </div>
@@ -528,7 +528,7 @@
   </section>
 
   <section class="na-future" aria-label="長期方向">
-    <div><h2>Gate G / H / I 遠期方向</h2><span class="text-small text-muted">尚未納入目前 36 項完成率；每一項仍需維持 read-only → 人工核准 → 可回復驗證。</span></div>
+    <div><h2>Gate G / H / I 遠期方向</h2><span class="text-small text-muted">Gate G 已納入主線；Gate H 以不影響主線完成率的進度鏈預先排程，Gate I 仍維持最終控制層。每一步都遵守 read-only → 人工核准 → 可回復驗證。</span></div>
     <div class="na-future-group">
       <div class="na-future-group-head"><strong>Container Station 正式導入鏈</strong><span class="text-small text-muted">它是部署層，不是 telemetry source、Agent 本身或 Router executor</span></div>
       <div class="na-future-flow">
@@ -536,31 +536,34 @@
         <div class="na-future-step" data-stage="required"><span class="text-small text-muted">CS1 · 維護窗</span><strong>QTS + Container Station</strong><span class="text-small text-muted">完成備份、韌體／Container Station 更新與更新後 read-only 驗證；不在 baseline 期間更新</span></div>
         <div class="na-future-step"><span class="text-small text-muted">CS2 · Gate G</span><strong>Homepage + Read-only API + Dashboard</strong><span class="text-small text-muted">Compose V2、LAN-only、非 privileged、固定 image；Homepage 不持有 Router credential，初期不掛載 Docker socket</span></div>
         <div class="na-future-step"><span class="text-small text-muted">CS3 · 服務拆分</span><strong>Analysis + Notification</strong><span class="text-small text-muted">報告、異常與通知獨立於 collector；設定 health check、restart policy 與 log retention</span></div>
-        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">CS4 · Gate H0</span><strong>TS-473A RAM → 32GB</strong><span class="text-small text-muted">相容性確認與 burn-in 通過後，才部署常駐 Agent</span></div>
-        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">CS5 · Gate H1</span><strong>DeepSeek Harness Container</strong><span class="text-small text-muted">初期只讀計算後 evidence；不持有 Router 修改權</span></div>
-        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">CS6 · 選配</span><strong>HA Adapter + Apple Home</strong><span class="text-small text-muted">HA 提供家庭 state/event；Apple Home 維持日常前端，不成為 Dashboard 必要依賴</span></div>
-        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">CS7 · 未來硬體</span><strong>Dedicated Local LLM PC</strong><span class="text-small text-muted">依 VRAM、功耗、延遲與模型生態重評 Qwen3 8B；NAS 負責資料與協調</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">CS4 · Gate H0 complete</span><strong>32GB + QTS + G3 platform</strong><span class="text-small text-muted">32GB、更新後健康確認與 LAN-only Homepage shell 已完成；額外 memory burn-in 保留為選配</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">CS5 · Gate H1–H5 planned</span><strong>DeepSeek Harness read-only chain</strong><span class="text-small text-muted">安全契約 → immutable build → NAS pilot → evidence validation → Homepage Agent UI；不持有 Router 修改權</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">CS6 · Gate H6 optional</span><strong>HA Adapter + Apple Home</strong><span class="text-small text-muted">HA 提供家庭 state/event；Apple Home 維持日常前端，不成為 Dashboard 必要依賴</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">CS7 · Gate H7 future</span><strong>Dedicated Local LLM PC</strong><span class="text-small text-muted">依 VRAM、功耗、延遲與模型生態 A/B 評估官方 Qwen/Qwen3.8-27B 量化版；NAS 負責資料與協調</span></div>
       </div>
     </div>
     <div class="na-future-group">
       <div class="na-future-group-head"><strong>監測與產品化路線</strong><span class="text-small text-muted">Homepage 是統一入口；Network Analyst 是深入分析頁，兩者不互相取代</span></div>
       <div class="na-future-flow">
         <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G1–G2 · complete</span><strong>Read model + Local API</strong><span class="text-small text-muted">整合 core/overlay/inventory/event schema；LAN-only read-only API 與 freshness contract 已通過離線驗證</span></div>
-        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Gate G3 · next</span><strong>Homepage Unified Entry</strong><span class="text-small text-muted">先固定 image/digest、resource limit、volume 與 rollback contract，再於 Container Station 部署</span></div>
-        <div class="na-future-step"><span class="text-small text-muted">Gate G4</span><strong>Custom API Widgets + Service Links</strong><span class="text-small text-muted">Homepage 只讀 Local API，提供 QTS、完整 Dashboard、Agent 與其他家庭服務入口；不直接登入 Router</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G3R4C · complete</span><strong>Immutable r4 LAN frontend</strong><span class="text-small text-muted">r4 running／healthy；exact runtime bind 與單一 non-wildcard listener 通過，Windows 唯一一次 GET 回 HTTP 200／10.7 ms。Gate G3 完成</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate G4D · exact-digest artifact ready</span><strong>Custom API Widgets + Service Links</strong><span class="text-small text-muted">NAS／Windows 直連 Docker Hub 皆 TLS timeout；OT2 已由 GitHub runner 取得固定 linux/amd64 digest，artifact／tar／image identity 離線驗證通過。下一步為 OT3 NAS 離線 load 與 bounded deployment</span></div>
         <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">依賴評估已完成</span><strong>Home Assistant integration（選配）</strong><span class="text-small text-muted">asusrouter GitHub 專案與 F2B2/F2B3 實測已提供足夠 telemetry；Dashboard 可直接使用底層 library，HA 不再是必要前置</span></div>
         <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate G5 · offline concept ready</span><strong>Network Analyst Drill-down Dashboard</strong><span class="text-small text-muted">示範原型保留為深入頁：拓樸、流量、24h/7d history、異常 evidence、Recommendation 與 pre/post comparison</span></div>
         <div class="na-future-step"><span class="text-small text-muted">Gate G6</span><strong>Portal + Dashboard Security & Burn-in</strong><span class="text-small text-muted">LAN-only access、auth、retention、備份／回復、data freshness 與一週穩定性驗證</span></div>
       </div>
     </div>
     <div class="na-future-group">
-      <div class="na-future-group-head"><strong>Agent 與硬體依賴</strong><span class="text-small text-muted">依序完成，不能跳過硬體前置條件</span></div>
+      <div class="na-future-group-head"><strong>Gate H · Agent 與家庭情境進度鏈</strong><span class="text-small text-muted">H0 平台完成；H1 等待 G6，之後逐段核准且成功才前進</span></div>
       <div class="na-future-flow">
-        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Gate H0 · 必要前置</span><strong>TS-473A RAM → 32GB</strong><span class="text-small text-muted">建立常駐 Agent 以前必須先完成；升級方案、相容性與 burn-in 另立核准 Gate</span></div>
-        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate H1 · 目前選定</span><strong>DeepSeek Harness Agent</strong><span class="text-small text-muted">承接 evidence 分析、異常去重、問答、建議與通知；初期 read-only</span></div>
-        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">Gate H2 · 選配</span><strong>HA adapter + Apple Home</strong><span class="text-small text-muted">HA 提供家庭 state/event 與受限 action allowlist；Apple Home/Siri 保持主要前端</span></div>
-        <div class="na-future-step"><span class="text-small text-muted">未來硬體擴充</span><strong>本地 LLM 專用電腦</strong><span class="text-small text-muted">依實際模型、功耗、VRAM、延遲與 24/7 運行需求另行規劃</span></div>
-        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">屆時重新評估</span><strong>Qwen3 8B 候選</strong><span class="text-small text-muted">不提前鎖定；專用電腦規格與當時模型生態確定後再做 A/B 評估</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">H0 · complete</span><strong>Platform prerequisites</strong><span class="text-small text-muted">TS-473A 32GB、QTS／雙 NIC／storage post-check 與 G3 LAN-only Homepage shell 已完成</span></div>
+        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">H1 · next after G6</span><strong>Harness threat model</strong><span class="text-small text-muted">固定 evidence source、tool allowlist、prompt-injection 防線、audit、retention、資源與 no-EXECUTE contract</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">H2 · planned</span><strong>Immutable local build</strong><span class="text-small text-muted">驗證 exact project/version/digest、read-only tools、offline tests 與 rollback；尚不部署 NAS</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">H3 · planned</span><strong>Bounded NAS pilot</strong><span class="text-small text-muted">只讀 G2／報告 evidence，資源受限、LAN-only、24 小時 pilot；不保存 Router credential</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">H4 · planned</span><strong>Analysis & notification validation</strong><span class="text-small text-muted">以 known-event replay 驗證引用忠實度、異常去重、false positive、缺值語意與通知門檻</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">H5 · planned</span><strong>Homepage Agent UI</strong><span class="text-small text-muted">以 service link／受控同源介面加入問答；Harness credential、policy 與 audit 仍獨立</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">H6 · optional</span><strong>HA adapter + Apple Home</strong><span class="text-small text-muted">先唯讀 entities/events；Apple Home/Siri 保持主要前端，action allowlist 需另立 Gate</span></div>
+        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">H7 · future</span><strong>Dedicated local LLM host</strong><span class="text-small text-muted">規格確定後 A/B 官方 Qwen/Qwen3.8-27B 量化版；未通過可維持 API backend</span></div>
       </div>
     </div>
     <div class="na-future-group">
@@ -648,8 +651,16 @@
         { id:'R2-F3D', phase:'post-round2', status:'complete', title:'Router overlay health semantics', purpose:'只用既有 F2C 本機 evidence 調和 Router health predicate，建立可安全使用的跨層健康欄位。', done:['F2C 288/288 samples successful；SQLite integrity、writer-free 與 fingerprint guard 通過','WAN safe state 確認是 structured mapping；連線 Internet 與唯一 primary WAN 同時 connected','2/2 AiMesh online、CPU/RAM available，Router health v2 為 288/288','F3C 共用窗口修正為 287/287 Router healthy；其中 282/287 同時為 NAS all-target-success','原 F3C 0/287 證實為 string-versus-mapping schema mismatch，不是 Router unhealthy'], next:'Gate G 將只使用這個已驗證的健康契約作 co-occurrence corroboration。', safety:'唯讀既有本機 evidence；未補發 Router request、未登入 WebGUI、未寫 SQLite；此欄位不是 per-device／RF／switch/ONT/PPPoE 因果證據。' },
         { id:'G1', phase:'post-round2', status:'complete', title:'Unified read-model contract', purpose:'把 NAS core、Router overlay、inventory、maintenance evidence 與 Recommendation 整理成唯一可信 schema。', done:['建立 Gate G read model v1 JSON Schema 與完整契約文件','健康 health_state 與資料 freshness/data_state 分離','建立 Internet／Router／NAS／device inventory 四層參考快照','20 台 canonical devices 全數映射，但不製造 live presence claim','F3D 287/287 Router health 與 282/287 NAS+Router co-occurrence 已納入','6/6 離線契約測試通過'], next:'G2：以這份 read model 實作 LAN-only、read-only local API 與 freshness budget。', safety:'只讀既有本機 evidence；無 NAS/Router 連線、無 collector、API、容器、Agent 或設備控制。' },
         { id:'G2', phase:'post-round2', status:'complete', title:'Read-only local API', purpose:'提供 Homepage 與完整 Dashboard 共用的 LAN-only API，並固定 freshness、error 與 schema-version contract。', done:['API／model version 1.0.0；10 組固定 read endpoints','只允許 GET／HEAD；write methods 回 405，query string 拒絕','historical 保持 historical；live freshness budget=max(30 秒, interval×2.5)','預設只綁 127.0.0.1；RFC1918 LAN 需顯式旗標，wildcard／public fail-closed','8/8 契約與安全測試通過；offline check 通過','listener_started=false；未部署 service、container 或 collector'], next:'G3：先完成固定 image/digest、resource limit、volume、healthcheck 與 rollback contract，再另行核准 Container Station 部署。', safety:'source evidence 唯讀；無 Router credential、無 Docker socket、無控制 endpoints；本 Gate 未開 listener、未連 NAS/Router。' },
-        { id:'G3', phase:'post-round2', status:'next', title:'Homepage unified entry', purpose:'在 Container Station 部署固定版本 Homepage，顯示 Internet、Router、NAS、裝置、告警與 freshness 摘要。', done:['架構已選定 gethomepage/homepage','G2 read-only API 與 freshness contract 已通過離線驗證'], next:'建立 Container Station deployment contract：固定 image digest、CPU/RAM limits、read-only volume、healthcheck、backup 與 rollback；部署須另行核准。', safety:'Homepage 不保存 Router credential、不直接讀 raw SQLite、初期不掛 Docker socket；G3 規劃階段不啟動容器。' },
-        { id:'G4', phase:'post-round2', status:'pending', title:'Homepage widgets and links', purpose:'以 Custom API widgets 接 G2，並提供 QTS、完整 Dashboard、Agent 與其他家庭服務入口。', done:['資訊分層已確定；尚未串接'], next:'G3 穩定後建立最小 widget allowlist 與 failure semantics。', safety:'Widget 缺值顯示 unavailable/stale，不轉成設備故障；不提供設定按鈕。' },
+        { id:'G3R1', progressKey:'G3', phase:'post-round2', status:'complete', title:'Deployment contract', purpose:'固定 Homepage image、資源與不可變部署契約，先在本機離線驗證。', done:['Homepage v2.1.2 OCI digest 與 SHA-256 manifest 固定','read-only root/config、no Docker socket、no Router credential／SQLite','0.50 CPU／512 MiB／256 PID、healthcheck、log rotation 與 rollback contract','首次 Compose PID-limit inconsistency 於 image pull 前安全停止；r2 已修正並通過離線測試'], next:'G3R2：啟動 r2 並只讀判斷 unhealthy 根因。', safety:'首次停止未拉映像、未建立 container/network，NAS immutable release 未修改。' },
+        { id:'G3R2', progressKey:'G3', phase:'post-round2', status:'complete', title:'Startup root-cause', purpose:'啟動固定 r2 release，並在 unhealthy 後以唯讀證據定位啟動失敗。', done:['固定 digest image、internal network 與唯一 container 已建立','首錯即停於 unhealthy；未放寬安全契約','唯讀診斷確認 restart-loop 與 su-exec setgroups 錯誤','根因是 PUID/PGID entrypoint 與 cap_drop ALL 衝突'], next:'G3R3：以 direct non-root user 取代 entrypoint privilege transition。', safety:'不 restart／stop／remove、不改 config/network；診斷未觸及 SQLite、Router、G2/G4。' },
+        { id:'G3R3', progressKey:'G3', phase:'post-round2', status:'complete', title:'Direct non-root recovery', purpose:'精確移除故障 r2 runtime，部署保留全部安全限制的 immutable r3。', done:['五項 r2 identity/restart guards 與 foreign-attachment guard 通過','只移除匹配的 r2 container 與單一 internal network；immutable releases 保留','r3 以 direct non-root user 啟動並達 natural health=healthy','image、read-only root/config、0.50 CPU、512 MiB、256 PID、cap_drop ALL、no-new-privileges 與六張 source_unavailable 卡片通過'], next:'G3R4：完成 LAN published-port path 驗證。', safety:'只處理精確匹配 runtime；未存取 SQLite、登入 Router、啟動 G2 或進入 G4。' },
+        { id:'G3R4', progressKey:'G3', phase:'post-round2', status:'complete', title:'LAN port path', purpose:'在維持精確 LAN bind 與最小權限的前提下，讓 LAN client 可連到健康的 Homepage。', done:['G3R4A：internal=true 下 configured binding 未形成 runtime port/listener，失效點不是 Homepage process','G3R4B：immutable r4 只把 frontend 改為 bridge／internal=false；6/6 offline tests 通過','G3R4C：全部 healthy-r3 identity/security/resource/port guards 通過後，只移除 exact r3 runtime 與單一 network','r4 manifest 12 files verified；ZIP SHA-256=a09c53b4…b624a86','r4 running／healthy、restart count 0、direct non-root、read-only root/config、cap_drop ALL、no-new-privileges','0.50 CPU／512 MiB／256 PID、no Docker socket、六張 source_unavailable 卡片通過','configured/runtime bind=192.168.50.72:3000；exact listener count=1、wildcard listener=false','Windows 唯一一次匿名 GET：HTTP 200、curl exit 0、10.7 ms；無 retry/body/credential header'], next:'Gate G4：以最小 endpoint/widget allowlist 將 Homepage 接到 G2 read-only API，並加入 QTS、完整 Dashboard 與後續 Agent 入口。', safety:'G3 完成不代表已啟動 G2/G4；目前仍無 Router credential、SQLite、Docker socket 或控制能力。任何 widget、service link、認證或額外網路存取需另行核准。' },
+        { id:'G4A', progressKey:'G4', phase:'post-round2', status:'complete', title:'Widget/API contract', purpose:'固定六張 Homepage 摘要卡、G2 exact endpoint、欄位 mapping、五分鐘 cadence 與 failure semantics。', done:['Internet／Router／NAS／Devices／Alerts／Freshness 六卡 exact allowlist','GET-only、relative path、0 query/body/custom header/credential','transport/missing → source_unavailable；stale/historical 保留原語意','G2 in-memory routes 與所有 mapping paths 通過 12 項離線測試'], next:'G4B：為 G2 read-only API 建立 immutable runtime package 與 rollback contract。', safety:'本 Gate 純本機離線；未開 listener、未連 NAS/Router、未改 Homepage、未讀 SQLite。' },
+        { id:'G4B', progressKey:'G4', phase:'post-round2', status:'complete', title:'G2 immutable runtime package', purpose:'把已驗證 G2 API 與 frozen read model 打包成可審核、可回復的最小 runtime。', done:['官方 Python 3.12.14 linux/amd64 image manifest pinned by digest','單一 direct-non-root service；read-only root/release mount、cap_drop ALL、no-new-privileges','internal-only fixed backend 172.28.40.2:8787；0 host port publication','0.25 CPU／256 MiB／128 PID、readyz healthcheck、bounded logs 與 exact rollback contract','8-file manifest 與 offline validator通過；ZIP SHA-256=472e2859…e3534462'], next:'G4C 已完成；進入 G4D bounded deployment。', safety:'未拉 image、未部署、未開 listener、未連 NAS/Router、無 credential／SQLite／Docker socket。' },
+        { id:'G4C', progressKey:'G4', phase:'post-round2', status:'complete', title:'Homepage widget release', purpose:'建立新的 immutable Homepage release，套用 G4A 六卡 mappings 與 owner-approved service links。', done:['六個 Custom API widgets 與 G4A endpoint/mapping/cadence 完全一致','Homepage 保留 G3 pinned image、exact LAN bind、direct non-root、read-only 與資源限制','新增 exact external backend attachment；不加入 Docker socket/credential','QTS 為唯一 live service link；Dashboard／Agent 保持 source_unavailable','11-file manifest 與 offline validator通過；ZIP SHA-256=c998f534…cd78f4d8','G4A–G4C/G2 focused tests 20/20 通過'], next:'G4D：以 exact guards 部署 G2 runtime，並將 G3 r4 Homepage 精確替換為 G4 r5。', safety:'離線完成；未連 NAS/Router、未啟動 container/listener。Router port 支線缺值不阻塞其他卡片。' },
+        { id:'G4D', progressKey:'G4', phase:'post-round2', status:'running', title:'Bounded deploy & E2E validation', purpose:'部署 G2 runtime 與 G4C Homepage release，驗證六卡、service links 與缺值語意。', done:['G4A contract、G4B API bundle、G4C Homepage r5 bundle均已離線通過','G3 r4 pre-upload guard 通過；兩個 immutable releases 已 stage','NAS direct pull 首錯停於 Docker Hub TLS timeout，未替換既有 Homepage','OT1／OT2 已完成 transport diagnosis 與 exact-digest artifact relay'], next:'G4D-OT3：另行核准後把已驗證 image tar 離線傳至 NAS，docker load 後比對 image ID，再以原 G4D exact guards 恢復 bounded deployment／E2E validation。', safety:'現有 G3 r4 Homepage 保持 running／healthy。首錯即停；不讀正式 SQLite、不登入 Router、不增加控制 endpoint、不放寬安全限制。' },
+        { id:'G4D-OT1', progressKey:'G4', phase:'post-round2', status:'complete', title:'Direct registry transfer（closed）', purpose:'確認能否由 Windows 以獨立工具取得 G4B 固定 Python digest，避開 NAS pull。', done:['官方 go-containerregistry v0.21.7 Windows archive 與 checksum 驗證通過','crane.exe 版本與來源驗證通過','Windows 連 Docker Hub 同樣 TLS handshake timeout；未產生 tar 或 partial image'], next:'已由 G4D-OT2 GitHub exact-digest relay 取代。', safety:'工具只執行 version／digest pull；未碰 NAS／Router、未執行映像、未放寬 digest pin。' },
+        { id:'G4D-OT2', progressKey:'G4', phase:'post-round2', status:'complete', title:'GitHub exact-digest relay', purpose:'使用手動、無 secrets 的 GitHub runner 取得相同 Docker Hub digest 並匯出 linux/amd64 image tar。', done:['workflow_dispatch-only、contents read、無 push/publish/secrets','run #1 success；固定 digest 與 linux/amd64 RepoDigest 驗證通過','artifact SHA-256=5c8cb412…020b948；tar SHA-256=d2c0ca87…56f4603','image ID/config digest 與 linux/amd64 metadata 離線交叉驗證通過；image_executed=false'], next:'G4D-OT3：NAS offline load 與 image-ID guard，成功後接續 G4D deployment。', safety:'Artifact retention 1 day；workflow 保留且尚未刪除。沒有 NAS／Router 變更或 credential 傳輸。' },
         { id:'G5', phase:'post-round2', status:'pending', title:'Network Analyst drill-down', purpose:'建立類 UniFi 的深入頁：拓樸、traffic、24h/7d history、evidence、Recommendation 與 pre/post comparison。', done:['離線 dashboard concept 已存在','G1 已固定所有可信欄位與限制'], next:'等待 G2 API 後，以真實 read model 取代 demo data。', safety:'只做觀察、分析與建議；aggregate traffic 不冒充 per-device traffic。' },
         { id:'G6', phase:'post-round2', status:'pending', title:'Security and burn-in', purpose:'驗證 LAN-only access、認證、retention、備份／回復、freshness 與一週穩定性。', done:['安全邊界已定義；尚未執行'], next:'G3–G5 完整後進行 bounded burn-in；通過才進入 Gate H Harness。', safety:'非 privileged、固定 image/digest、最小權限；所有控制能力仍為 0。' }
       ];
@@ -658,8 +669,10 @@
         { id:'sensorpc', title:'Secondary PC', subtitle:'remote zone 有線觀測點 · 驅動更新後驗證鏈' },
         { id:'macbook', title:'2012 legacy laptop', subtitle:'可移動 Ethernet／Wi-Fi on-demand sensor' },
         { id:'phone', title:'舊手機 Sensor', subtitle:'低優先選配 · 先確認安全與背景執行能力' },
-        { id:'nas-agent', title:'NAS／Agent 硬體', subtitle:'F1F closeout → RAM → Container → Harness' },
-        { id:'router-ha', title:'Router／HA 研究', subtitle:'已取得主線 telemetry；其餘研究不阻塞分析' }
+        { id:'nas-agent', title:'NAS／Agent 硬體', subtitle:'Evidence freeze → 32GB／QTS → Gate G platform' },
+        { id:'gate-h', title:'Gate H · DeepSeek Harness', subtitle:'H0 platform complete → H1–H5 read-only Agent chain → H6/H7 options' },
+        { id:'router-ha', title:'Router／HA 研究', subtitle:'已取得主線 telemetry；其餘研究不阻塞分析' },
+        { id:'router-port', title:'G4-P · Router Port Telemetry', subtitle:'選配支線 · 不影響 G3–G6 主線完成率' }
       ];
       const branchGates = [
         { id:'SENSORPC-D1', phase:'sensorpc', status:'complete', title:'Realtek inventory', purpose:'建立 Secondary PC Realtek NIC 的硬體、PnP、驅動與事件基準。', done:['DEV_8168／SUBSYS_84321043／REV_06','1 Gbps、MTU 1500、PnP OK、signed driver','error/drop snapshot 0；30 天匹配 events 0'], next:'使用者完成驅動更新後進入版本驗證。', safety:'本機唯讀；不產生網路流量、不改設定。' },
@@ -682,15 +695,30 @@
 
         { id:'NAS-H0', phase:'nas-agent', status:'complete', title:'F1F → F3B evidence freeze', purpose:'完成七天 core、writer-free closeout 與最終 immutable 分析。', done:['F1F 完整七天 window 已完成','F3B immutable closeout 與 final report 已完成','F2C 24h overlay evidence 已獨立封存'], next:'可安排 NAS-H1 維護窗：先備份與停機檢查，再由使用者升級 32GB RAM。', safety:'evidence 已 freeze；任何 RAM／QTS／Container Station 變更都要在獨立維護窗內進行並留下前後驗證。' },
         { id:'NAS-H1', phase:'nas-agent', status:'complete', title:'QTS／RAM 32GB maintenance', purpose:'主線 R2-M1 的硬體維護支線：完成 TS-473A RAM 擴充與必要平台維護。', done:['32GB 記憶體已到貨；F1F／F3B／F3C 已完成','使用者安裝並開機；QTS 顯示 32GB（31GB available）','使用者回報 QTS firmware 更新完成；M2 以只讀方式確認 QTS 5.2.10、雙 NIC 與 RAID metadata 無阻擋信號'], next:'若需要額外把握度，再另立有界 memory burn-in；否則進入 Gate G。', safety:'原 RAM 保留以便回復；升級後的壓力測試另定範圍。' },
-        { id:'NAS-H2', phase:'nas-agent', status:'pending', title:'Memory burn-in', purpose:'確認 32GB 容量、錯誤、溫度與 NAS 長時間穩定性。', done:['等待 NAS-H1'], next:'burn-in 通過後才准許常駐容器與 Agent。', safety:'先做只讀 health 驗證；任何壓力測試另定上限與停止條件。' },
-        { id:'NAS-H3', phase:'nas-agent', status:'pending', title:'Container deployment', purpose:'依序部署 Homepage、read-only API、Dashboard、analysis 與 notification。', done:['架構與 Gate G 方向已定義；尚未部署'], next:'先完成 Gate G，再進入 Harness。', safety:'LAN-only、非 privileged、固定 image；不把 Router credential 放進 Homepage。' },
-        { id:'NAS-H4', phase:'nas-agent', status:'pending', title:'DeepSeek Harness', purpose:'讓常駐 Agent 負責 evidence 分析、異常去重、問答、建議與通知。', done:['Harness 已選定；部署前置尚未完成'], next:'初期只讀 evidence，成熟後才另立 Gate I executor。', safety:'不持有 Router 修改權；EXECUTE 必須是獨立、可回滾的授權層。' },
+        { id:'NAS-H2', phase:'nas-agent', status:'optional', title:'Memory burn-in', purpose:'若出現 memory、temperature 或 container stability 線索，再對 32GB 做有界壓力驗證。', done:['M2 post-upgrade health 已通過','G3 Homepage container running／healthy；尚無 RAM error evidence'], next:'目前不阻塞 Gate G/H；只有新線索出現才另定 workload、溫度與停止條件。', safety:'任何壓力測試需另行核准；不得與重要 collector／storage maintenance 同時進行。' },
+        { id:'NAS-H3', phase:'nas-agent', status:'running', title:'Container platform rollout', purpose:'依序部署 Homepage、read-only API、Dashboard、analysis 與 notification。', done:['G3 Homepage r4 已 running／healthy','exact LAN bind、direct non-root、read-only root/config、resource limits 與無 Docker socket通過','G4A contract、G4B API runtime、G4C Homepage r5 release 已離線完成','G4D-OT2 exact-digest linux/amd64 image artifact 已離線驗證完成'], next:'G4D-OT3 NAS offline load，之後恢復 G4D bounded deployment／E2E validation；通過後再進入 G5/G6。', safety:'LAN-only、非 privileged、固定 image；不把 Router credential 放進 Homepage。' },
+        { id:'NAS-H4', phase:'nas-agent', status:'pending', title:'DeepSeek Harness admission', purpose:'只在 Gate G6 通過後讓常駐 Agent 讀取 normalized evidence。', done:['Harness 方向已選定；Gate H0 平台前置已完成'], next:'依 Gate H1–H5 安全契約、immutable build、pilot、validation、UI 順序前進。', safety:'不持有 Router 修改權；EXECUTE 必須是獨立、可回滾的 Gate I 授權層。' },
+
+        { id:'H0', phase:'gate-h', status:'complete', title:'Platform prerequisites', purpose:'確認 Harness 的 NAS 硬體、QTS 與最小 LAN-only frontend 前置可用。', done:['TS-473A 已升級 32GB','QTS／storage／雙 NIC post-upgrade health 通過','G3 r4 Homepage running／healthy，exact LAN bind 與最小權限通過'], next:'先完成 G4–G6；之後啟動 H1。', safety:'H0 不代表 Agent 已部署；memory burn-in 保留為條件式選配。' },
+        { id:'H1', phase:'gate-h', status:'pending', title:'Harness threat model', purpose:'固定 Agent 能讀什麼、能用哪些工具、如何處理 prompt injection、audit、retention 與資源限制。', done:['架構決策：DeepSeek Harness 分析／編排，初期 read-only','Gate I executor 已明確分離'], next:'G6 通過後建立 exact source/tool allowlist、no-EXECUTE contract、citation 與 rollback acceptance。', safety:'不得讓 evidence 內容變成指令；不得持有 Router／QTS admin credential或任意 shell。' },
+        { id:'H2', phase:'gate-h', status:'pending', title:'Immutable local build', purpose:'在 Windows 本機確認 exact Harness project/version/digest、依賴、設定與 read-only tools。', done:['等待 H1 contract'], next:'離線測試 known evidence、tool denial、schema drift、prompt injection 與 resource guard；尚不部署 NAS。', safety:'不預先鎖定未驗證 release；不接 NAS/Router、不傳正式 evidence 到外部服務。' },
+        { id:'H3', phase:'gate-h', status:'pending', title:'Bounded NAS pilot', purpose:'以單一資源受限容器執行 24 小時只讀 Agent pilot。', done:['等待 H2'], next:'只讀 G2 API／計算後 reports，量測 CPU/RAM/PID、latency、errors、audit 與 restart behavior。', safety:'LAN-only；無 Docker socket、Router credential、SQLite write、device login或控制 tool。' },
+        { id:'H4', phase:'gate-h', status:'pending', title:'Analysis & notification validation', purpose:'證明 Agent 的答案、異常去重與通知都能追溯到 evidence，且不把缺值當故障。', done:['等待 H3 evidence'], next:'known-event replay、citation fidelity、false-positive、source_unavailable、dedupe 與通知門檻全數通過。', safety:'低信心只提示資料不足；不得自動修復、重啟、改設定或放大告警。' },
+        { id:'H5', phase:'gate-h', status:'pending', title:'Homepage Agent UI', purpose:'把通過驗證的問答入口加入 Homepage，同時保留 Harness 獨立 trust boundary。', done:['等待 H4'], next:'使用 allowlisted service link 或受控同源 UI；驗證 auth、session、audit 與 unavailable behavior。', safety:'Homepage 不保存 Harness／Router credential；UI 不提供未核准的 execute action。' },
+        { id:'H6', phase:'gate-h', status:'optional', title:'HA adapter + Apple Home', purpose:'當智慧設備與 automation 需求增加時，讓 HA 提供家庭 state/event 與受限 action adapter。', done:['目前底層 Router telemetry 已足夠；HA 不是 Dashboard 必要前置','Apple Home／Siri 維持主要家庭前端'], next:'先唯讀 entities/events；任何 action allowlist 另立 Gate 並要求 owner approval。', safety:'不給 Harness HA admin 或任意 call_service；Router control 不借道 HA。' },
+        { id:'H7', phase:'gate-h', status:'optional', title:'Dedicated local LLM host', purpose:'未來以專用電腦承擔本地推論，NAS 保留 evidence、協調與服務入口。', done:['官方 Qwen/Qwen3.8-27B 量化版列為第一候選；尚未選硬體或 runtime'], next:'依 VRAM、功耗、延遲、繁中、citation、tool-call 與 24h stability 做 A/B；不通過則維持 API backend。', safety:'不把社群未驗證 distill 當正式模型；不因模型改變而放寬 H1/Gate I 權限。' },
 
         { id:'RT-S0', phase:'router-ha', status:'complete', title:'asusrouter telemetry', purpose:'驗證不依賴 Home Assistant 也能從底層 library 取得 Router telemetry。', done:['F2B2/F2B3 完成','CPU/RAM/WAN/network/AiMesh/client schema 可用','port live speed 因語意衝突排除'], next:'以 F2C 驗證 24 小時連續採樣。', safety:'只讀；不保存 credential/raw response/MAC/IP。' },
         { id:'RT-S1', phase:'router-ha', status:'complete', title:'F2C 24h overlay', purpose:'驗證 Router normalized overlay 能以五分鐘 cadence 長時間穩定取得。', done:['288/288 cycles、0 failed','WAN/AiMesh 全程 connected','CPU/RAM/network/WAN/AiMesh/client 全部 available'], next:'F3B NAS final report 已完成但未跨窗併入 F2C；F3C 可在明確的 correlation contract 下做保守對照。', safety:'0 Router control；五分鐘採樣不能排除更短事件。' },
         { id:'RT-S2', phase:'router-ha', status:'optional', title:'E5 Traffic Monitor research', purpose:'保留 GUI private Traffic Monitor 的 renderer／counter 研究，但不再阻塞主線。', done:['54 個 micro-gates 已封存','F2B2/F2B3/F2C 已取代主要 telemetry 需求'], next:'只有需要 GUI parity 或 per-device traffic 時才重啟。', safety:'未驗證 counter 不進正式 collector 或建議。' },
         { id:'RT-S3', phase:'router-ha', status:'optional', title:'Home Assistant adapter', purpose:'未來智慧設備增加時，讓 HA 提供家庭 state/event 與受限 action adapter。', done:['底層 asusrouter 資訊已足夠；HA 不再是 Dashboard 必要前置'], next:'設備數量與自動化需求增加後再評估。', safety:'不借道 HA 讓 LLM 取得未受控 Router 執行權。' },
-        { id:'RT-S4', phase:'router-ha', status:'complete', title:'Apple Home preserved', purpose:'維持 Apple Home／Siri 作為家庭日常控制前端。', done:['架構決策已確認：HA 若導入只作 adapter，不取代 Apple 生態'], next:'未來整合時只暴露 owner-approved devices/actions。', safety:'Network Analyst Dashboard 與家庭控制前端分離。' }
+        { id:'RT-S4', phase:'router-ha', status:'complete', title:'Apple Home preserved', purpose:'維持 Apple Home／Siri 作為家庭日常控制前端。', done:['架構決策已確認：HA 若導入只作 adapter，不取代 Apple 生態'], next:'未來整合時只暴露 owner-approved devices/actions。', safety:'Network Analyst Dashboard 與家庭控制前端分離。' },
+
+        { id:'G4-P1', phase:'router-port', status:'optional', title:'Port field semantics', purpose:'分辨 Router 欄位究竟是協商速率、硬體能力、累積 counter 或即時流量，避免同名不同義。', done:['支線已建立；尚未讀取新資料','現有證據確認 WebGUI 與 asusrouter port 語意曾衝突'], next:'主線有需要時另行核准一次只讀 schema/field inventory。', safety:'不回傳 raw response、MAC/IP、Cookie/Header/Token；不因欄位存在就加入正式 schema。' },
+        { id:'G4-P2', phase:'router-port', status:'pending', title:'Physical port identity map', purpose:'利用既有拓樸、WebGUI 與對端 NIC link evidence，為 WAN、backbone、AiMesh backhaul 等建立穩定正規化 port identity。', done:['等待 G4-P1 唯一化欄位語意'], next:'要求重新整理／重新登入後 mapping 仍一致，再進入 link transition。', safety:'不保存 ASUS 原始識別碼；不猜測 port label；不變更線路。' },
+        { id:'G4-P3', phase:'router-port', status:'pending', title:'Link and negotiation validation', purpose:'由使用者手動操作一個非關鍵端點 disconnect/reconnect，驗證 port up/down 與 negotiated speed 是否正確跟隨。', done:['等待 G4-P2 建立唯一 port identity'], next:'Up/down 100% 符合實際狀態，且 Router GUI、API 與 peer NIC 協商速率一致後才通過。', safety:'Codex 不拔線、不停用 NIC、不操作 Router；任何人工擾動需獨立核准與停止條件。' },
+        { id:'G4-P4', phase:'router-port', status:'pending', title:'RX/TX throughput calibration', purpose:'若確實需要即時 Mbps，將 Router cumulative counters 與 NAS／Windows peer counters 做時間對齊的 idle/load 校準。', done:['等待 G4-P3；可只完成 link speed 而跳過本 Gate'], next:'至少 5 idle + 5 sustained-load aligned samples；方向一致率 100%，非零誤差不超過 max(15%, 0.05 MB/s)。', safety:'負載由使用者手動產生；Codex 不啟動 speed test。missing/reset/session expiry 不得形成巨大假流量。' },
+        { id:'G4-P5', phase:'router-port', status:'pending', title:'Dashboard admission', purpose:'把已驗證的 port identity、link state、negotiated speed、可選 RX/TX rate 與 freshness 納入 G2/G4 read model。', done:['等待所需前置 Gate 通過'], next:'通過才在 Homepage 顯示；未通過的欄位固定為 source_unavailable，且不阻塞 G4 其他 widgets。', safety:'只讀呈現；不提供 Apply、斷線、重新協商、重開機或其他控制按鈕。' }
       ];
 
       const deviceTopologyGroups = [
@@ -741,7 +769,7 @@
         next: root.querySelector('#na-detail-next'),
         safety: root.querySelector('#na-detail-safety')
       };
-      let selectedId = 'G3';
+      let selectedId = 'G4D';
       let activeFilter = 'all';
       const branchLanes = root.querySelector('#na-branch-lanes');
       const branchDetail = {
@@ -753,7 +781,7 @@
         next: root.querySelector('#na-branch-detail-next'),
         safety: root.querySelector('#na-branch-detail-safety')
       };
-      let selectedBranchId = 'SENSORPC-D2';
+      let selectedBranchId = 'H0';
       const deviceLanes = root.querySelector('#na-device-lanes');
       const deviceDetail = {
         phase: root.querySelector('#na-device-detail-phase'),
@@ -772,6 +800,19 @@
         if (activeFilter === 'all') return true;
         if (activeFilter === 'blocked') return gate.status === 'blocked' || gate.status === 'optional';
         return gate.status === activeFilter;
+      }
+
+      function progressSummary(items) {
+        const groups = new Map();
+        items.forEach(gate => {
+          const key = gate.progressKey || gate.id;
+          if (!groups.has(key)) groups.set(key, []);
+          groups.get(key).push(gate);
+        });
+        return {
+          total: groups.size,
+          complete: [...groups.values()].filter(group => group.every(gate => gate.status === 'complete')).length
+        };
       }
 
       function renderDetail(id) {
@@ -823,7 +864,8 @@
           heading.append(h2, subtitle);
           const count = document.createElement('span');
           count.className = 'text-small text-muted';
-          count.textContent = `${phaseGates.filter(g => g.status === 'complete').length}/${phaseGates.length} 完成`;
+          const phaseProgress = progressSummary(phaseGates);
+          count.textContent = `${phaseProgress.complete}/${phaseProgress.total} 主線 Gate 完成`;
           head.append(heading, count);
           const grid = document.createElement('div');
           grid.className = 'na-gate-grid';
@@ -1006,12 +1048,14 @@
         });
       });
 
-      const complete = gates.filter(gate => gate.status === 'complete').length;
-      const percent = Math.round(100 * complete / gates.length);
-      root.querySelector('#na-total').textContent = String(gates.length);
+      const mainProgress = progressSummary(gates);
+      const complete = mainProgress.complete;
+      const total = mainProgress.total;
+      const percent = Math.round(100 * complete / total);
+      root.querySelector('#na-total').textContent = String(total);
       root.querySelector('#na-complete').textContent = String(complete);
-      root.querySelector('#na-progress-text').textContent = `${complete} / ${gates.length}`;
-      root.querySelector('#na-progress-bar').style.width = `${100 * complete / gates.length}%`;
+      root.querySelector('#na-progress-text').textContent = `${complete} / ${total}`;
+      root.querySelector('#na-progress-bar').style.width = `${100 * complete / total}%`;
       const progress = root.querySelector('.progress');
       progress.setAttribute('aria-valuenow', String(percent));
       renderLanes();
