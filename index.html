@@ -339,6 +339,208 @@
     #na-roadmap-public-2026 .na-status-label[data-status="optional"] {
       color: var(--purple);
     }
+    #na-roadmap-public-2026 .na-topology-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: center;
+    }
+    #na-roadmap-public-2026 .na-topology-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted-foreground);
+      font-size: .78rem;
+    }
+    #na-roadmap-public-2026 .na-topology-swatch {
+      width: 28px;
+      height: 0;
+      border-top: 2px solid #6e7d90;
+    }
+    #na-roadmap-public-2026 .na-topology-swatch[data-kind="wireless"] {
+      border-top-style: dashed;
+      border-color: var(--blue);
+    }
+    #na-roadmap-public-2026 .na-topology-swatch[data-kind="roaming"] {
+      border-top-style: dotted;
+      border-color: var(--purple);
+    }
+    #na-roadmap-public-2026 .na-topology-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(300px, .72fr);
+      gap: 22px;
+      align-items: start;
+    }
+    #na-roadmap-public-2026 .na-topology-shell {
+      padding: 0;
+      overflow: hidden;
+    }
+    #na-roadmap-public-2026 .na-topology-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-color: #455466 var(--card);
+      scrollbar-width: thin;
+    }
+    #na-roadmap-public-2026 .na-topology-canvas {
+      position: relative;
+      width: max-content;
+      min-width: 100%;
+      background:
+        radial-gradient(circle at 15% 14%, rgba(88,166,255,.07), transparent 25%),
+        radial-gradient(circle at 78% 62%, rgba(188,140,255,.05), transparent 30%);
+    }
+    #na-roadmap-public-2026 .na-topology-edges {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+    #na-roadmap-public-2026 .na-topology-edge {
+      fill: none;
+      stroke: #657386;
+      stroke-width: 1.6;
+      vector-effect: non-scaling-stroke;
+    }
+    #na-roadmap-public-2026 .na-topology-edge[data-kind="wireless"] {
+      stroke: var(--blue);
+      stroke-dasharray: 6 6;
+      opacity: .72;
+    }
+    #na-roadmap-public-2026 .na-topology-edge[data-kind="roaming"] {
+      stroke: var(--purple);
+      stroke-dasharray: 2 7;
+      opacity: .72;
+    }
+    #na-roadmap-public-2026 .na-topology-edge-label {
+      fill: var(--muted-foreground);
+      paint-order: stroke;
+      stroke: var(--background);
+      stroke-width: 4px;
+      stroke-linejoin: round;
+      font: 650 10px Inter, ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: .01em;
+    }
+    #na-roadmap-public-2026 .na-topology-nodes {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 176px);
+      grid-auto-rows: 96px;
+      column-gap: 30px;
+      row-gap: 36px;
+      width: max-content;
+      min-width: 1270px;
+      min-height: 990px;
+      padding: 34px;
+    }
+    #na-roadmap-public-2026 .na-topology-node {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      width: 176px;
+      min-height: 90px;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(21,27,35,.96);
+      color: var(--foreground);
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      transition: border-color .15s ease, background .15s ease, transform .15s ease;
+    }
+    #na-roadmap-public-2026 .na-topology-node:hover {
+      border-color: #536276;
+      background: rgba(32,40,51,.98);
+      transform: translateY(-1px);
+    }
+    #na-roadmap-public-2026 .na-topology-node:focus-visible,
+    #na-roadmap-public-2026 .na-topology-node[aria-pressed="true"] {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+      border-color: var(--blue);
+    }
+    #na-roadmap-public-2026 .na-topology-node[data-status="optional"] {
+      border-color: rgba(188,140,255,.52);
+    }
+    #na-roadmap-public-2026 .na-topology-node[data-status="next"] {
+      border-color: rgba(88,166,255,.58);
+    }
+    #na-roadmap-public-2026 .na-topology-badge {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #536276;
+      border-radius: 12px;
+      background: #f4f6f8;
+      color: #1f2937;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+      overflow: hidden;
+    }
+    #na-roadmap-public-2026 .na-topology-badge img {
+      display: block;
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+    #na-roadmap-public-2026 .na-topology-badge[data-kind="product"] {
+      border-color: transparent;
+      background: transparent;
+      overflow: visible;
+    }
+    #na-roadmap-public-2026 .na-topology-badge[data-kind="product"] img {
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(0 8px 5px rgba(0,0,0,.42));
+    }
+    #na-roadmap-public-2026 .na-topology-branch {
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 2px;
+      width: 176px;
+      min-height: 70px;
+      padding: 8px;
+      border: 1px dashed #59687b;
+      border-radius: 13px;
+      background: rgba(21,27,35,.86);
+      color: var(--foreground);
+      text-align: center;
+    }
+    #na-roadmap-public-2026 .na-topology-branch strong {
+      font-size: .76rem;
+    }
+    #na-roadmap-public-2026 .na-topology-branch small {
+      color: var(--muted-foreground);
+      font-size: .64rem;
+    }
+    #na-roadmap-public-2026 .na-topology-copy {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+    #na-roadmap-public-2026 .na-topology-copy strong,
+    #na-roadmap-public-2026 .na-topology-copy small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    #na-roadmap-public-2026 .na-topology-copy strong {
+      font-size: .78rem;
+    }
+    #na-roadmap-public-2026 .na-topology-copy small {
+      color: var(--muted-foreground);
+      font-size: .66rem;
+    }
     #na-roadmap-public-2026 .na-future {
       display: grid;
       gap: 14px;
@@ -356,7 +558,7 @@
     }
     #na-roadmap-public-2026 .na-future-flow {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       align-items: stretch;
     }
@@ -370,20 +572,78 @@
     #na-roadmap-public-2026 .na-future-step:first-child {
       border-color: var(--viz-series-1);
     }
+    #na-roadmap-public-2026 .na-future-step[data-stage="complete"] {
+      border-color: var(--green);
+    }
     #na-roadmap-public-2026 .na-future-step[data-stage="required"] {
-      border-color: var(--viz-series-2);
+      border-color: var(--orange);
     }
     #na-roadmap-public-2026 .na-future-step[data-stage="selected"] {
-      border-color: var(--viz-series-1);
+      border-color: var(--blue);
     }
     #na-roadmap-public-2026 .na-future-step[data-stage="candidate"] {
-      border-color: var(--viz-series-3);
+      border-color: var(--purple);
+    }
+    #na-roadmap-public-2026 .na-future-step[data-stage="planned"] {
+      border-color: var(--border);
+    }
+    #na-roadmap-public-2026 .na-architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    #na-roadmap-public-2026 .na-architecture-card {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      min-height: 184px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(32,40,51,.92), rgba(21,27,35,.98));
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    }
+    #na-roadmap-public-2026 .na-architecture-card[data-stage="complete"] { border-top-color: var(--green); }
+    #na-roadmap-public-2026 .na-architecture-card[data-stage="running"] { border-top-color: var(--blue); }
+    #na-roadmap-public-2026 .na-architecture-card[data-stage="next"] { border-top-color: var(--orange); }
+    #na-roadmap-public-2026 .na-architecture-card[data-stage="future"] { border-top-color: var(--purple); }
+    #na-roadmap-public-2026 .na-architecture-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted-foreground);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    #na-roadmap-public-2026 .na-architecture-card h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.2;
+    }
+    #na-roadmap-public-2026 .na-architecture-card p {
+      margin: 0;
+      color: var(--muted-foreground);
+      font-size: .82rem;
+      line-height: 1.48;
+    }
+    #na-roadmap-public-2026 .na-architecture-next {
+      margin-top: auto;
+      padding-top: 9px;
+      border-top: 1px solid rgba(154,168,183,.18);
+      color: var(--foreground);
+      font-size: .75rem;
+      line-height: 1.4;
     }
     #na-roadmap-public-2026 [hidden] {
       display: none !important;
     }
     @media (max-width: 820px) {
-      #na-roadmap-public-2026 .na-layout {
+      #na-roadmap-public-2026 .na-layout,
+      #na-roadmap-public-2026 .na-topology-layout {
         grid-template-columns: 1fr;
       }
       #na-roadmap-public-2026 .na-detail {
@@ -392,13 +652,41 @@
       #na-roadmap-public-2026 .na-stats {
         grid-template-columns: repeat(2, minmax(130px, 1fr));
       }
+      #na-roadmap-public-2026 .na-architecture-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #na-roadmap-public-2026 .na-topology-scroll {
+        overflow-x: hidden;
+      }
+      #na-roadmap-public-2026 .na-topology-canvas {
+        width: 100%;
+      }
+      #na-roadmap-public-2026 .na-topology-edges {
+        display: none;
+      }
+      #na-roadmap-public-2026 .na-topology-nodes {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: auto;
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        gap: 12px;
+        padding: 12px;
+      }
+      #na-roadmap-public-2026 .na-topology-nodes > * {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        width: 100%;
+      }
     }
     @media (max-width: 520px) {
       #na-roadmap-public-2026 {
         padding: 16px;
       }
       #na-roadmap-public-2026 .na-stats,
-      #na-roadmap-public-2026 .na-future-flow {
+      #na-roadmap-public-2026 .na-future-flow,
+      #na-roadmap-public-2026 .na-architecture-grid {
         grid-template-columns: 1fr;
       }
       #na-roadmap-public-2026 .na-gate-grid {
@@ -411,21 +699,21 @@
     <div class="na-heading-copy">
       <div class="na-kicker text-small">Network Analyst · Public Edition</div>
       <h1>Network Analyst Roadmap</h1><p class="text-small text-muted">公開去識別快照：不含內網位址、私人裝置名稱、完整韌體版本、認證資料或即時 raw telemetry。</p>
-      <div class="na-status-now"><span class="na-dot" aria-hidden="true"></span><span>目前位置：Gate G · G4D／OT3 deployment complete；下一步 G5A drill-down information architecture</span></div>
+      <div class="na-status-now"><span class="na-dot" aria-hidden="true"></span><span>目前位置：Gate G · G6D R3 seven-day burn-in running；G7A topology contract draft 已離線備妥，預計 2026-09-10 17:00（台北）進入 G6E 後正式驗收</span></div>
     </div>
     <span class="viz-badge">OBSERVE → ANALYZE → RECOMMEND</span>
   </header>
 
   <section class="viz-grid na-stats" aria-label="Roadmap 摘要">
-    <div class="card viz-stat"><span class="text-muted">主線工作項目</span><span class="viz-stat-value" id="na-total">45</span><span class="text-small text-muted">Gate G 已展開為 G1–G6；E5 micro-gates 另行彙整</span></div>
-    <div class="card viz-stat"><span class="text-muted">已完成</span><span class="viz-stat-value" id="na-complete">40</span><span class="text-small text-muted">89% 主線進度；Gate G3 完成</span></div>
-    <div class="card viz-stat"><span class="text-muted">下一個 Gate</span><span class="viz-stat-value">G4</span><span class="text-small text-muted">Custom API widgets 與入口連結</span></div>
+    <div class="card viz-stat"><span class="text-muted">主線工作項目</span><span class="viz-stat-value" id="na-total">52</span><span class="text-small text-muted">Gate G1–G7 後正式接續 Agent 主線 H0–H5；研究支線另行彙整</span></div>
+    <div class="card viz-stat"><span class="text-muted">已完成</span><span class="viz-stat-value" id="na-complete">43</span><span class="text-small text-muted">83% 主線進度；G6D burn-in 進行中，G7 已納入主線</span></div>
+    <div class="card viz-stat"><span class="text-muted">下一個 Gate</span><span class="viz-stat-value">G6E</span><span class="text-small text-muted">Wait for G6D-R3 deadline, then perform writer-free closeout</span></div>
     <div class="card viz-stat"><span class="text-muted">設備設定變更</span><span class="viz-stat-value">0</span><span class="text-small text-muted">Collector 專案目前仍 read-only</span></div>
   </section>
 
   <section class="na-progress-wrap" aria-label="主線完成度">
-    <div class="na-progress-labels text-small"><span>主線完成度</span><span id="na-progress-text">32 / 36</span></div>
-    <div class="progress" role="progressbar" aria-label="主線完成度" aria-valuenow="88.9" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" id="na-progress-bar" style="width:88.9%"></div></div>
+    <div class="na-progress-labels text-small"><span>主線完成度</span><span id="na-progress-text">43 / 52</span></div>
+    <div class="progress" role="progressbar" aria-label="主線完成度" aria-valuenow="82.7" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" id="na-progress-bar" style="width:82.7%"></div></div>
   </section>
 
   <div class="viz-controls" aria-label="Roadmap 篩選">
@@ -451,39 +739,56 @@
   </section>
 
   <section class="na-future" aria-label="目前系統架構">
-    <div><h2>目前 Architecture</h2><span class="text-small text-muted">Architecture source of truth 已同步至 2026-08-28；Core 與 Overlay 分離，缺值不互相污染。</span></div>
-    <div class="na-future-group">
-      <div class="na-future-group-head"><strong>OBSERVE · 資料來源</strong><span class="text-small text-muted">兩條完成並封存的資料線，加上選配 sensor</span></div>
-      <div class="na-future-flow">
-        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">R2-F1F · seven-day complete</span><strong>QNAP 24/7 Core</strong><span class="text-small text-muted">10,080/10,080 local cycles、2,016/2,016 network cycles；30,240 local samples、12,096 network results；F3B immutable closeout 已驗證完整 window、無 timing gap、SQLite integrity ok</span></div>
-        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">R2-F2C · 24h complete</span><strong>Windows Router Overlay</strong><span class="text-small text-muted">288/288 成功、0 failed；WAN/AiMesh 全程 connected、Router CPU/RAM 穩定；writer-free closeout 與 evidence hash 完成</span></div>
-        <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">Best effort / on demand</span><strong>Sensor Fleet</strong><span class="text-small text-muted">Primary collector、secondary sensors 與 optional mobile sensors；sensor gap 不等於 network outage</span></div>
-      </div>
-    </div>
-    <div class="na-future-group">
-      <div class="na-future-group-head"><strong>DATA → ANALYZE → RECOMMEND</strong><span class="text-small text-muted">只讓驗證過的 normalized schema 進入判斷</span></div>
-      <div class="na-future-flow">
-        <div class="na-future-step" data-stage="required"><strong>Separated SQLite Evidence</strong><span class="text-small text-muted">NAS authoritative core + Windows identifier-free overlay + owner-approved inventory；raw Router response/credential 不落盤</span></div>
-        <div class="na-future-step"><strong>Baseline & Correlation</strong><span class="text-small text-muted">DNS/HTTPS phases、NAS/NIC、Router load/traffic、sensor gaps 分層關聯，保留支持／反證／缺值</span></div>
-        <div class="na-future-step" data-stage="complete"><strong>F3B Final Analysis</strong><span class="text-small text-muted">writer-free immutable closeout 已完成；有效成熟度 valid、完整度 100%、無持續 DNS／HTTPS／QNAP host 或 NAS access-link incident；只提出維持設定並擴大觀察的高信心建議</span></div>
-      </div>
-    </div>
-    <div class="na-future-group">
-      <div class="na-future-group-head"><strong>未來使用層</strong><span class="text-small text-muted">Dashboard、Agent 與執行權限分層，不讓 LLM 直接碰設備</span></div>
-      <div class="na-future-flow">
-        <div class="na-future-step"><span class="text-small text-muted">Gate G · Container Station</span><strong>Homepage + Network Analyst</strong><span class="text-small text-muted">Homepage 是全家系統統一入口；自製 Dashboard 承載拓樸、流量、歷史、異常 evidence 與建議</span></div>
-        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate H · G6 後啟動</span><strong>DeepSeek Harness Agent</strong><span class="text-small text-muted">32GB／QTS／G3 平台前置已完成；待 G4–G6 通過後，依 read-only contract、pilot、validation、UI integration 逐段導入</span></div>
-        <div class="na-future-step"><span class="text-small text-muted">Gate I · future</span><strong>Controlled EXECUTE</strong><span class="text-small text-muted">獨立 executor、明確核准、備份、風險分級、回滾與變更前後驗證</span></div>
-      </div>
-    </div>
-    <div class="na-future-group">
-      <div class="na-future-group-head"><strong>Artifact Delivery Rule</strong><span class="text-small text-muted">2026-08-28 已採用；只改變檔案交付方式，不放寬設備安全邊界</span></div>
-      <div class="na-future-flow">
-        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Local target</span><strong>本機檔案保留 Workspace</strong><span class="text-small text-muted">目前 Windows 要執行的腳本／檔案保留本機，回傳可點擊的絕對路徑</span></div>
-        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Remote target</span><strong>Artifact Repository</strong><span class="text-small text-muted">Validated artifacts are stored separately from the public Roadmap; credentials and raw telemetry are never embedded.</span></div>
-        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Public sharing · sanitized copy</span><strong>Network Analyst Public Roadmap</strong><span class="text-small text-muted">已建立並交付公開版；移除內網位址、私人裝置名稱、樓層、完整韌體版本、PID、私人路徑與驗證資料。Drive 與 GitHub Pages 均已驗證為公開檢視；私有 Roadmap 仍是唯一完整來源</span></div>
-        <div class="na-future-step" data-stage="required"><span class="text-small text-muted">Fail closed</span><strong>Anyone-with-link · Viewer</strong><span class="text-small text-muted">預期交付為知道連結的任何人可檢視；每次變更雲端權限前仍依安全規則取得 action-time 確認。未確認前維持 private；credential／raw Router response／完整識別資料／正式 SQLite 不自動上傳</span></div>
-      </div>
+    <div><h2>目前 Architecture</h2><span class="text-small text-muted">同步至 2026-09-05。只顯示 Gate 層級：綠色已完成、藍色執行中、橘色下一步、紫色遠期。</span></div>
+    <div class="na-architecture-grid">
+      <article class="na-architecture-card" data-stage="complete">
+        <div class="na-architecture-meta"><span>Round 2 · Gate F</span><span>Complete</span></div>
+        <h3>Evidence Baseline</h3>
+        <p>NAS 七天基線與 Router 24 小時 overlay 已封存，作為後續分析依據。</p>
+        <div class="na-architecture-next">輸出：可信 historical evidence</div>
+      </article>
+      <article class="na-architecture-card" data-stage="complete">
+        <div class="na-architecture-meta"><span>Gate G1</span><span>Complete</span></div>
+        <h3>Unified Read Model</h3>
+        <p>統一健康、freshness、裝置與證據語意；缺值不等於故障。</p>
+        <div class="na-architecture-next">輸出：唯一 normalized schema</div>
+      </article>
+      <article class="na-architecture-card" data-stage="complete">
+        <div class="na-architecture-meta"><span>Gate G2</span><span>Complete</span></div>
+        <h3>Read-only API</h3>
+        <p>以 internal-only API 提供固定 GET／HEAD 資料，不提供控制能力。</p>
+        <div class="na-architecture-next">輸出：Homepage／Dashboard 共用資料層</div>
+      </article>
+      <article class="na-architecture-card" data-stage="complete">
+        <div class="na-architecture-meta"><span>Gate G3–G5</span><span>Deployed</span></div>
+        <h3>Portal &amp; Dashboard</h3>
+        <p>Homepage 是入口；Network Analyst 提供 LAN-only 深入檢視。</p>
+        <div class="na-architecture-next">輸出：可使用的監控介面</div>
+      </article>
+      <article class="na-architecture-card" data-stage="running">
+        <div class="na-architecture-meta"><span>Gate G6</span><span>Running</span></div>
+        <h3>Security &amp; Stability</h3>
+        <p>七天 burn-in 正在觀察三個服務的健康、資源、延遲與 drift。</p>
+        <div class="na-architecture-next">下一步：9/10 執行 G6E closeout</div>
+      </article>
+      <article class="na-architecture-card" data-stage="running">
+        <div class="na-architecture-meta"><span>Gate G7</span><span>Draft ready</span></div>
+        <h3>Interactive Topology</h3>
+        <p>產品圖片與拓樸資料契約草案已備妥；live edge 仍維持 unavailable。</p>
+        <div class="na-architecture-next">下一步：G6E 後完成 reference graph</div>
+      </article>
+      <article class="na-architecture-card" data-stage="next">
+        <div class="na-architecture-meta"><span>Gate H</span><span>Next mainline</span></div>
+        <h3>Read-only Agent</h3>
+        <p>部署 DeepSeek Harness，先建立 threat model、審計與只讀工具邊界。</p>
+        <div class="na-architecture-next">入口條件：G6E＋G7 完成</div>
+      </article>
+      <article class="na-architecture-card" data-stage="future">
+        <div class="na-architecture-meta"><span>Gate I</span><span>Future</span></div>
+        <h3>Controlled Execute</h3>
+        <p>未來才加入獨立 executor；每次動作仍需核准、備份與回滾。</p>
+        <div class="na-architecture-next">目前：不開放任何設備控制</div>
+      </article>
     </div>
   </section>
 
@@ -504,7 +809,7 @@
         <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-MAC-1 · complete</span><strong>Legacy laptop sensor</strong><span class="text-small text-muted">唯讀 inventory 通過：Catalina 10.15.7／i5-3210M／16 GiB；en0 Ethernet active、1 Gbps full-duplex、MTU 1500、default route=en0；SATA SSD 與 SMART Verified；AC power、battery 80% charging。AC／battery sleep 均為 10 分鐘，因此已適合作 on-demand wired sensor，但尚未通過 24/7 qualification。privacy filter 生效，network activity=false、configuration changed=false</span></div>
         <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-MAC-2 · 2.4 GHz complete</span><strong>legacy laptop Wi-Fi qualification</strong><span class="text-small text-muted">en1 active、default route=en1、MTU 1500；station association running，channel 10、RSSI −39 dBm、noise −82 dBm、SNR 43 dB、TX/max rate 217 Mbps、MCS 23、association status 0。硬體支援雙頻 802.11n／5 GHz，但本次只驗證 2.4 GHz；5 GHz association 仍待獨立快照。單次資料不代表 channel utilization、packet loss 或長期穩定性，仍不作頻道最佳化建議</span></div>
         <div class="na-future-step" data-stage="candidate"><span class="text-small text-muted">S-PHONE · 候選</span><strong>legacy phone sensor／廢棄手機</strong><span class="text-small text-muted">評估被動 Wi-Fi sensor、定點 latency 與環境採樣；受限於舊 OS、背景執行與可讀 RF telemetry</span></div>
-        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-SENSORPC · D2 complete</span><strong>Secondary PC on-demand sensor</strong><span class="text-small text-muted">Realtek 10.80.50.407、signed、PnP OK；15 分鐘全程 1 Gbps／MTU 1500，0 reset、0 error/discard，六個固定目標 120/120 echoes、0% loss，0 new matching NIC events。八項 acceptance 全數通過；D3 半日 soak 目前可跳過，下一步為 SENSORPC-S2 cross-sensor calibration</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">S-SENSORPC · S2A complete</span><strong>Secondary PC on-demand sensor</strong><span class="text-small text-muted">D2 與 S2A 均已通過。S2A 兩端各20/20 samples、六個 targets 各20/20 paired valid、總計240/240 echoes；同步誤差9.275 ms，兩端NIC全程Up／MTU 1500／link不變，error/discard delta全為0。Secondary PC 相對主 Windows 的 median location bias 僅0–1 ms，因此已可作 TUF downstream有線路徑的on-demand sensor。NAS第三sensor保留至G6D closeout後的S2B</span></div>
         <div class="na-future-step"><span class="text-small text-muted">S-FUTURE · 保留</span><strong>新增定點 Sensor</strong><span class="text-small text-muted">只有現有觀測點留下明確盲區時才新增；先以資料需求決定硬體，不預先大量部署</span></div>
       </div>
     </div>
@@ -527,8 +832,8 @@
     </div>
   </section>
 
-  <section class="na-future" aria-label="長期方向">
-    <div><h2>Gate G / H / I 遠期方向</h2><span class="text-small text-muted">Gate G 已納入主線；Gate H 以不影響主線完成率的進度鏈預先排程，Gate I 仍維持最終控制層。每一步都遵守 read-only → 人工核准 → 可回復驗證。</span></div>
+  <section class="na-future" aria-label="已併入 Architecture 的舊版長期方向" hidden>
+    <div><h2>Gate G / H / I 遠期方向</h2><span class="text-small text-muted">Gate G 與 H0–H5 已納入主線；Gate H 是本專案的 Agent 架構與安全實作核心，Gate I 仍維持最終控制層。每一步都遵守 read-only → 人工核准 → 可回復驗證。</span></div>
     <div class="na-future-group">
       <div class="na-future-group-head"><strong>Container Station 正式導入鏈</strong><span class="text-small text-muted">它是部署層，不是 telemetry source、Agent 本身或 Router executor</span></div>
       <div class="na-future-flow">
@@ -549,8 +854,25 @@
         <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G3R4C · complete</span><strong>Immutable r4 LAN frontend</strong><span class="text-small text-muted">r4 running／healthy；exact runtime bind 與單一 non-wildcard listener 通過，Windows 唯一一次 GET 回 HTTP 200／10.7 ms。Gate G3 完成</span></div>
         <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G4D-OT3 · complete</span><strong>Custom API Widgets + Service Links</strong><span class="text-small text-muted">固定映像已離線載入並驗證；internal-only G2 API 與 Homepage r5 均 healthy，六張 widgets 與 Windows LAN health GET 全數通過</span></div>
         <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">依賴評估已完成</span><strong>Home Assistant integration（選配）</strong><span class="text-small text-muted">asusrouter GitHub 專案與 F2B2/F2B3 實測已提供足夠 telemetry；Dashboard 可直接使用底層 library，HA 不再是必要前置</span></div>
-        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate G5 · offline concept ready</span><strong>Network Analyst Drill-down Dashboard</strong><span class="text-small text-muted">示範原型保留為深入頁：拓樸、流量、24h/7d history、異常 evidence、Recommendation 與 pre/post comparison</span></div>
-        <div class="na-future-step"><span class="text-small text-muted">Gate G6</span><strong>Portal + Dashboard Security & Burn-in</strong><span class="text-small text-muted">LAN-only access、auth、retention、備份／回復、data freshness 與一週穩定性驗證</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G5A · complete</span><strong>Dashboard information architecture</strong><span class="text-small text-muted">7 views／8 個 exact read endpoints 已固定；無可信來源的 24h/7d、traffic series 與 pre/post comparison 明示 source_unavailable</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G5B · complete</span><strong>Live read-model dashboard</strong><span class="text-small text-muted">七頁本機 bundle 與 exact GET client 已完成；prototype demo values 全數移除，缺值只顯示 source_unavailable</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G5C · complete</span><strong>Immutable dashboard release</strong><span class="text-small text-muted">固定 image reuse、manifest／ZIP hash、same-origin 8-endpoint proxy、resource limits 與 rollback；尚未部署 NAS</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G5D · complete</span><strong>Bounded deploy &amp; E2E</strong><span class="text-small text-muted">Dashboard healthy、8/8 proxy、Homepage r6 link 與 Windows health/page validation 全部通過</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G6A · complete</span><strong>Security contract</strong><span class="text-small text-muted">固定 trusted-LAN pilot、10-request negative matrix、recovery boundary 與七天 burn-in thresholds</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G6B · complete</span><strong>Bounded security negatives</strong><span class="text-small text-muted">10/10 exact attempts、0 retry；method/path rejection、security headers、LAN binds 與 G2 zero host port 全部通過</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">Gate G6C · complete</span><strong>Recovery rehearsal</strong><span class="text-small text-muted">exact single restart、120秒內 healthy、Homepage/G2 continuity、corrected semantics、current guard與2/2 Windows GET全數通過</span></div>
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">Gate G6D · R3 running</span><strong>Seven-day burn-in</strong><span class="text-small text-muted">Canonical argv、PID、owned lock、running state 全數通過；獨立唯讀補驗確認 samples=1／valid=1。2026-09-03 17:00:14 啟動，預計 2026-09-10 17:00:14 完成。300秒／2,016 samples／6,048 reads／64 MiB 限制維持不變</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">Gate G6E</span><strong>Writer-free closeout</strong><span class="text-small text-muted">彙整 health、restart、resource、latency、freshness，決定是否開放 Gate H</span></div>
+      </div>
+    </div>
+    <div class="na-future-group">
+      <div class="na-future-group-head"><strong>Gate G7 · Interactive topology</strong><span class="text-small text-muted">視覺資產已完成；等待 G6E 後完成資料契約、Dashboard prototype 與 bounded deployment</span></div>
+      <div class="na-future-flow">
+        <div class="na-future-step" data-stage="selected"><span class="text-small text-muted">G7A · draft ready</span><strong>Topology evidence contract</strong><span class="text-small text-muted">雙層 base graph＋node overlay、node／edge schema、freshness／unknown／asset／privacy 語意與離線 validator 已完成；正式 closeout 等待 G6E</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">G7B · complete</span><strong>Licensed PNG fallback pack</strong><span class="text-small text-muted">21 個 device mappings、11 個本機 PNG、授權與 SHA-256 manifest 已固定</span></div>
+        <div class="na-future-step" data-stage="complete"><span class="text-small text-muted">G7B-P · complete</span><strong>Product render enrichment</strong><span class="text-small text-muted">四個精確型號改用產品照；未知／不完整型號維持保守品牌或類型 fallback</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">G7C · running</span><strong>Interactive Dashboard prototype</strong><span class="text-small text-muted">2D 垂直樹狀圖、曲線 edge、產品去背圖、狀態與 click-to-detail；只用可信 normalized evidence</span></div>
+        <div class="na-future-step"><span class="text-small text-muted">G7D · planned</span><strong>Bounded topology deployment</strong><span class="text-small text-muted">G6E 與 G7A–C 通過後，以 immutable release 與 exact rollback 更新 Dashboard</span></div>
       </div>
     </div>
     <div class="na-future-group">
@@ -574,10 +896,23 @@
     </div>
   </section>
 
-  <section class="na-future" aria-label="已知裝置拓樸清冊">
-    <div><h2>已知裝置拓樸清冊</h2><span class="text-small text-muted">20 台 owner-known 實體裝置依預期拓樸排列，另保留 1 筆未合併歷史紀錄。點選裝置查看角色、路徑、可用性、證據與限制；連線位置是 owner truth／最近稽核證據，不代表即時在線狀態。</span></div>
-    <div class="na-layout">
-      <div class="na-lanes" id="na-device-lanes" aria-label="依拓樸排列的裝置清冊"></div>
+  <section class="na-future" aria-label="已知裝置互動式拓樸">
+    <div><h2>已知裝置互動式拓樸</h2><span class="text-small text-muted">20 台 owner-known 實體裝置依 Internet → Router → backbone／AiMesh／client 路徑排列，另保留 1 筆未合併歷史紀錄。點選任一節點查看角色、路徑、可用性、證據與限制；虛線代表 Wi-Fi，點線代表漫遊或尚未固定的 attachment。四個產品節點在公開版使用已授權的品牌／類型圖示；WiFi-S1 定位量測留在支線詳細紀錄，不塞入拓樸畫布。這是 owner truth／最近稽核證據，不代表即時在線狀態。</span></div>
+    <div class="na-topology-legend" aria-label="拓樸連線圖例">
+      <span><i class="na-topology-swatch" aria-hidden="true"></i>有線／基礎設施</span>
+      <span><i class="na-topology-swatch" data-kind="wireless" aria-hidden="true"></i>Wi-Fi snapshot</span>
+      <span><i class="na-topology-swatch" data-kind="roaming" aria-hidden="true"></i>漫遊／未固定</span>
+      <span>可確認型號使用本機產品照；其餘保留品牌／類型 fallback，不以圖片推定 live identity</span>
+    </div>
+    <div class="na-topology-layout">
+      <div class="card na-topology-shell">
+        <div class="na-topology-scroll" tabindex="0" aria-label="可捲動的網路拓樸圖">
+          <div class="na-topology-canvas" id="na-topology-canvas">
+            <svg class="na-topology-edges" id="na-topology-edges" aria-hidden="true"></svg>
+            <div class="na-topology-nodes" id="na-device-lanes" aria-label="依拓樸排列的裝置節點"></div>
+          </div>
+        </div>
+      </div>
       <aside class="card na-detail" id="na-device-detail" aria-live="polite">
         <div class="na-detail-head">
           <div class="na-detail-copy"><span class="text-small text-muted" id="na-device-detail-phase"></span><h2 id="na-device-detail-title"></h2></div>
@@ -603,7 +938,8 @@
         { id: 'expansion', title: '第一輪觀察與分層診斷', subtitle: 'E0–E5 · 七天 baseline、Windows sensors、Router evidence' },
         { id: 'inventory', title: '裝置清冊', subtitle: 'DI · 以 Router/AiMesh loaded data 完成 14/14 身分核對' },
         { id: 'round2', title: '第二輪 Collector', subtitle: 'R2-F1–F3 · 增加 phase timing、NAS telemetry 與 Router overlay' },
-        { id: 'post-round2', title: '升級、語意調和與產品化', subtitle: 'M1–M2 · F3D · G1–G6 · 從可信資料契約走向可用 Dashboard' }
+        { id: 'post-round2', title: '升級、語意調和與產品化', subtitle: 'M1–M2 · F3D · G1–G7 · 從可信資料契約走向互動式 Dashboard' },
+        { id: 'agent-mainline', title: 'Gate H · Agent 主線', subtitle: 'H0–H5 · threat model → immutable build → bounded pilot → evidence validation → Homepage Agent UI' }
       ];
       const gates = [
         { id:'A', phase:'foundation', status:'complete', title:'本機套件驗證', purpose:'建立全停用 collector 候選並證明沒有活動路徑。', done:['ZIP/manifest、語法與離線測試通過','doctor 顯示 0 enabled targets','未連 NAS、未寫正式 SQLite'], next:'已封存為第一輪工作流證據。', safety:'純 Windows 本機驗證。' },
@@ -654,16 +990,36 @@
         { id:'G3R1', progressKey:'G3', phase:'post-round2', status:'complete', title:'Deployment contract', purpose:'固定 Homepage image、資源與不可變部署契約，先在本機離線驗證。', done:['Homepage v2.1.2 OCI digest 與 SHA-256 manifest 固定','read-only root/config、no Docker socket、no Router credential／SQLite','0.50 CPU／512 MiB／256 PID、healthcheck、log rotation 與 rollback contract','首次 Compose PID-limit inconsistency 於 image pull 前安全停止；r2 已修正並通過離線測試'], next:'G3R2：啟動 r2 並只讀判斷 unhealthy 根因。', safety:'首次停止未拉映像、未建立 container/network，NAS immutable release 未修改。' },
         { id:'G3R2', progressKey:'G3', phase:'post-round2', status:'complete', title:'Startup root-cause', purpose:'啟動固定 r2 release，並在 unhealthy 後以唯讀證據定位啟動失敗。', done:['固定 digest image、internal network 與唯一 container 已建立','首錯即停於 unhealthy；未放寬安全契約','唯讀診斷確認 restart-loop 與 su-exec setgroups 錯誤','根因是 PUID/PGID entrypoint 與 cap_drop ALL 衝突'], next:'G3R3：以 direct non-root user 取代 entrypoint privilege transition。', safety:'不 restart／stop／remove、不改 config/network；診斷未觸及 SQLite、Router、G2/G4。' },
         { id:'G3R3', progressKey:'G3', phase:'post-round2', status:'complete', title:'Direct non-root recovery', purpose:'精確移除故障 r2 runtime，部署保留全部安全限制的 immutable r3。', done:['五項 r2 identity/restart guards 與 foreign-attachment guard 通過','只移除匹配的 r2 container 與單一 internal network；immutable releases 保留','r3 以 direct non-root user 啟動並達 natural health=healthy','image、read-only root/config、0.50 CPU、512 MiB、256 PID、cap_drop ALL、no-new-privileges 與六張 source_unavailable 卡片通過'], next:'G3R4：完成 LAN published-port path 驗證。', safety:'只處理精確匹配 runtime；未存取 SQLite、登入 Router、啟動 G2 或進入 G4。' },
-        { id:'G3R4', progressKey:'G3', phase:'post-round2', status:'complete', title:'LAN port path', purpose:'在維持精確 LAN bind 與最小權限的前提下，讓 LAN client 可連到健康的 Homepage。', done:['G3R4A：internal=true 下 configured binding 未形成 runtime port/listener，失效點不是 Homepage process','G3R4B：immutable r4 只把 frontend 改為 bridge／internal=false；6/6 offline tests 通過','G3R4C：全部 healthy-r3 identity/security/resource/port guards 通過後，只移除 exact r3 runtime 與單一 network','r4 manifest 12 files verified；ZIP SHA-256=a09c53b4…b624a86','r4 running／healthy、restart count 0、direct non-root、read-only root/config、cap_drop ALL、no-new-privileges','0.50 CPU／512 MiB／256 PID、no Docker socket、六張 source_unavailable 卡片通過','configured/runtime bind=192.168.50.72:3000；exact listener count=1、wildcard listener=false','Windows 唯一一次匿名 GET：HTTP 200、curl exit 0、10.7 ms；無 retry/body/credential header'], next:'Gate G4：以最小 endpoint/widget allowlist 將 Homepage 接到 G2 read-only API，並加入 QTS、完整 Dashboard 與後續 Agent 入口。', safety:'G3 完成不代表已啟動 G2/G4；目前仍無 Router credential、SQLite、Docker socket 或控制能力。任何 widget、service link、認證或額外網路存取需另行核准。' },
+        { id:'G3R4', progressKey:'G3', phase:'post-round2', status:'complete', title:'LAN port path', purpose:'在維持精確 LAN bind 與最小權限的前提下，讓 LAN client 可連到健康的 Homepage。', done:['G3R4A：internal=true 下 configured binding 未形成 runtime port/listener，失效點不是 Homepage process','G3R4B：immutable r4 只把 frontend 改為 bridge／internal=false；6/6 offline tests 通過','G3R4C：全部 healthy-r3 identity/security/resource/port guards 通過後，只移除 exact r3 runtime 與單一 network','r4 manifest 12 files verified；ZIP SHA-256=a09c53b4…b624a86','r4 running／healthy、restart count 0、direct non-root、read-only root/config、cap_drop ALL、no-new-privileges','0.50 CPU／512 MiB／256 PID、no Docker socket、六張 source_unavailable 卡片通過','configured/runtime bind=private LAN endpoint；exact listener count=1、wildcard listener=false','Windows 唯一一次匿名 GET：HTTP 200、curl exit 0、10.7 ms；無 retry/body/credential header'], next:'Gate G4：以最小 endpoint/widget allowlist 將 Homepage 接到 G2 read-only API，並加入 QTS、完整 Dashboard 與後續 Agent 入口。', safety:'G3 完成不代表已啟動 G2/G4；目前仍無 Router credential、SQLite、Docker socket 或控制能力。任何 widget、service link、認證或額外網路存取需另行核准。' },
         { id:'G4A', progressKey:'G4', phase:'post-round2', status:'complete', title:'Widget/API contract', purpose:'固定六張 Homepage 摘要卡、G2 exact endpoint、欄位 mapping、五分鐘 cadence 與 failure semantics。', done:['Internet／Router／NAS／Devices／Alerts／Freshness 六卡 exact allowlist','GET-only、relative path、0 query/body/custom header/credential','transport/missing → source_unavailable；stale/historical 保留原語意','G2 in-memory routes 與所有 mapping paths 通過 12 項離線測試'], next:'G4B：為 G2 read-only API 建立 immutable runtime package 與 rollback contract。', safety:'本 Gate 純本機離線；未開 listener、未連 NAS/Router、未改 Homepage、未讀 SQLite。' },
-        { id:'G4B', progressKey:'G4', phase:'post-round2', status:'complete', title:'G2 immutable runtime package', purpose:'把已驗證 G2 API 與 frozen read model 打包成可審核、可回復的最小 runtime。', done:['官方 Python 3.12.14 linux/amd64 image manifest pinned by digest','單一 direct-non-root service；read-only root/release mount、cap_drop ALL、no-new-privileges','internal-only fixed backend 172.28.40.2:8787；0 host port publication','0.25 CPU／256 MiB／128 PID、readyz healthcheck、bounded logs 與 exact rollback contract','G4B-r2 10-file immutable release verified；ZIP SHA-256=ddf1a517…115c99'], next:'G4D 已完成；runtime 正由 internal-only API 提供六張摘要卡。', safety:'無 Router credential、SQLite 或 Docker socket；API 沒有 host port。' },
-        { id:'G4C', progressKey:'G4', phase:'post-round2', status:'complete', title:'Homepage widget release', purpose:'建立新的 immutable Homepage release，套用 G4A 六卡 mappings 與 owner-approved service links。', done:['六個 Custom API widgets 與 G4A endpoint/mapping/cadence 完全一致','Homepage 保留 G3 pinned image、exact LAN bind、direct non-root、read-only 與資源限制','新增 exact external backend attachment；不加入 Docker socket/credential','QTS 為唯一 live service link；Dashboard／Agent 保持 source_unavailable','11-file manifest 與 offline validator通過；ZIP SHA-256=c998f534…cd78f4d8','G4A–G4C/G2 focused tests 20/20 通過'], next:'G4D：以 exact guards 部署 G2 runtime，並將 G3 r4 Homepage 精確替換為 G4 r5。', safety:'離線完成；未連 NAS/Router、未啟動 container/listener。Router port 支線缺值不阻塞其他卡片。' },
-        { id:'G4D', progressKey:'G4', phase:'post-round2', status:'complete', title:'Bounded deploy & E2E validation', purpose:'部署 G2 runtime 與 G4C Homepage release，驗證六卡、service links 與缺值語意。', done:['G3 r4 exact guard、兩個 immutable release manifest 與固定 ZIP hash 全部通過','Python linux/amd64 tar 離線載入；image ID/platform/provenance 匹配，registry pull=0','G2 API internal-only、ready/healthy、0 host port、read-only/non-root/resource guards通過','Homepage r5 running/healthy、exact LAN bind、read-only config 與零 Docker socket通過','六個固定 widget GET 6/6；Windows 唯一 health GET HTTP 200／15.4 ms'], next:'Gate G5：以已上線的 G2 read model 建立 Network Analyst drill-down。', safety:'未存取 SQLite、未登入 Router、未啟動 G5/H、未放寬安全限制。' },
+        { id:'G4B', progressKey:'G4', phase:'post-round2', status:'complete', title:'G2 immutable runtime package', purpose:'把已驗證 G2 API 與 frozen read model 打包成可審核、可回復的最小 runtime。', done:['官方 Python 3.12.14 linux/amd64 image manifest pinned by digest','單一 direct-non-root service；read-only root/release mount、cap_drop ALL、no-new-privileges','internal-only fixed backend internal-only backend endpoint；0 host port publication','0.25 CPU／256 MiB／128 PID、readyz healthcheck、bounded logs 與 exact rollback contract','G4B-r2 10-file immutable release verified；ZIP SHA-256=ddf1a517…115c99'], next:'G4D 已完成；runtime 正由 internal-only API 提供六張摘要卡。', safety:'無 Router credential、SQLite 或 Docker socket；API 沒有 host port。' },
+        { id:'G4C', progressKey:'G4', phase:'post-round2', status:'complete', title:'Homepage widget release', purpose:'建立新的 immutable Homepage release，套用 G4A 六卡 mappings 與 owner-approved service links。', done:['六個 Custom API widgets 與 G4A endpoint/mapping/cadence 完全一致','Homepage 保留 G3 pinned image、exact LAN bind、direct non-root、read-only 與資源限制','新增 exact external backend attachment；不加入 Docker socket/credential','QTS 為唯一 live service link；Dashboard／Agent 保持 source_unavailable','11-file manifest 與 offline validator通過；ZIP SHA-256=c998f534…cd78f4d8','G4A–G4C/G2 focused tests 20/20 通過'], next:'已由 G4D／OT3 完成部署；六卡現由 internal-only G2 API 提供。', safety:'immutable release 已驗證；Router port 支線缺值不阻塞其他卡片。' },
+        { id:'G4D', progressKey:'G4', phase:'post-round2', status:'complete', title:'Bounded deploy & E2E validation', purpose:'部署 G2 runtime 與 G4C Homepage release，驗證六卡、service links 與缺值語意。', done:['G3 r4 exact guard、兩個 immutable release manifest 與固定 ZIP hash 全部通過','Python linux/amd64 tar 離線載入；image ID/platform/provenance 匹配，registry pull=0','G2 API internal-only、ready/healthy、0 host port、read-only/non-root/resource guards通過','Homepage r5 running/healthy、exact LAN bind、read-only config 與零 Docker socket通過','六個固定 widget GET 6/6；Windows 唯一 health GET HTTP 200／15.4 ms'], next:'G5A–G5C 已完成；目前準備 G5D bounded deployment。', safety:'部署時未存取 SQLite、未登入 Router、未放寬安全限制；G5A–G5C 保持本機離線。' },
         { id:'G4D-OT1', progressKey:'G4', phase:'post-round2', status:'complete', title:'Direct registry transfer（closed）', purpose:'確認能否由 Windows 以獨立工具取得 G4B 固定 Python digest，避開 NAS pull。', done:['官方 go-containerregistry v0.21.7 Windows archive 與 checksum 驗證通過','crane.exe 版本與來源驗證通過','Windows 連 Docker Hub 同樣 TLS handshake timeout；未產生 tar 或 partial image'], next:'已由 G4D-OT2 GitHub exact-digest relay 取代。', safety:'工具只執行 version／digest pull；未碰 NAS／Router、未執行映像、未放寬 digest pin。' },
         { id:'G4D-OT2', progressKey:'G4', phase:'post-round2', status:'complete', title:'GitHub exact-digest relay', purpose:'使用手動、無 secrets 的 GitHub runner 取得相同 Docker Hub digest 並匯出 linux/amd64 image tar。', done:['workflow_dispatch-only、contents read、無 push/publish/secrets','run #1 success；固定 digest 與 linux/amd64 RepoDigest 驗證通過','artifact SHA-256=5c8cb412…020b948；tar SHA-256=d2c0ca87…56f4603','image ID/config digest 與 linux/amd64 metadata 離線交叉驗證通過；image_executed=false'], next:'G4D-OT3：NAS offline load 與 image-ID guard，成功後接續 G4D deployment。', safety:'Artifact retention 1 day；workflow 保留且尚未刪除。沒有 NAS／Router 變更或 credential 傳輸。' },
         { id:'G4D-OT3', progressKey:'G4', phase:'post-round2', status:'complete', title:'Offline load + guarded G4D resume', purpose:'把 OT2 驗證完成的 image tar 離線載入 NAS，再恢復原 G4D bounded deployment。', done:['G4B-r2 10-file release與既有 G4C r5 manifests驗證通過','tar SHA-256、local image ID、linux/amd64 platform與 provenance全部匹配','docker load恰好一次；registry pull=0','G2 API healthy/internal-only；Homepage r5 healthy/exact LAN bind','widgets 6/6；Windows health HTTP 200／15.4 ms'], next:'完成；主線移交 Gate G5。', safety:'沒有 SQLite/Router 存取、Docker socket、G5/H 啟動或安全放寬。' },
-        { id:'G5', phase:'post-round2', status:'next', title:'Network Analyst drill-down', purpose:'建立類 UniFi 的深入頁：拓樸、traffic、24h/7d history、evidence、Recommendation 與 pre/post comparison。', done:['離線 dashboard concept 已存在','G1 已固定所有可信欄位與限制','G2 read-only API 與 Homepage 六卡 runtime 已部署並通過 E2E'], next:'先固定 G5A drill-down information architecture 與 endpoint/view-model mapping，再另行核准部署。', safety:'只做觀察、分析與建議；aggregate traffic 不冒充 per-device traffic。' },
-        { id:'G6', phase:'post-round2', status:'pending', title:'Security and burn-in', purpose:'驗證 LAN-only access、認證、retention、備份／回復、freshness 與一週穩定性。', done:['安全邊界已定義；尚未執行'], next:'G3–G5 完整後進行 bounded burn-in；通過才進入 Gate H Harness。', safety:'非 privileged、固定 image/digest、最小權限；所有控制能力仍為 0。' }
+        { id:'G5A', progressKey:'G5', phase:'post-round2', status:'complete', title:'Dashboard information architecture', purpose:'把深入 Dashboard 拆成可驗證的畫面、資料來源與缺值語意，避免 prototype 示範值被誤認為 live evidence。', done:['固定 Overview／Topology／Devices／History／Evidence／Recommendations／Sources 共 7 views','allowlist 8 個既有 G2 GET/HEAD endpoints；query/body/custom header/credential 全部禁止','health 與 data-state 分離；missing 不等於 incident、historical 不冒充 live','24h/7d time-series、aggregate traffic series、pre/post comparison 因無可信 endpoint 固定為 source_unavailable','離線 route validation 通過；2/2 focused tests 通過'], next:'G5B：以現有 G2 read model 實作 live dashboard，先移除所有 prototype demo values。', safety:'本 Gate 純本機離線；未連 NAS/Router、未讀 SQLite、未開 listener、未部署或加入控制能力。' },
+        { id:'G5B', progressKey:'G5', phase:'post-round2', status:'complete', title:'Live read-model dashboard', purpose:'把 G5A 的七個 views 實作成只讀深入頁，使用 G2 現有可信資料並清楚呈現 freshness／unavailable。', done:['建立 responsive 七頁本機 bundle：總覽、拓樸、裝置、歷史、證據、建議與來源','只呼叫 G5A exact 8 endpoints；GET、credentials omit、no query/body/custom headers','五分鐘 refresh；裝置搜尋僅 client-side','所有 API／schema／transport failure 都降級為 source_unavailable，不判定為 outage','History 三區只呈現缺少的 contract，不保留 prototype 數值','model／request／failure-semantics tests 與 JavaScript syntax checks 全數通過'], next:'G5C：固定 immutable release、same-origin proxy boundary、rollback 與離線 validator。', safety:'本機實作未連 NAS/Router、未讀 SQLite、未啟動 listener、未部署；沒有 external assets、credential 或設備控制。' },
+        { id:'G5C', progressKey:'G5', phase:'post-round2', status:'complete', title:'Immutable dashboard release', purpose:'將通過 G5B 的靜態 Dashboard 打包成可驗證、可回復的 immutable release。', done:['重用 G4D 已驗證的 Python linux/amd64 image；pull_policy=never','direct non-root、read-only root/release、cap_drop ALL、no-new-privileges','0.25 CPU／256 MiB／128 PID；exact LAN :3001 與獨立 frontend network','G2 保持 internal-only／0 host port；same-origin proxy 只接受 8 個 exact GET/HEAD paths','10-file manifest verified；ZIP SHA-256=8cd28235…eab2b00','offline validator、2/2 runtime tests、G5B client tests與 ZIP structure checks全數通過'], next:'G5D：exact guard 後部署唯一 Dashboard，驗證 LAN／proxy／Homepage link 與 rollback boundary。', safety:'純本機離線；未連 NAS/Router、未讀 SQLite、未開 listener/container、未部署。' },
+        { id:'G5D', progressKey:'G5', phase:'post-round2', status:'complete', title:'Bounded deploy & E2E', purpose:'將 G5C 以最小變更接入既有 Homepage，驗證 LAN view、來源缺值與安全邊界。', done:['G4 API、Homepage r5、TCP 3001 與 loaded image exact guards全數通過','Dashboard與Homepage r6兩個 immutable releases完成 staging／manifest驗證','唯一 Dashboard running／healthy；exact LAN :3001、read-only/non-root/resource/no-socket guards通過','8個 exact same-origin proxy GET全部成功且回傳 object schema','Homepage r6 running／healthy並提供Dashboard link；G2仍 internal-only／0 host port','Windows health GET HTTP 200／26.1 ms；page GET HTTP 200／1.9 ms且title驗證通過'], next:'G6A：先在本機固定 security contract、negative-test matrix與bounded burn-in計畫。', safety:'registry pull=0、SQLite/Router access=0、credential persistence=0、security relaxation=0；未啟動G6/H。' },
+        { id:'G6A', progressKey:'G6', phase:'post-round2', status:'complete', title:'Security contract and burn-in plan', purpose:'在任何新增NAS動作前固定G6安全決策、測試額度、通過門檻與停止條件。', done:['G6固定為A–E五段','trusted-LAN anonymous pilot只適用於normalized/de-identified/read-only且無控制能力的現況','G6B固定10 requests／0 retries','G6D固定604,800秒、300秒cadence、2,016 samples與6,048 local reads','至少1,980 valid samples、98% coverage、99.5% HTTP success、0 unexpected restart/security drift','64 MiB evidence與1 GiB free-space guards；offline validator及2/2 tests通過'], next:'G6B：另行核准10次bounded read-only/negative requests，先驗證安全邊界再做任何restart或burn-in。', safety:'純本機離線；未連NAS/Router、未改container、未讀SQLite、未啟動observer。' },
+        { id:'G6B', progressKey:'G6', phase:'post-round2', status:'complete', title:'Bounded security negatives', purpose:'以一次性負向測試確認LAN與internal-only邊界、拒絕路徑及browser-facing headers。', done:['Homepage/Dashboard/G2 exact runtime唯讀guard通過','10/10 exact attempts、0 retry','正常GET/HEAD回200；query回400、unknown path回404、POST/PUT/DELETE回405','必要security headers存在，Cookie/CORS缺席','G2 NAS host port 8787不可達；未保存body/header值或credential'], next:'G6C：另行核准只restart exact Dashboard一次的bounded recovery rehearsal。', safety:'NAS唯讀；不保存body/credential，不登入Router、不改SQLite或設備設定。' },
+        { id:'G6C', progressKey:'G6', phase:'post-round2', status:'complete', title:'Bounded recovery rehearsal', purpose:'確認Dashboard可由同一immutable image/release安全恢復。', done:['完整G6B exact runtime guard通過','exact Dashboard restart指令恰好執行一次','StartedAt改變且Dashboard於120秒內恢復healthy；Homepage/G2持續healthy且未重啟','依Moby實作修正manual restart與RestartCount語意','R3驗證前次執行器SHA-256與exact single-restart control flow','R3 current runtime guard通過；Windows health/status GET 2/2回HTTP 200','R3 restart/event/log=0，未存取SQLite/Router或變更runtime'], next:'G6D：另行核准七天bounded burn-in observer。', safety:'recovery rehearsal完成；任何後續restart或設定變更仍需新Gate。' },
+        { id:'G6D', progressKey:'G6', phase:'post-round2', status:'running', title:'Seven-day bounded burn-in', purpose:'觀察portal、Dashboard與internal API的長時間穩定、資源、延遲與freshness。', done:['duration/cadence/request/storage/stop contracts已固定','G6B security negatives與G6C recovery rehearsal均已通過','R1/R2 immutable releases保持不變，兩次安全停止證據均封存至aborted-attempt archive','R3 exact runtime guard、R2安全停止證據、immutable staging與canonical argv全部通過','R3 observer PID 31042、owned lock與running state成立','獨立唯讀補驗：samples_completed=1、valid_samples=1、PID alive與lock owner一致','正式窗口：2026-09-03 17:00:14 至 2026-09-10 17:00:14（Asia/Taipei）'], next:'等待R3自行完成；到期後另行核准G6E writer-free closeout，彙整coverage、HTTP success、restart、security drift、resource、latency與freshness。', safety:'300秒、2,016 samples、6,048 local reads、64 MiB與1 GiB guards不變；無scheduler、無自動修復、不讀SQLite/Router。' },
+        { id:'G6E', progressKey:'G6', phase:'post-round2', status:'pending', title:'Writer-free closeout', purpose:'在observer與lock消失後彙整burn-in並作後續G7／Gate H admission決策。', done:['acceptance thresholds與evidence policy已固定'], next:'G6D completed後唯讀closeout；pass後先完成G7，再由H1接續Agent主線。', safety:'不假設成功；source_unavailable不自動等於network outage。' },
+
+        { id:'G7A', progressKey:'G7', phase:'post-round2', status:'running', title:'Topology evidence contract', purpose:'把現有flat device inventory轉成明確的node/edge graph，固定wired、Wi-Fi、snapshot、live與unknown語意。', done:['0.1.0-draft：owner-approved immutable base graph＋既有 /v1/devices node overlay；live edge source 預設 source_unavailable','JSON Schema 固定5種node、5種edge relation、claim／health／data／freshness／asset／privacy欄位','20台canonical devices、1筆歷史紀錄、21個asset mappings與4張product renders一致','離線 validator 與2/2 focused tests通過；NAS／Router／SQLite／runtime access均為0'], next:'G6E通過後正式審核草案並建立完整reference graph；通過才將G7A標為complete並進入G7C。', safety:'目前只是本機草案，不新增G2 endpoint、不猜port/link speed/RSSI/live presence；expected、historical、stale與source_unavailable不可轉成即時斷線。' },
+        { id:'G7B', progressKey:'G7', phase:'post-round2', status:'complete', title:'Licensed PNG icon inventory', purpose:'為每個拓樸node建立可審核的本機PNG asset mapping與generic fallback。', done:['11個Dashboard Icons PNG已下載到本機，不使用runtime hotlink','21個device mappings完整覆蓋；exact vendor／platform／category fallback均明確標示','manifest記錄Apache-2.0來源、商標提醒、SHA-256、match basis與confidence','所有檔案通過PNG signature與hash驗證'], next:'G7A固定拓樸evidence contract後，由G7C把相同mapping納入Dashboard local prototype。', safety:'圖示不構成device identity／live presence證據；公開版發佈前仍保留商標與attribution檢查。' },
+        { id:'G7B-P', progressKey:'G7', phase:'post-round2', status:'complete', title:'Product render enrichment', purpose:'讓核心拓樸節點改用可確認型號的產品圖，同時保留保守 fallback。', done:['RT-BE86U 與 TUF-BE3600 使用 owner-provided product renders，並以 ASUS 官方產品資料交叉確認','TS-473A 與 network printer 使用原廠產品圖','產品圖、來源類型、SHA-256 與公開發佈限制寫入獨立 manifest','產品圖節點放大；其他設備維持既有品牌／平台／類型圖，不猜未知型號'], next:'G7A 完成 evidence contract 後，G7C 將同一套 hybrid render policy 移植到 Dashboard。', safety:'產品圖只改善辨識，不代表裝置目前在線或證明 identity；本機私有版可用，公開版需另做授權審查。' },
+        { id:'G7C', progressKey:'G7', phase:'post-round2', status:'running', title:'Interactive local prototype', purpose:'在Windows本機重做Topology view，提供清楚的2D路徑、wired/Wi-Fi edges、狀態與click-to-detail。', done:['現有Dashboard為vanilla static bundle且Topology只呈現flat rows','Roadmap visual spikes：樓層式與HD-2D-inspired isometric方案已試作並依owner回饋撤回','恢復21個inventory節點的2D六欄垂直路徑，保留桌面曲線edge與手機單欄fallback','四個產品節點在公開版使用已授權的品牌／類型圖示','click-to-detail與保守狀態語意保留；WiFi-S1樓層定位數據留在支線詳細紀錄'], next:'由 owner 檢視2D原型；方向確認後再補 accessibility／zoom 與 Dashboard local bundle。', safety:'純本機；不連NAS/Router、不修改running G6D runtime、不製造demo live values；產品圖不代表裝置即時在線。' },
+        { id:'G7D', progressKey:'G7', phase:'post-round2', status:'pending', title:'Bounded topology deployment', purpose:'在G6E通過後，以immutable release安全替換Dashboard Topology view。', done:['等待G7A–G7C與G6E'], next:'exact runtime guard、manifest/icon hash、rollback、same-origin API、LAN page與source semantics驗證全部通過才完成G7。', safety:'不變更collector/G2 trust boundary、不保存Router credential、不開控制功能；失敗只回復exact上一版Dashboard。' },
+
+        { id:'H0', phase:'agent-mainline', status:'complete', title:'Platform prerequisites', purpose:'確認 Harness 的 NAS 硬體、QTS 與最小 LAN-only frontend 前置可用。', done:['TS-473A 已升級 32GB','QTS／storage／雙 NIC post-upgrade health 通過','Homepage、Dashboard 與 internal-only G2 API 已通過部署與安全驗證'], next:'完成 G6E 與 G7 後啟動 H1。', safety:'H0 不代表 Agent 已部署；memory burn-in 保留為條件式選配。' },
+        { id:'H1', phase:'agent-mainline', status:'pending', title:'Harness threat model', purpose:'固定 Agent 能讀什麼、能用哪些工具、如何處理 prompt injection、audit、retention 與資源限制。', done:['架構決策：DeepSeek Harness 分析／編排，初期 read-only','Gate I executor 已明確分離'], next:'G6E與G7通過後建立 exact source/tool allowlist、no-EXECUTE contract、citation 與 rollback acceptance。', safety:'不得讓 evidence 內容變成指令；不得持有 Router／QTS admin credential或任意 shell。' },
+        { id:'H2', phase:'agent-mainline', status:'pending', title:'Immutable local build', purpose:'在 Windows 本機確認 exact Harness project/version/digest、依賴、設定與 read-only tools。', done:['等待 H1 contract'], next:'離線測試 known evidence、tool denial、schema drift、prompt injection 與 resource guard；尚不部署 NAS。', safety:'不預先鎖定未驗證 release；不接 NAS/Router、不傳正式 evidence 到外部服務。' },
+        { id:'H3', phase:'agent-mainline', status:'pending', title:'Bounded NAS pilot', purpose:'以單一資源受限容器執行 24 小時只讀 Agent pilot。', done:['等待 H2'], next:'只讀 G2 API／計算後 reports，量測 CPU/RAM/PID、latency、errors、audit 與 restart behavior。', safety:'LAN-only；無 Docker socket、Router credential、SQLite write、device login或控制 tool。' },
+        { id:'H4', phase:'agent-mainline', status:'pending', title:'Analysis & notification validation', purpose:'證明 Agent 的答案、異常去重與通知都能追溯到 evidence，且不把缺值當故障。', done:['等待 H3 evidence'], next:'known-event replay、citation fidelity、false-positive、source_unavailable、dedupe 與通知門檻全數通過。', safety:'低信心只提示資料不足；不得自動修復、重啟、改設定或放大告警。' },
+        { id:'H5', phase:'agent-mainline', status:'pending', title:'Homepage Agent UI', purpose:'把通過驗證的問答入口加入 Homepage，同時保留 Harness 獨立 trust boundary。', done:['等待 H4'], next:'使用 allowlisted service link 或受控同源 UI；驗證 auth、session、audit 與 unavailable behavior。', safety:'Homepage 不保存 Harness／Router credential；UI 不提供未核准的 execute action。' }
       ];
 
       const branchPhases = [
@@ -671,16 +1027,18 @@
         { id:'macbook', title:'2012 legacy laptop', subtitle:'可移動 Ethernet／Wi-Fi on-demand sensor' },
         { id:'phone', title:'舊手機 Sensor', subtitle:'低優先選配 · 先確認安全與背景執行能力' },
         { id:'nas-agent', title:'NAS／Agent 硬體', subtitle:'Evidence freeze → 32GB／QTS → Gate G platform' },
-        { id:'gate-h', title:'Gate H · DeepSeek Harness', subtitle:'H0 platform complete → H1–H5 read-only Agent chain → H6/H7 options' },
+        { id:'agent-options', title:'Agent 延伸選配', subtitle:'H6 Home Assistant adapter／H7 dedicated local LLM host' },
         { id:'router-ha', title:'Router／HA 研究', subtitle:'已取得主線 telemetry；其餘研究不阻塞分析' },
-        { id:'router-port', title:'G4-P · Router Port Telemetry', subtitle:'選配支線 · 不影響 G3–G6 主線完成率' }
+        { id:'wifi-survey', title:'Wi-Fi 現地勘查', subtitle:'WiFi-S1 · local zone／remote zone 五點被動 RF 與可用性基準' },
+        { id:'router-port', title:'G4-P · Router Port Telemetry', subtitle:'實體 port identity／link／negotiated speed 選配驗證' },
+        { id:'router-traffic', title:'G4-T · Live Traffic Widget', subtitle:'WAN aggregate traffic → normalized API → Homepage summary；與 G4-P 平行' }
       ];
       const branchGates = [
         { id:'SENSORPC-D1', phase:'sensorpc', status:'complete', title:'Realtek inventory', purpose:'建立 Secondary PC Realtek NIC 的硬體、PnP、驅動與事件基準。', done:['DEV_8168／SUBSYS_84321043／REV_06','1 Gbps、MTU 1500、PnP OK、signed driver','error/drop snapshot 0；30 天匹配 events 0'], next:'使用者完成驅動更新後進入版本驗證。', safety:'本機唯讀；不產生網路流量、不改設定。' },
         { id:'SENSORPC-D2A', phase:'sensorpc', status:'complete', title:'Driver 10.80.50.407', purpose:'把 2015 舊版驅動列為受控維護項，由使用者自行完成更新。', done:['使用者回報已更新至 10.80.50.407','Network Analyst 未安裝或切換驅動'], next:'以 SENSORPC-D2 確認 active version、簽章與實際穩定度。', safety:'變更由使用者手動完成；此紀錄不把版本新視為穩定證據。' },
         { id:'SENSORPC-D2', phase:'sensorpc', status:'complete', title:'15-minute stability validation', purpose:'在新驅動上驗證 PnP、1G link、counter delta 與固定 LAN／Internet 路徑。', done:['10.80.50.407、signed、PnP OK','15 intervals 全程 Up／1 Gbps／MTU 1500；0 reset、0 error/discard delta','六個固定目標合計 120/120 echoes、0% loss','0 new matching NIC events；八項 acceptance 全數通過','QNAP Adapter 1 單次 10 ms、p95 1 ms，僅列線索不判定異常'], next:'SENSORPC-D3 不需要執行；除非日後出現可重現斷線／事件。下一步 SENSORPC-S2 cross-sensor calibration。', safety:'結論只適用本次 15 分鐘有界視窗；不把單點峰值或新版號本身當成長期穩定保證。' },
         { id:'SENSORPC-D3', phase:'sensorpc', status:'optional', title:'Half-day soak', purpose:'只有 D2 出現偶發 counter、丟包或事件疑點時，才延長觀察窗。', done:['尚未啟動；保留為條件式驗證'], next:'D2 全數通過則可跳過；否則另行設計有界 soak。', safety:'必須另行核准固定 cadence、targets 與停止條件。' },
-        { id:'SENSORPC-S2', phase:'sensorpc', status:'next', title:'Cross-sensor calibration', purpose:'讓 Secondary PC 與 NAS、主 Windows 在同時段觀測相同固定 targets。', done:['SENSORPC-D2 已通過；D3 依目前證據可跳過'], next:'設計固定同時段、相同 targets 的 bounded cross-sensor comparison，量化位置差與 sensor bias。', safety:'sensor missing 不等於 network outage；需另行核准任何新的 probes。' },
+        { id:'SENSORPC-S2', phase:'sensorpc', status:'complete', title:'Cross-sensor calibration', purpose:'量化 Secondary PC 與主 Windows 的位置差及 sensor bias，確認 Secondary PC 是否可作 TUF downstream on-demand sensor。', done:['SENSORPC-D2 已通過；D3 依目前證據可跳過','S2A：兩端各20/20 samples，六個targets各20/20 paired valid，240/240 echoes成功','start alignment 9.275 ms；兩端全程Up／MTU1500／link不變，error/discard delta全0','六條路徑median location bias均為0–1 ms；Secondary PC通過on-demand sensor calibration','Attempt 1 的PowerShell 5.1相容性停止已與網路結果分離；1.0.2修正版完成正式窗口'], next:'SENSORPC-S2主體完成。S2B NAS third-sensor calibration列為G6D closeout後的選配延伸，不阻擋主線。', safety:'本結果只涵蓋約10分鐘同步窗口；不等於24/7 availability。collector error／sensor missing不可解讀為network outage。' },
 
         { id:'S-MAC-1', phase:'macbook', status:'complete', title:'Hardware inventory', purpose:'確認 2012 legacy laptop 作為觀測點的 OS、Ethernet、儲存、電池與睡眠能力。', done:['Catalina 10.15.7／i5-3210M／16 GiB','Ethernet 1 Gbps full-duplex、MTU 1500','SATA SSD、SMART Verified、privacy filter passed'], next:'驗證 Wi-Fi association 能力。', safety:'唯讀 one-shot；network activity=false、configuration changed=false。' },
         { id:'S-MAC-2', phase:'macbook', status:'complete', title:'2.4 GHz qualification', purpose:'確認內建 Wi-Fi 能提供 association、RSSI、noise 與 rate telemetry。', done:['channel 10、RSSI −39 dBm、noise −82 dBm','SNR 43 dB、TX/max 217 Mbps、MCS 23','association status 0'], next:'切到 5 GHz 後再做獨立唯讀快照。', safety:'單次快照不代表 utilization、packet loss 或長期穩定性。' },
@@ -697,17 +1055,11 @@
         { id:'NAS-H0', phase:'nas-agent', status:'complete', title:'F1F → F3B evidence freeze', purpose:'完成七天 core、writer-free closeout 與最終 immutable 分析。', done:['F1F 完整七天 window 已完成','F3B immutable closeout 與 final report 已完成','F2C 24h overlay evidence 已獨立封存'], next:'可安排 NAS-H1 維護窗：先備份與停機檢查，再由使用者升級 32GB RAM。', safety:'evidence 已 freeze；任何 RAM／QTS／Container Station 變更都要在獨立維護窗內進行並留下前後驗證。' },
         { id:'NAS-H1', phase:'nas-agent', status:'complete', title:'QTS／RAM 32GB maintenance', purpose:'主線 R2-M1 的硬體維護支線：完成 TS-473A RAM 擴充與必要平台維護。', done:['32GB 記憶體已到貨；F1F／F3B／F3C 已完成','使用者安裝並開機；QTS 顯示 32GB（31GB available）','使用者回報 QTS firmware 更新完成；M2 以只讀方式確認 QTS 5.2.10、雙 NIC 與 RAID metadata 無阻擋信號'], next:'若需要額外把握度，再另立有界 memory burn-in；否則進入 Gate G。', safety:'原 RAM 保留以便回復；升級後的壓力測試另定範圍。' },
         { id:'NAS-H2', phase:'nas-agent', status:'optional', title:'Memory burn-in', purpose:'若出現 memory、temperature 或 container stability 線索，再對 32GB 做有界壓力驗證。', done:['M2 post-upgrade health 已通過','G3 Homepage container running／healthy；尚無 RAM error evidence'], next:'目前不阻塞 Gate G/H；只有新線索出現才另定 workload、溫度與停止條件。', safety:'任何壓力測試需另行核准；不得與重要 collector／storage maintenance 同時進行。' },
-        { id:'NAS-H3', phase:'nas-agent', status:'running', title:'Container platform rollout', purpose:'依序部署 Homepage、read-only API、Dashboard、analysis 與 notification。', done:['G3 Homepage LAN frontend完成','G4D-OT3 exact image offline load與G2 internal-only API完成','Homepage r5 六張 read-only widgets E2E 6/6、Windows health HTTP 200','exact LAN bind、direct non-root、read-only root/config、resource limits與無 Docker socket通過'], next:'Gate G5 drill-down Dashboard；完成後進入 G6 security/burn-in。', safety:'LAN-only、非 privileged、固定 image；不把 Router credential 放進 Homepage。' },
+        { id:'NAS-H3', phase:'nas-agent', status:'running', title:'Container platform rollout', purpose:'依序部署 Homepage、read-only API、Dashboard、analysis 與 notification。', done:['G3 Homepage LAN frontend完成','G4D-OT3 exact image offline load與G2 internal-only API完成','Homepage r5 六張 read-only widgets E2E 6/6、Windows health HTTP 200','G5A–G5C information architecture、Dashboard與immutable runtime完成','G5D Dashboard／Homepage r6 bounded deployment與8-path E2E完成'], next:'Gate G6 security/burn-in；通過後才開放Gate H Harness admission。', safety:'LAN-only、非 privileged、固定 image；不把Router credential放進Homepage或Dashboard。' },
         { id:'NAS-H4', phase:'nas-agent', status:'pending', title:'DeepSeek Harness admission', purpose:'只在 Gate G6 通過後讓常駐 Agent 讀取 normalized evidence。', done:['Harness 方向已選定；Gate H0 平台前置已完成'], next:'依 Gate H1–H5 安全契約、immutable build、pilot、validation、UI 順序前進。', safety:'不持有 Router 修改權；EXECUTE 必須是獨立、可回滾的 Gate I 授權層。' },
 
-        { id:'H0', phase:'gate-h', status:'complete', title:'Platform prerequisites', purpose:'確認 Harness 的 NAS 硬體、QTS 與最小 LAN-only frontend 前置可用。', done:['TS-473A 已升級 32GB','QTS／storage／雙 NIC post-upgrade health 通過','G3 r4 Homepage running／healthy，exact LAN bind 與最小權限通過'], next:'先完成 G4–G6；之後啟動 H1。', safety:'H0 不代表 Agent 已部署；memory burn-in 保留為條件式選配。' },
-        { id:'H1', phase:'gate-h', status:'pending', title:'Harness threat model', purpose:'固定 Agent 能讀什麼、能用哪些工具、如何處理 prompt injection、audit、retention 與資源限制。', done:['架構決策：DeepSeek Harness 分析／編排，初期 read-only','Gate I executor 已明確分離'], next:'G6 通過後建立 exact source/tool allowlist、no-EXECUTE contract、citation 與 rollback acceptance。', safety:'不得讓 evidence 內容變成指令；不得持有 Router／QTS admin credential或任意 shell。' },
-        { id:'H2', phase:'gate-h', status:'pending', title:'Immutable local build', purpose:'在 Windows 本機確認 exact Harness project/version/digest、依賴、設定與 read-only tools。', done:['等待 H1 contract'], next:'離線測試 known evidence、tool denial、schema drift、prompt injection 與 resource guard；尚不部署 NAS。', safety:'不預先鎖定未驗證 release；不接 NAS/Router、不傳正式 evidence 到外部服務。' },
-        { id:'H3', phase:'gate-h', status:'pending', title:'Bounded NAS pilot', purpose:'以單一資源受限容器執行 24 小時只讀 Agent pilot。', done:['等待 H2'], next:'只讀 G2 API／計算後 reports，量測 CPU/RAM/PID、latency、errors、audit 與 restart behavior。', safety:'LAN-only；無 Docker socket、Router credential、SQLite write、device login或控制 tool。' },
-        { id:'H4', phase:'gate-h', status:'pending', title:'Analysis & notification validation', purpose:'證明 Agent 的答案、異常去重與通知都能追溯到 evidence，且不把缺值當故障。', done:['等待 H3 evidence'], next:'known-event replay、citation fidelity、false-positive、source_unavailable、dedupe 與通知門檻全數通過。', safety:'低信心只提示資料不足；不得自動修復、重啟、改設定或放大告警。' },
-        { id:'H5', phase:'gate-h', status:'pending', title:'Homepage Agent UI', purpose:'把通過驗證的問答入口加入 Homepage，同時保留 Harness 獨立 trust boundary。', done:['等待 H4'], next:'使用 allowlisted service link 或受控同源 UI；驗證 auth、session、audit 與 unavailable behavior。', safety:'Homepage 不保存 Harness／Router credential；UI 不提供未核准的 execute action。' },
-        { id:'H6', phase:'gate-h', status:'optional', title:'HA adapter + Apple Home', purpose:'當智慧設備與 automation 需求增加時，讓 HA 提供家庭 state/event 與受限 action adapter。', done:['目前底層 Router telemetry 已足夠；HA 不是 Dashboard 必要前置','Apple Home／Siri 維持主要家庭前端'], next:'先唯讀 entities/events；任何 action allowlist 另立 Gate 並要求 owner approval。', safety:'不給 Harness HA admin 或任意 call_service；Router control 不借道 HA。' },
-        { id:'H7', phase:'gate-h', status:'optional', title:'Dedicated local LLM host', purpose:'未來以專用電腦承擔本地推論，NAS 保留 evidence、協調與服務入口。', done:['官方 Qwen/Qwen3.8-27B 量化版列為第一候選；尚未選硬體或 runtime'], next:'依 VRAM、功耗、延遲、繁中、citation、tool-call 與 24h stability 做 A/B；不通過則維持 API backend。', safety:'不把社群未驗證 distill 當正式模型；不因模型改變而放寬 H1/Gate I 權限。' },
+        { id:'H6', phase:'agent-options', status:'optional', title:'HA adapter + Apple Home', purpose:'當智慧設備與 automation 需求增加時，讓 HA 提供家庭 state/event 與受限 action adapter。', done:['目前底層 Router telemetry 已足夠；HA 不是 Dashboard 必要前置','Apple Home／Siri 維持主要家庭前端'], next:'先唯讀 entities/events；任何 action allowlist 另立 Gate 並要求 owner approval。', safety:'不給 Harness HA admin 或任意 call_service；Router control 不借道 HA。' },
+        { id:'H7', phase:'agent-options', status:'optional', title:'Dedicated local LLM host', purpose:'未來以專用電腦承擔本地推論，NAS 保留 evidence、協調與服務入口。', done:['官方 Qwen/Qwen3.8-27B 量化版列為第一候選；尚未選硬體或 runtime'], next:'依 VRAM、功耗、延遲、繁中、citation、tool-call 與 24h stability 做 A/B；不通過則維持 API backend。', safety:'不把社群未驗證 distill 當正式模型；不因模型改變而放寬 H1/Gate I 權限。' },
 
         { id:'RT-S0', phase:'router-ha', status:'complete', title:'asusrouter telemetry', purpose:'驗證不依賴 Home Assistant 也能從底層 library 取得 Router telemetry。', done:['F2B2/F2B3 完成','CPU/RAM/WAN/network/AiMesh/client schema 可用','port live speed 因語意衝突排除'], next:'以 F2C 驗證 24 小時連續採樣。', safety:'只讀；不保存 credential/raw response/MAC/IP。' },
         { id:'RT-S1', phase:'router-ha', status:'complete', title:'F2C 24h overlay', purpose:'驗證 Router normalized overlay 能以五分鐘 cadence 長時間穩定取得。', done:['288/288 cycles、0 failed','WAN/AiMesh 全程 connected','CPU/RAM/network/WAN/AiMesh/client 全部 available'], next:'F3B NAS final report 已完成但未跨窗併入 F2C；F3C 可在明確的 correlation contract 下做保守對照。', safety:'0 Router control；五分鐘採樣不能排除更短事件。' },
@@ -715,11 +1067,18 @@
         { id:'RT-S3', phase:'router-ha', status:'optional', title:'Home Assistant adapter', purpose:'未來智慧設備增加時，讓 HA 提供家庭 state/event 與受限 action adapter。', done:['底層 asusrouter 資訊已足夠；HA 不再是 Dashboard 必要前置'], next:'設備數量與自動化需求增加後再評估。', safety:'不借道 HA 讓 LLM 取得未受控 Router 執行權。' },
         { id:'RT-S4', phase:'router-ha', status:'complete', title:'Apple Home preserved', purpose:'維持 Apple Home／Siri 作為家庭日常控制前端。', done:['架構決策已確認：HA 若導入只作 adapter，不取代 Apple 生態'], next:'未來整合時只暴露 owner-approved devices/actions。', safety:'Network Analyst Dashboard 與家庭控制前端分離。' },
 
+        { id:'WiFi-S1', phase:'wifi-survey', status:'complete', title:'Five-point passive RF survey', purpose:'以手機在 local zone／remote zone 五個代表位置量測 2.4／5GHz RSSI，確認 AiMesh 覆蓋、樓層主導節點與樓梯漫遊交界。', done:['remote zone 桌前：TUF 2.4／5GHz 約 −30／−50 dBm；RT 約 −57／−84 dBm','remote zone最遠點：TUF 2.4／5GHz 約 −46～−50／−63 dBm；RT 5GHz 約 −86 dBm','local zone 廁所關門弱點：RT 2.4／5GHz 約 −50～−53／−71 dBm；TUF 5GHz 約 −88 dBm','local zone 廁所一次性 Internet 快照：5GHz 334／51 Mbps、2.4GHz 472.4／409.9 Mbps；兩者 latency 14 ms、jitter 3 ms','local zone living area：RT 2.4／5GHz 約 −24～−34／−36～−40 dBm；remote zone TUF 訊號明顯較弱','樓梯交界：兩節點 5GHz 約 −51／−53～−57 dBm，形成強重疊且未見覆蓋缺口','整體未發現 dead zone；目前沒有新增／移動 AP、調整頻道或功率的證據需求'], next:'維持現況。只有出現實際斷線、sticky-client 或吞吐問題時，才針對該裝置做受控漫遊／多次吞吐驗證。', safety:'Roadmap 只保存位置代號與彙總統計，不保存 SSID、BSSID 或鄰居網路名稱；被動 beacon RSSI 與一次性 Internet speed test 不能證明 client uplink、channel utilization、roaming event 或長期效能。' },
+
         { id:'G4-P1', phase:'router-port', status:'optional', title:'Port field semantics', purpose:'分辨 Router 欄位究竟是協商速率、硬體能力、累積 counter 或即時流量，避免同名不同義。', done:['支線已建立；尚未讀取新資料','現有證據確認 WebGUI 與 asusrouter port 語意曾衝突'], next:'主線有需要時另行核准一次只讀 schema/field inventory。', safety:'不回傳 raw response、MAC/IP、Cookie/Header/Token；不因欄位存在就加入正式 schema。' },
         { id:'G4-P2', phase:'router-port', status:'pending', title:'Physical port identity map', purpose:'利用既有拓樸、WebGUI 與對端 NIC link evidence，為 WAN、backbone、AiMesh backhaul 等建立穩定正規化 port identity。', done:['等待 G4-P1 唯一化欄位語意'], next:'要求重新整理／重新登入後 mapping 仍一致，再進入 link transition。', safety:'不保存 ASUS 原始識別碼；不猜測 port label；不變更線路。' },
         { id:'G4-P3', phase:'router-port', status:'pending', title:'Link and negotiation validation', purpose:'由使用者手動操作一個非關鍵端點 disconnect/reconnect，驗證 port up/down 與 negotiated speed 是否正確跟隨。', done:['等待 G4-P2 建立唯一 port identity'], next:'Up/down 100% 符合實際狀態，且 Router GUI、API 與 peer NIC 協商速率一致後才通過。', safety:'Codex 不拔線、不停用 NIC、不操作 Router；任何人工擾動需獨立核准與停止條件。' },
         { id:'G4-P4', phase:'router-port', status:'pending', title:'RX/TX throughput calibration', purpose:'若確實需要即時 Mbps，將 Router cumulative counters 與 NAS／Windows peer counters 做時間對齊的 idle/load 校準。', done:['等待 G4-P3；可只完成 link speed 而跳過本 Gate'], next:'至少 5 idle + 5 sustained-load aligned samples；方向一致率 100%，非零誤差不超過 max(15%, 0.05 MB/s)。', safety:'負載由使用者手動產生；Codex 不啟動 speed test。missing/reset/session expiry 不得形成巨大假流量。' },
-        { id:'G4-P5', phase:'router-port', status:'pending', title:'Dashboard admission', purpose:'把已驗證的 port identity、link state、negotiated speed、可選 RX/TX rate 與 freshness 納入 G2/G4 read model。', done:['等待所需前置 Gate 通過'], next:'通過才在 Homepage 顯示；未通過的欄位固定為 source_unavailable，且不阻塞 G4 其他 widgets。', safety:'只讀呈現；不提供 Apply、斷線、重新協商、重開機或其他控制按鈕。' }
+        { id:'G4-P5', phase:'router-port', status:'pending', title:'Dashboard admission', purpose:'把已驗證的 port identity、link state、negotiated speed、可選 RX/TX rate 與 freshness 納入 G2/G4 read model。', done:['等待所需前置 Gate 通過'], next:'通過才在 Homepage 顯示；未通過的欄位固定為 source_unavailable，且不阻塞 G4 其他 widgets。', safety:'只讀呈現；不提供 Apply、斷線、重新協商、重開機或其他控制按鈕。' },
+
+        { id:'G4-T1', phase:'router-traffic', status:'optional', title:'Aggregate traffic source contract', purpose:'固定 WAN RX/TX aggregate throughput 與 physical-port negotiated speed 的語意邊界，避免把總流量誤標為單一 port live speed。', done:['E5 已建立 cumulative counters → delta → display rate 的公式證據','F2B2/F2B3/F2C 已證明 normalized aggregate traffic 可穩定取得','G4-P 與本支線確定為平行依賴：P 驗證實體 port，T 驗證 WAN aggregate presentation'], next:'G6E 後若仍需要 Homepage 即時流量摘要，再固定 live source、cadence、unit、freshness 與 source_unavailable contract。', safety:'不得以 aggregate WAN traffic 推論個別 port／client；不重啟 E5 GUI research，除非 direct source 明確不足。' },
+        { id:'G4-T2', phase:'router-traffic', status:'pending', title:'Independent collector and API pilot', purpose:'由獨立 Router collector 產生去識別、正規化的 RX/TX Mbps，經 G2 exact endpoint 提供給顯示層。', done:['等待 G4-T1 admission'], next:'先做 bounded pilot，驗證 reset/wrap、時間對齊、方向、freshness 與錯誤降級，再考慮長期執行。', safety:'Homepage 不保存 Router credential、不直接登入 Router；raw response 不進 Dashboard，寫入與控制能力維持 0。' },
+        { id:'G4-T3', phase:'router-traffic', status:'pending', title:'Homepage live traffic summary', purpose:'以 Homepage Custom API widget 顯示 WAN RX、WAN TX、data age 與 source state，並連到完整 Dashboard。', done:['版面方向已確認：Homepage 放摘要，Dashboard 保留完整時間序列與診斷'], next:'只在 G4-T2 source contract 通過後加入；刷新頻率不得快於 collector cadence。', safety:'同源 read-only API；無 credential、query、write method 或 Router control；stale/missing 明確呈現。' },
+        { id:'G4-T4', phase:'router-traffic', status:'optional', title:'Mini sparkline decision', purpose:'評估是否值得為 Homepage 增加小型趨勢圖；數字摘要不足時才進行。', done:['官方 Custom API widget 可顯示數值與 bitrate，但不原生提供 sparkline'], next:'優先維持原生數字卡；只有 UX 收益高於自訂 widget build／維護成本時才實作。', safety:'不得讓視覺需求迫使 Homepage 直接持有 Router session 或繞過 G2 trust boundary。' }
       ];
 
       const deviceTopologyGroups = [
@@ -733,12 +1092,12 @@
       const deviceStatusText = { confirmed:'Owner confirmed', snapshot:'Snapshot confirmed', candidate:'候選／未部署', history:'未合併歷史' };
       const devices = [
         { id:'infra-ont-nokia', group:'edge', name:'Nokia ONT', identity:'infrastructure · owner confirmed · 位置未確認', role:'Internet fiber handoff · always on', path:'HiNet fiber → Nokia ONT（bridge mode）→ RT-BE86U WAN／PPPoE', availability:'預期全年在線；目前沒有獨立 telemetry 或管理存取。', status:'confirmed', tileStatus:'complete', evidence:['使用者確認為 bridge mode','PPPoE 撥號由 RT-BE86U 負責','Network Analyst 不把 ONT 當第二台 Router'], notes:'未取得 ONT 的 CPU、link counters 或 log；Internet 異常需由 Router／外部 probes 間接定位。' },
-        { id:'infra-router-rt-be86u', group:'edge', name:'ASUS RT-BE86U', identity:'infrastructure · owner confirmed · local zone', role:'唯一 main Router／gateway · always on', path:'ONT bridge → RT-BE86U → 10GbE backbone、直接 LAN／Wi-Fi clients', availability:'24/7 核心設備；Router overlay 已證明 CPU、RAM、WAN、aggregate network、AiMesh 與 clients 可唯讀取得。', status:'confirmed', tileStatus:'complete', evidence:['Firmware version retained privately','負責 PPPoE、NAT、DHCP、Firewall、DNS 與 gateway','F2C 288/288 cycles、0 failed；WAN 全程 connected'], notes:'Port role／live speed 因 library 與 WebGUI 語意衝突仍排除；本清冊不保存 MAC、session 或 credential。' },
+        { id:'infra-router-rt-be86u', group:'edge', name:'ASUS RT-BE86U', identity:'infrastructure · owner confirmed · local zone', role:'唯一 main Router／gateway · always on', path:'ONT bridge → RT-BE86U → 10GbE backbone、直接 LAN／Wi-Fi clients', availability:'24/7 核心設備；Router overlay 已證明 CPU、RAM、WAN、aggregate network、AiMesh 與 clients 可唯讀取得。', status:'confirmed', tileStatus:'complete', evidence:['Firmware version retained privately','負責 PPPoE、NAT、DHCP、Firewall、DNS 與 gateway','F2C 288/288 cycles、0 failed；WAN 全程 connected','WiFi-S1：local zone living area 5GHz 約 −36～−40 dBm；local zone 廁所關門弱點約 −71 dBm，仍通過可用性快照'], notes:'Port role／live speed 因 library 與 WebGUI 語意衝突仍排除；本清冊不保存 MAC、session 或 credential。' },
 
         { id:'infra-switch-xmg105', group:'backbone', name:'Zyxel XMG-105', identity:'infrastructure · owner confirmed · remote zone', role:'unmanaged backbone switch · always on', path:'RT-BE86U 10GbE RJ-45 → Zyxel SFP-10G-T → XMG-105 → NAS／PC／TUF', availability:'預期 24/7；無管理介面 telemetry。', status:'confirmed', tileStatus:'complete', evidence:['SFP-10G-T 模組由使用者確認','SFP+ LED 綠色，代表 10G link evidence','fan-out 至 QNAP、主 PC 與 TUF'], notes:'無 SNMP／port counters／error counters；現階段只能透過兩端 link 與 cross-sensor evidence 間接判斷 backbone。' },
         { id:'nas-qnap-ts473a', group:'backbone', name:'QNAP TS-473A · Home NAS', identity:'NAS · owner confirmed · remote zone', role:'primary 24/7 collector／storage · always on', path:'XMG-105 → Adapter 1 2.5GbE ＋ Adapter 2 2.5GbE（獨立，無 bond/trunk）', availability:'全年開機；F1F/F3B/F3C 與 M2 維護後確認均已完成。', status:'confirmed', tileStatus:'complete', evidence:['QTS 5.2.10（restricted read path 的 exact build string unavailable）','32GB RAM（31GB available）已由 QTS System Information 確認','M2：兩張 2.5GbE up、MTU 1500，errors/drops 均為 0','M2：RAID metadata 0 degraded markers；data volumes 未達 capacity guard','Round 2 local system／dual-NIC telemetry 已驗證'], notes:'M2 支持正常的維護後開機狀態，但不取代長時間 RAM burn-in；兩個非特異 boot link markers 無法單獨推論故障。' },
         { id:'pc-main-primary', group:'backbone', name:'Primary Windows PC', identity:'computer · owner confirmed · remote zone', role:'Windows endpoint sensor · sleeps or powers off', path:'Intel I225-LM 2.5GbE → XMG-105；另有一張獨立 1GbE NIC', availability:'非 24/7；開機時可提供 Windows NIC／Router overlay 證據。', status:'confirmed', tileStatus:'complete', evidence:['2.5Gbps、MTU 1500','I225-LM driver 2.1.5.7、PnP Started','F2C Router overlay 24h 已完成'], notes:'離線／睡眠必須標 source_unavailable；歷史 unresolved interface label 可能是第二張 1GbE NIC，但尚未合併。' },
-        { id:'infra-ap-tuf-be3600', group:'backbone', name:'ASUS TUF-BE3600', identity:'infrastructure · owner confirmed · remote zone', role:'wired AiMesh node／remote zone AP · always on', path:'XMG-105 → TUF 2.5G WAN/LAN-1 wired backhaul → downstream LAN／2.4GHz／5GHz clients', availability:'預期 24/7；由 RT-BE86U AiMesh 管理。', status:'confirmed', tileStatus:'complete', evidence:['Firmware version retained privately','2.5Gbps Ethernet backhaul、connection quality strong','F2C 中 2/2 AiMesh nodes 全程 connected'], notes:'硬體 revision A1 仍是高可信推定而非機身標籤確認；不把它視為第二台 Router。' },
+        { id:'infra-ap-tuf-be3600', group:'backbone', name:'ASUS TUF-BE3600', identity:'infrastructure · owner confirmed · remote zone', role:'wired AiMesh node／remote zone AP · always on', path:'XMG-105 → TUF 2.5G WAN/LAN-1 wired backhaul → downstream LAN／2.4GHz／5GHz clients', availability:'預期 24/7；由 RT-BE86U AiMesh 管理。', status:'confirmed', tileStatus:'complete', evidence:['Firmware version retained privately','2.5Gbps Ethernet backhaul、connection quality strong','F2C 中 2/2 AiMesh nodes 全程 connected','WiFi-S1：remote zone 桌前 5GHz 約 −50 dBm；remote zone最遠點約 −63 dBm'], notes:'硬體 revision A1 仍是高可信推定而非機身標籤確認；不把它視為第二台 Router。' },
 
         { id:'secondary-pc-wired', group:'tuf-branch', name:'Secondary PC · Secondary-PC', identity:'computer · owner confirmed · remote zone', role:'TUF downstream on-demand sensor · 約每日 12 小時', path:'TUF-BE3600 downstream LAN → Realtek PCIe GBE 1GbE → Windows 10 PC', availability:'非 24/7；開機時可監看 TUF 後方有線路徑。', status:'confirmed', tileStatus:'complete', evidence:['與 guest-room Wi-Fi PC 為兩台不同實體電腦','Realtek 10.80.50.407、signed、PnP OK','SENSORPC-D2：15 分鐘、120/120 echoes、0 reset/error/discard'], notes:'關機／睡眠記 source_unavailable；目前 D3 soak 可跳過，下一步 SENSORPC-S2 calibration。' },
         { id:'secondary-pc-guest-wifi', group:'tuf-branch', name:'Guest PC', identity:'computer · owner-confirmed snapshot · remote zone', role:'Wi-Fi client · sleeps or powers off', path:'TP-Link Wi-Fi adapter → TUF-BE3600 5GHz', availability:'休眠或關機；只在喚醒時出現在 Router client list。', status:'snapshot', tileStatus:'next', evidence:['使用者喚醒後 client count 13 → 14','被動 snapshot 顯示 TUF 5GHz','一次 RSSI −57 dBm；使用者確認 hostname'], notes:'RSSI 與當時位址只是一個 snapshot，不是長期訊號品質 baseline；未建立 collector。' },
@@ -759,6 +1118,33 @@
 
         { id:'history-msft5', group:'history', name:'Unresolved interface · history record', identity:'offline history only · 未確認為獨立裝置', role:'unresolved Router history clue', path:'可能對應 Main PC 的第二張 1GbE NIC；沒有足夠 interface identity evidence', availability:'非 current device presence；owner decision 為 defer／no action。', status:'history', tileStatus:'optional', evidence:['歷史 DHCP vendor-class-style label','使用者確認主 PC 確有第二張 1GbE NIC','未保存足以唯一合併的 interface evidence'], notes:'不得合併、封鎖、重新命名或建立 reservation；不計入 20 台 canonical devices。' }
       ];
+      const topologyBranchNodes = [
+        { id:'branch-rt-clients', col:3, row:3, title:'RT direct clients', meta:'audited attachment', parent:'infra-router-rt-be86u', linkKind:'wired', linkLabel:'LAN / Wi-Fi' },
+        { id:'branch-roaming', col:5, row:3, title:'Roaming / sensors', meta:'attachment can change', parent:'infra-router-rt-be86u', linkKind:'roaming', linkLabel:'variable path' }
+      ];
+      const deviceTopologyLayout = [
+        { id:'infra-ont-nokia', col:3, row:1, badge:'ONT', icon:'assets/roadmap-topology/router.png', parent:null, linkKind:'wired', linkLabel:'fiber' },
+        { id:'infra-router-rt-be86u', col:3, row:2, badge:'RT', icon:'assets/roadmap-topology/asus-router.png', iconKind:'product', parent:'infra-ont-nokia', linkKind:'wired', linkLabel:'bridge / WAN' },
+        { id:'infra-switch-xmg105', col:1, row:3, badge:'10G', icon:'assets/roadmap-topology/zyxel-networks.png', parent:'infra-router-rt-be86u', linkKind:'wired', linkLabel:'10GbE' },
+        { id:'nas-qnap-ts473a', col:1, row:4, badge:'NAS', icon:'assets/roadmap-topology/qnap.png', iconKind:'product', parent:'infra-switch-xmg105', linkKind:'wired', linkLabel:'2.5GbE ×2' },
+        { id:'pc-main-primary', col:2, row:4, badge:'PC', icon:'assets/roadmap-topology/windows-10.png', parent:'infra-switch-xmg105', linkKind:'wired', linkLabel:'2.5GbE' },
+        { id:'infra-ap-tuf-be3600', col:1, row:5, badge:'AP', icon:'assets/roadmap-topology/asus-router.png', iconKind:'product', parent:'infra-switch-xmg105', linkKind:'wired', linkLabel:'2.5GbE backhaul' },
+        { id:'secondary-pc-wired', col:1, row:6, badge:'PC', icon:'assets/roadmap-topology/windows-10.png', parent:'infra-ap-tuf-be3600', linkKind:'wired', linkLabel:'1GbE' },
+        { id:'secondary-pc-guest-wifi', col:2, row:6, badge:'PC', icon:'assets/roadmap-topology/windows-10.png', parent:'infra-ap-tuf-be3600', linkKind:'wireless', linkLabel:'5GHz snapshot' },
+        { id:'peripheral-epson-l555', col:1, row:7, badge:'PRINT', icon:'assets/roadmap-topology/epson-iprint.png', iconKind:'product', parent:'infra-ap-tuf-be3600', linkKind:'wireless', linkLabel:'2.4GHz snapshot' },
+        { id:'client-ipad-pro-m4', col:2, row:7, badge:'iPAD', icon:'assets/roadmap-topology/apple.png', parent:'infra-ap-tuf-be3600', linkKind:'wireless', linkLabel:'5GHz snapshot' },
+        { id:'client-switch2', col:3, row:4, badge:'GAME', icon:'assets/roadmap-topology/nintendo-switch.png', parent:'branch-rt-clients', linkKind:'wireless', linkLabel:'2.4GHz snapshot' },
+        { id:'client-pixel3', col:4, row:4, badge:'PHONE', icon:'assets/roadmap-topology/android.png', parent:'branch-rt-clients', linkKind:'wireless', linkLabel:'5GHz snapshot' },
+        { id:'client-homepod-mini', col:3, row:5, badge:'AUDIO', icon:'assets/roadmap-topology/apple.png', parent:'branch-rt-clients', linkKind:'wireless', linkLabel:'5GHz snapshot' },
+        { id:'client-apple-tv4k', col:4, row:5, badge:'TV', icon:'assets/roadmap-topology/apple.png', parent:'branch-rt-clients', linkKind:'wired', linkLabel:'wired / port unknown' },
+        { id:'iot-philips-light-bulb', col:3, row:6, badge:'LIGHT', icon:'assets/roadmap-topology/diyhue.png', parent:'branch-rt-clients', linkKind:'wireless', linkLabel:'IoT 2.4GHz' },
+        { id:'iot-zhimi-air-purifier', col:4, row:6, badge:'AIR', icon:'assets/roadmap-topology/xiaomi-global.png', parent:'branch-rt-clients', linkKind:'wireless', linkLabel:'IoT 2.4GHz' },
+        { id:'client-iphone-se3', col:5, row:4, badge:'PHONE', icon:'assets/roadmap-topology/apple.png', parent:'branch-roaming', linkKind:'roaming', linkLabel:'AiMesh roaming' },
+        { id:'client-pixel10pro', col:6, row:4, badge:'PHONE', icon:'assets/roadmap-topology/android.png', parent:'branch-roaming', linkKind:'roaming', linkLabel:'MLO snapshot' },
+        { id:'sensor-macbookpro-2012', col:5, row:5, badge:'MAC', icon:'assets/roadmap-topology/apple.png', parent:'branch-roaming', linkKind:'roaming', linkLabel:'placement pending' },
+        { id:'sensor-iphone5s', col:6, row:5, badge:'SENSOR', icon:'assets/roadmap-topology/apple.png', parent:'branch-roaming', linkKind:'roaming', linkLabel:'not deployed' },
+        { id:'history-msft5', col:6, row:7, badge:'HIST', icon:'assets/roadmap-topology/windows-10.png', parent:null, linkKind:'roaming', linkLabel:'unmerged' }
+      ];
 
       const lanes = root.querySelector('#na-lanes');
       const detail = {
@@ -770,7 +1156,7 @@
         next: root.querySelector('#na-detail-next'),
         safety: root.querySelector('#na-detail-safety')
       };
-      let selectedId = 'G5';
+      let selectedId = 'G6D';
       let activeFilter = 'all';
       const branchLanes = root.querySelector('#na-branch-lanes');
       const branchDetail = {
@@ -782,8 +1168,10 @@
         next: root.querySelector('#na-branch-detail-next'),
         safety: root.querySelector('#na-branch-detail-safety')
       };
-      let selectedBranchId = 'H0';
+      let selectedBranchId = 'G4-T1';
       const deviceLanes = root.querySelector('#na-device-lanes');
+      const topologyCanvas = root.querySelector('#na-topology-canvas');
+      const topologyEdges = root.querySelector('#na-topology-edges');
       const deviceDetail = {
         phase: root.querySelector('#na-device-detail-phase'),
         title: root.querySelector('#na-device-detail-title'),
@@ -984,57 +1372,96 @@
           return li;
         }));
         deviceDetail.notes.textContent = device.notes;
-        root.querySelectorAll('#na-device-lanes .na-gate').forEach(button => {
+        root.querySelectorAll('#na-device-lanes .na-topology-node').forEach(button => {
           button.setAttribute('aria-pressed', String(button.dataset.id === id));
+        });
+      }
+
+      function renderTopologyEdges() {
+        const width = topologyCanvas.scrollWidth;
+        const height = topologyCanvas.scrollHeight;
+        topologyEdges.setAttribute('viewBox', `0 0 ${width} ${height}`);
+        topologyEdges.replaceChildren();
+        const namespace = 'http://www.w3.org/2000/svg';
+        [...topologyBranchNodes, ...deviceTopologyLayout].filter(item => item.parent).forEach(item => {
+          const parent = deviceLanes.querySelector(`[data-id="${item.parent}"]`);
+          const child = deviceLanes.querySelector(`[data-id="${item.id}"]`);
+          if (!parent || !child) return;
+          const startX = parent.offsetLeft + parent.offsetWidth / 2;
+          const startY = parent.offsetTop + parent.offsetHeight;
+          const endX = child.offsetLeft + child.offsetWidth / 2;
+          const endY = child.offsetTop;
+          const bendY = startY + Math.max(24, (endY - startY) * .48);
+          const path = document.createElementNS(namespace, 'path');
+          path.setAttribute('d', `M ${startX} ${startY} C ${startX} ${bendY}, ${endX} ${bendY}, ${endX} ${endY}`);
+          path.setAttribute('class', 'na-topology-edge');
+          path.dataset.kind = item.linkKind;
+          topologyEdges.append(path);
+          const label = document.createElementNS(namespace, 'text');
+          label.setAttribute('x', String((startX + endX) / 2));
+          label.setAttribute('y', String(bendY - 7));
+          label.setAttribute('text-anchor', 'middle');
+          label.setAttribute('class', 'na-topology-edge-label');
+          label.textContent = item.linkLabel;
+          topologyEdges.append(label);
         });
       }
 
       function renderDeviceLanes() {
         deviceLanes.replaceChildren();
-        deviceTopologyGroups.forEach(group => {
-          const groupDevices = devices.filter(device => device.group === group.id);
-          const lane = document.createElement('section');
-          lane.className = 'na-lane';
-          lane.dataset.phase = group.id;
-          const track = document.createElement('div');
-          track.className = 'na-lane-track';
-          const marker = document.createElement('div');
-          marker.className = 'na-lane-marker';
-          track.append(marker);
-          const content = document.createElement('div');
-          content.className = 'na-lane-content';
-          const head = document.createElement('div');
-          head.className = 'na-lane-head';
-          const heading = document.createElement('div');
-          const h2 = document.createElement('h2');
-          h2.textContent = group.title;
-          const subtitle = document.createElement('div');
-          subtitle.className = 'text-small text-muted';
-          subtitle.textContent = group.subtitle;
-          heading.append(h2, subtitle);
-          const count = document.createElement('span');
-          count.className = 'text-small text-muted';
-          count.textContent = `${groupDevices.length} 項`;
-          head.append(heading, count);
-          const grid = document.createElement('div');
-          grid.className = 'na-gate-grid na-device-grid';
-          groupDevices.forEach(device => {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'btn viz-tile na-gate';
-            button.textContent = device.name;
-            button.dataset.id = device.id;
-            button.dataset.status = device.tileStatus;
-            button.setAttribute('aria-label', `${device.name}，${deviceStatusText[device.status]}`);
-            button.setAttribute('aria-pressed', String(device.id === selectedDeviceId));
-            button.addEventListener('click', () => renderDeviceDetail(device.id));
-            grid.append(button);
-          });
-          content.append(head, grid);
-          lane.append(track, content);
-          deviceLanes.append(lane);
+        topologyBranchNodes.forEach(layout => {
+          const branch = document.createElement('div');
+          branch.className = 'na-topology-branch';
+          branch.style.gridColumn = String(layout.col);
+          branch.style.gridRow = String(layout.row);
+          branch.dataset.id = layout.id;
+          const title = document.createElement('strong');
+          title.textContent = layout.title;
+          const meta = document.createElement('small');
+          meta.textContent = layout.meta;
+          branch.append(title, meta);
+          deviceLanes.append(branch);
+        });
+        deviceTopologyLayout.forEach(layout => {
+          const device = devices.find(item => item.id === layout.id);
+          if (!device) return;
+          const group = deviceTopologyGroups.find(item => item.id === device.group);
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'na-topology-node';
+          button.style.gridColumn = String(layout.col);
+          button.style.gridRow = String(layout.row);
+          button.dataset.id = device.id;
+          button.dataset.status = device.tileStatus;
+          button.setAttribute('aria-label', `${device.name}，${deviceStatusText[device.status]}，${layout.linkLabel}`);
+          button.setAttribute('aria-pressed', String(device.id === selectedDeviceId));
+          const badge = document.createElement('span');
+          badge.className = 'na-topology-badge';
+          badge.dataset.kind = layout.iconKind || 'fallback';
+          badge.setAttribute('aria-hidden', 'true');
+          const image = document.createElement('img');
+          image.src = layout.icon;
+          image.alt = '';
+          image.width = layout.iconKind === 'product' ? 60 : 52;
+          image.height = layout.iconKind === 'product' ? 60 : 52;
+          image.loading = 'lazy';
+          image.addEventListener('error', () => {
+            badge.replaceChildren(document.createTextNode(layout.badge));
+          }, { once:true });
+          badge.append(image);
+          const copy = document.createElement('span');
+          copy.className = 'na-topology-copy';
+          const name = document.createElement('strong');
+          name.textContent = device.name;
+          const meta = document.createElement('small');
+          meta.textContent = `${group.title.replace(/^\d+\s*·\s*/, '')} · ${layout.linkLabel}`;
+          copy.append(name, meta);
+          button.append(badge, copy);
+          button.addEventListener('click', () => renderDeviceDetail(device.id));
+          deviceLanes.append(button);
         });
         renderDeviceDetail(selectedDeviceId);
+        requestAnimationFrame(renderTopologyEdges);
       }
 
       root.querySelectorAll('[data-filter]').forEach(button => {
@@ -1048,6 +1475,12 @@
           renderLanes();
         });
       });
+      if (typeof ResizeObserver === 'function') {
+        const topologyResizeObserver = new ResizeObserver(() => requestAnimationFrame(renderTopologyEdges));
+        topologyResizeObserver.observe(deviceLanes);
+      } else {
+        window.addEventListener('resize', () => requestAnimationFrame(renderTopologyEdges));
+      }
 
       const mainProgress = progressSummary(gates);
       const complete = mainProgress.complete;
